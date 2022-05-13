@@ -1,10 +1,16 @@
-array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+n, k = map(int, input().split())
 
-for i in range(1, len(array)):
-    for j in range(i, 0, -1):
-        if array[j] < array[j - 1]:
-            array[j], array[j - 1] = array[j - 1], array[j]
-        else:
-            break
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
 
-print(array)
+a.sort()
+b.sort(reverse=True)
+
+for i in range(k):
+    if a[i] < b[i]:
+        a[i], b[i] = b[i], a[i]
+    else:
+        break
+
+
+print(sum(a))
