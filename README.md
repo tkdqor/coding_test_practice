@@ -235,7 +235,85 @@ print(count)
 ⇒ 해당 문제는 **가능한 경우의 수를 모두 검사해보는 완전 탐색 유형으로 분류**된다. 일반적으로 알고리즘 문제에서는 확인 및 탐색해야 할 전체 데이터 개수가 100만개 이하일 때 완전 탐색을 사용하면 좋다.
   - 위의 문제에서는, 매 시각을 문자열로 바꾼 다음 문자열에 '3'이 포함됐는지 검사한다. 
 
-  
+<br>
+
+## 📌 DFS/BFS 알고리즘
+DFS/BFS는 대표적인 탐색 알고리즘으로 **기본 자료구조인 스택과 큐에 대한 이해**가 먼저 필요하다.    
+그리고 DFS와 BFS를 구현하려면 **재귀 함수**도 이해하고 있어야 한다.
+
+### 🖋️ 스택(Stack)
+![image](https://user-images.githubusercontent.com/95380638/170251583-06a7f7e6-c615-40b7-8755-c401578d679d.png)
+
+자료구조 스택은 아래에서부터 위로 박스를 쌓는 구조로 박스를 치울 때는 맨 위에 있는 박스를 먼저 내리게 되는 **후입선출 방식**    
+입력연산은 Push / 출력연산은 Pop이라고 부른다.     
+python 코드로 표현할 때 **append() 메서드**는 리스트 가장 뒤쪽에 데이터를 삽입하고 **pop() 메서드** 역시 리스트의 가장 뒤쪽에서 데이터를 꺼낸다.
+
+- **스택을 python 코드로 표현하면 다음과 같다.**
+```python
+stack = []
+
+# 삽입(5) - 삽입(2) - 삽입(3) - 삽입(7) - 삭제() - 삽입(1) - 삽입(4) - 삭제()
+stack.append(5)
+stack.append(2)
+stack.append(3)
+stack.append(7)
+stack.pop()
+stack.append(1)
+stack.append(4)
+stack.pop()
+
+print(stack) # 최하단 원소부터 출력
+print(stack[::-1]) # 최상단 원소부터 출력
+```
+
+```terminal
+[5, 2, 3, 1]
+[1, 3, 2, 5]
+```
+
+<br>
+
+### 🖋️ 큐(Queue)
+![image](https://user-images.githubusercontent.com/95380638/170252052-285588e1-d8e8-4fab-a3b3-6facef6d6393.png)
+
+자료구조 큐는 대기 줄에 비유할 수 있고, 먼저 들어온 사람이 먼저 나가게 되는 **선입선출 방식**    
+입력 동작은 Enqueue / 출력 동작은 Dequeue    
+- python 코드로 표현할 때, **collections 모듈에서 제공하는 deque 라이브러리 활용**
+  - 데이터 삽입/삭제 속도가 리스트 자료형에 비해 속도가 빠르다고 한다
+  - 리스트 자료형은 데이터 삽입/삭제 시, ‘가장 뒤쪽 원소'를 기준으로 수행하므로 리스트 앞쪽에서 원소를 삽입/삭제할 때 많은 시간이 소요됨
+  - [참고 블로그](https://devmath.tistory.com/12) 
+
+- **큐를 python 코드로 표현하면 다음과 같다.**
+
+```python
+from collections import deque
+
+# 큐 구현을 위해 deque 라이브러리 사용
+queue = deque()
+
+# 삽입(5) - 삽입(2) - 삽입(3) - 삽입(7) - 삭제() - 삽입(1) - 삽입(4) - 삭제()
+queue.append(5)  # 리스트 가장 뒤쪽에 삽입
+queue.append(2)
+queue.append(3)
+queue.append(7)
+queue.popleft()  # 리스트 가장 왼쪽에서 빼기
+queue.append(1)
+queue.append(4)
+queue.popleft()
+
+print(queue) # 먼저 들어온 순서대로 출력
+queue.reverse() # 다음 출력을 위해 역순으로 바꾸기
+print(queue) # 나중에 들어온 원소부터 출력
+print(list(queue)) # deque 객체를 리스트 자료형으로 변경
+```
+
+```terminal
+deque([3, 7, 1, 4])
+deque([4, 1, 7, 3])
+[4, 1, 7, 3]
+```
+
+
     
 
 
