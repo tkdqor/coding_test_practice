@@ -274,7 +274,9 @@ print(stack[::-1]) # 최상단 원소부터 출력
 <br>
 
 ### 🖋️ 큐(Queue)
-![image](https://user-images.githubusercontent.com/95380638/170252052-285588e1-d8e8-4fab-a3b3-6facef6d6393.png)
+<img src="https://user-images.githubusercontent.com/95380638/170252052-285588e1-d8e8-4fab-a3b3-6facef6d6393.png" width="700" height="400">
+
+
 
 자료구조 큐는 대기 줄에 비유할 수 있고, 먼저 들어온 사람이 먼저 나가게 되는 **선입선출 방식**    
 입력 동작은 Enqueue / 출력 동작은 Dequeue    
