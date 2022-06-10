@@ -25,6 +25,41 @@
 
 - [참고 블로그](https://ccamppak.tistory.com/38)
 
+<br>
+
+## 📌 a, b = input().split(':')
+- 다음과 같이 코드를 입력하면, 입력받는 값에서 :를 기준으로 값을 쪼개서 a와 b에 각각 저장해준다.
+
+```python
+a, b = input().split(':')
+
+# Hello:World를 입력하면
+print(a)
+
+=> Hello
+```
+
+<br>
+
+## 📌 print 함수의 sep
+- print 함수의 sep을 이용해서 출력하고자 하는 문자열 사이를 수정할 수 있다.
+```python
+print('Hello', 'World')
+```
+```terminal
+Hello World
+```
+
+- 위의 경우에는 한 줄에 모두 출력되지만, sep를 사용해서 문자열 사이 기준으로 다음줄에 출력할 수 있다.
+```python
+print('Hello', 'World', sep='\n')
+```
+```terminal
+Hello
+World
+```
+
+
 
 <br>
 
