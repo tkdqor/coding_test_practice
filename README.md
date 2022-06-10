@@ -142,7 +142,7 @@ for number in numbers:
 ```
 
 cf) 3의 배수만 출력하는 경우는, 아래와 같이 표현할 수 있다.
-```
+```python
 a, b, c = map(int, input().split())
 numbers = [a, b, c]
 
@@ -198,6 +198,24 @@ while s < n:
 print(t)
 ```
 
+
+<br>
+
+## 📌 3명이 같은 날 가입/등업하고, 각각 3일마다, 7일마다, 9일마다 한 번씩 들어온다면, 처음 가입하고 몇일 만에 다시 만나는지
+```python
+# day는 일 수, a/b/c는 방문 주기이다.
+
+d = 1
+a = 3
+b = 7
+c = 9
+
+while d%a!=0 or d%b!=0 or d%c!=0:
+  d += 1
+print(d)
+
+# while이 끝나는 건 모든 일 수로 나눌 때 다 0으로 딱 떨어지는 경우에 while문이 종료된다.
+```
 
 * * *
 
