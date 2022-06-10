@@ -141,6 +141,17 @@ for number in numbers:
         print(number)
 ```
 
+cf) 3의 배수만 출력하는 경우는, 아래와 같이 표현할 수 있다.
+```
+a, b, c = map(int, input().split())
+numbers = [a, b, c]
+
+for number in numbers:
+    if number % 3 == 0:
+        print(number)
+```
+
+
 <br>
 
 ## 📌 if문 중첩 생각하기
@@ -170,6 +181,22 @@ while i<=n:
     print(i)
     i += 1
 ```    
+
+<br>
+
+## 📌 1부터 순서대로 계속 더하다가 입력된 정수와 같거나 커졌을 때 마지막에 더한 정수 출력
+```python
+n = int(input())
+
+t = 0
+s = 0
+
+while s < n:
+    t += 1
+    s += t
+
+print(t)
+```
 
 
 * * *
