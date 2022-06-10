@@ -128,6 +128,37 @@ print(e)
 ==> 12
 ```
 
+<br>
+
+## 📌 정수 3개 입력 받아 짝수만 출력하기
+```python
+a, b, c = map(int, input().split())
+numbers = [a, b, c]
+
+# 짝수니까 나누기 2를 해서 나머지가 0이면 출력하고 아니면 출력 안하기
+for number in numbers:
+    if number % 2 == 0:
+        print(number)
+```
+
+<br>
+
+## 📌 if문 중첩 생각하기
+```python
+a = int(input())
+if (a < 0):
+    if (a % 2 == 0):
+        print("A")
+    else:
+        print("B")
+
+else:
+    if (a % 2 == 0):
+        print("C")
+    else:
+        print("D")   
+```	
+
 * * *
 
 <br>
