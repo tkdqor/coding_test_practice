@@ -69,9 +69,104 @@ else:
 ```python
 print(1 in [1, 2, 3])
 print(1 not in [1, 2, 3])
+print('a' in ('a', 'b', 'c'))
+print('j' not in 'python')
+
 
 True
 False
+True
+True
 ```
 
+<br>
 
+### 조건문에서 아무 일도 하지 않게 설정하고 싶다면?
+- 가끔 조건문의 참, 거짓에 따라 실행할 행동을 정의할 때, 아무런 일도 하지 않도록 설정하고 싶을 때가 있다. **그럴 때는 pass를 사용할 수 있다.**
+  - "주머니에 돈이 있으면 가만히 있고 주머니에 돈이 없으면 카드를 꺼내라." 라는 예시가 있다면, 
+
+```python
+pocket = ['paper', 'money', 'cellphone']
+if 'money' in pocket:
+    pass
+else:
+    print("카드를 꺼내라")
+
+```
+- **이렇게 코드를 짤 수 있다. 그래서 pocket 리스트 안에 money 문자열이 있기 때문에 if문 다음 문장인 pass가 수행되고 아무 결괏값도 보여 주지 않는다.**
+
+
+<br>
+
+### 다양한 조건을 판단하는 elif
+- if와 else만으로는 다양한 조건을 판단하기 어렵다. 그래서 파이썬에서는 다중 조건 판단을 가능하게 하는 elif를 사용한다. elif는 이전 조건문이 거짓일 때 수행된다.
+
+```python
+If <조건문>:
+    <수행할 문장1> 
+    <수행할 문장2>
+    ...
+elif <조건문>:
+    <수행할 문장1>
+    <수행할 문장2>
+    ...
+elif <조건문>:
+    <수행할 문장1>
+    <수행할 문장2>
+    ...
+...
+else:
+   <수행할 문장1>
+   <수행할 문장2>
+   ... 
+```
+
+- elif는 개수에 제한 없이 사용할 수 있다.
+
+<br>
+
+### if문을 한 줄로 작성하기
+- **if문 다음에 수행할 문장이 한 줄이고, else문 다음에 수행할 문장도 한 줄밖에 되지 않는 경우,**
+
+```python
+pocket = ['paper', 'money', 'cellphone']
+if 'money' in pocket:
+    pass
+else:
+    print("카드를 꺼내라")
+```
+
+- 위와 같은 코드를,
+
+```python
+pocket = ['paper', 'money', 'cellphone']
+if 'money' in pocket: pass
+else: print("카드를 꺼내라")
+```
+
+- **이렇게 if문 다음 수행할 문장을 콜론(:) 뒤에 바로 적어주고 else 문도 그렇게 해줄 수 있다.**
+
+
+<br>
+
+### 조건부 표현식(conditional expression)
+
+```python
+if score >= 60:
+    message = "success"
+else:
+    message = "failure"
+```
+
+- 다음과 같은 코드가 있을 경우, 파이썬의 조건부 표현식(conditional expression)을 사용해서 더 간결하게 작성할 수 있다.
+
+```python
+message = "success" if score >= 60 else "failure"
+```
+
+- 이렇게 조건부 표현식은 
+```python
+조건문이 참인 경우 if 조건문 else 조건문이 거짓인 경우
+```
+
+- 이러한 구조로 작성할 수 있다.
