@@ -24,24 +24,6 @@ class FourCal:
         return result
 
 
-# a = FourCal(4, 0)
-# print(a.div())
-# a.setdata(4, 2)
-# print(a.add())
-# print(a.mul())
-# print(a.sub())
-# print(a.div())
-
-
-# class MoreFourCal(FourCal):
-#     def pow(self):
-#         result = self.first ** self.second
-#         return result
-
-# a = MoreFourCal(4, 0)
-# print(a.div())
-
-
 class SafeFourCal(FourCal):
     def div(self):
         if self.second == 0:
