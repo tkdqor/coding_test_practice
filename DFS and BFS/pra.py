@@ -1,45 +1,16 @@
-class FourCal:
-    def __init__(self, first, second):
-        self.first = first
-        self.second = second
+input_data = input()
+row = int(input_data[1])
+column = int(ord(input_data[0])) - int(ord('a')) + 1
 
-    def setdata(self, first, second):
-        self.first = first
-        self.second = second
-    
-    def add(self):
-        result = self.first + self.second
-        return result
+steps = [(-2, -1), (-2, 1), (2, -1), (2, 1), (-1, -2), (1, -2), (-1, 2), (1, 2)]
 
-    def mul(self):
-        result = self.first * self.second
-        return result
-    
-    def sub(self):
-        result = self.first - self.second
-        return result
+result = 0
 
-    def div(self):
-        result = self.first / self.second
-        return result
+for step in steps:
+    new_row = row + step[0]
+    new_column = column + step[1]
 
+    if new_row >= 1 and new_column >= 1 and new_row <= 8 and new_column <= 8:
+        result += 1
 
-class SafeFourCal(FourCal):
-    def div(self):
-        if self.second == 0:
-            return 0
-        else:
-            return self.frist / self.second
-
-a = SafeFourCal(4, 0)
-print(a.div())
-
-
-class Family:
-    lastname = '김'
-
-a = Family()
-print(a.lastname)
-
-Family.lastname = '박'
-print(a.lastname)
+print(result)
