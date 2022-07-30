@@ -654,6 +654,7 @@ def dfs(v):
 
     # 현재 노드와 연결된 다른 노드를 재귀적으로 방문
     for i in range(1, n + 1):
+    	# i라는 노드에 방문한 적이 없고 동시에 v 노드와 i 노드가 연결되어 있어야 1이기에 이 조건을 만족하는 경우 dfs 함수를 실행
         if visited[i] == 0 and graph[v][i] == 1:
             dfs(i)
 
