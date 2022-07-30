@@ -665,6 +665,7 @@ pair = int(sys.stdin.readline())
 # 0이 n+1개가 담긴 리스트를 0번 노드부터 n번 노드까지 반복해서 담기
 graph = [[0] * (n + 1) for i in range(n + 1)]
 
+# 2개의 노드가 서로 연결되어 있다는 것을 graph 리스트에 1로 표현하기
 for i in range(pair):
     a, b = map(int, sys.stdin.readline().split())
     graph[a][b] = graph[b][a] = 1
