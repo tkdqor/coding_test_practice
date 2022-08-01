@@ -654,6 +654,7 @@ def dfs(v):
 
     # 현재 노드와 연결된 다른 노드를 재귀적으로 방문
     for i in range(1, n + 1):
+    	# i라는 노드에 방문한 적이 없고 동시에 v 노드와 i 노드가 연결되어 있어야 1이기에 이 조건을 만족하는 경우 dfs 함수를 실행
         if visited[i] == 0 and graph[v][i] == 1:
             dfs(i)
 
@@ -665,6 +666,7 @@ pair = int(sys.stdin.readline())
 # 0이 n+1개가 담긴 리스트를 0번 노드부터 n번 노드까지 반복해서 담기
 graph = [[0] * (n + 1) for i in range(n + 1)]
 
+# 2개의 노드가 서로 연결되어 있다는 것을 graph 리스트에 1로 표현하기
 for i in range(pair):
     a, b = map(int, sys.stdin.readline().split())
     graph[a][b] = graph[b][a] = 1
@@ -780,6 +782,7 @@ def bfs():
 
         # 우, 하를 이동하여 비교
         for dx, dy in (1, 0), (0, 1): # 처음에는 하로 이동하고 / 그 다음에는 우로 이동
+	# 이렇게 for문을 설정하면 처음에는 dx=1, dy=0 / 그 다음은 dx=0, dy=1 이렇게 된다
             x = a + dx * check
             y = b + dy * check
 
@@ -1173,6 +1176,17 @@ print(input_data)
 ```
 
 - **이렇게 sys 라이브러리를 사용할 때는 rstrip() 함수를 꼭 호출해야 한다. 만약 입력하지 않고 readline() 에서 끝내면 입력 후 엔터가 줄 바꿈 기호로 입력되서 비어있는 한 줄이 출력된다. 따라서 해당 줄을 제거하기 위해 rstrip() 함수를 사용하자.**
+
+- **rstrip() 함수**
+  - 문자열의 오른쪽 공백을 삭제하는 경우, 문자열 다음에 rstrip() 함수를 사용할 수 있다.
+
+```python
+print('Hello World '.rstrip())
+
+>>> Hello World
+```
+
+- World 옆에 오른쪽 공백이 삭제된다.
 
 <br>
 

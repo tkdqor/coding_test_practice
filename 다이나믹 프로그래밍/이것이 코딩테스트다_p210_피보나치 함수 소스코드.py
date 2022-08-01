@@ -1,4 +1,4 @@
-# 피보나치 함수(Fibonacci Function)를 재귀 함수로 표현
+# 피보나치 함수(Fibonacci Function)를 재귀 함수로 바꿔서 표현
 def fibo(x):
     if x == 1 or x == 2:  # 피보나치 수 1과 2는 항상 1이기 때문에 1를 return 해주기
         return 1
