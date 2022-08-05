@@ -1,6 +1,6 @@
 data = input()
 
-# 첫번째 문자를 숫자로 변경하여 대입
+# 첫번째 문자를 숫자로 변경하여 대입 - 즉, 첫번째 문자부터 더한 상태로 시작
 result = int(data[0])
 
 for i in range(1, len(data)):
