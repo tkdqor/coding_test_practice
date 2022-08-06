@@ -15,6 +15,7 @@
 - for i in range(1, m+1) / 1부터 m까지 for문으로 뽑기
 - isinstance(1.2, float) / 해당 매개변수가 지정한 타입이 맞는지 확인하는 함수
   - [관련 블로그](https://brownbears.tistory.com/155)
+- string = "Hello World!", string3 = string.split(' '), print(string3) 하게되면 ['Hello', 'World!'] / 문자열을 split를 이용해 나누게 되면 리스트 형태가 된다.
 
 <br>
 
