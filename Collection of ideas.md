@@ -16,6 +16,7 @@
 - isinstance(1.2, float) / 해당 매개변수가 지정한 타입이 맞는지 확인하는 함수
   - [관련 블로그](https://brownbears.tistory.com/155)
 - string = "Hello World!", string3 = string.split(' '), print(string3) 하게되면 ['Hello', 'World!'] / 문자열을 split를 이용해 나누게 되면 리스트 형태가 된다.
+  - [관련 블로그](https://wikidocs.net/2839)
 
 <br>
 
@@ -34,7 +35,7 @@
 - **로또 번호 순위 리스트에 미리 정의해놓기, 일치번호 개수와 불일치번호 개수로 나누기**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EB%A1%9C%EB%98%90%EC%9D%98%20%EC%B5%9C%EA%B3%A0%20%EC%88%9C%EC%9C%84%EC%99%80%20%EC%B5%9C%EC%A0%80%20%EC%88%9C%EC%9C%84.py)
 - **루트 제곱근 계산 방법**
-  - x를 제곱하여 a가 되었다면, x를 a의 제곱근이라고 부른다. 학 라이브러리인 Math를 이용해서 제곱근을 구할 수 있다.
+  - x를 제곱하여 a가 되었다면, x를 a의 제곱근이라고 부른다. 수학 라이브러리인 Math를 이용해서 제곱근을 구할 수 있다.
   - [관련 블로그](https://needneo.tistory.com/77)
 - **리스트에서 원하는 값 제거하는 방법**
   - 리스트에 remove 함수 / 반복문 사용 / del 키워드 / pop 함수 / clear 함수를 이용해 원하는 값을 제거할 수 있다.
@@ -42,7 +43,5 @@
 - **리스트에 특정 값이 있는지 없는지 확인하기**
   - ex) if item in list: / if item not in list: 
   - [관련 블로그](https://lelecoder.com/111)
-- **문자열을 split 함수로 나누기**
-  - [관련 블로그](https://wikidocs.net/2839)
 - **slice로 문자열 순서 뒤집기**
   - [관련 블로그](https://codechacha.com/ko/python-reverse-string/)
