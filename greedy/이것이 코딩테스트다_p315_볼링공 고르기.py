@@ -17,4 +17,3 @@ for i in range(1, m+1):
     result += array[i] * n # B가 선택하는 경우의 수와 곱하기 - 무게가 i인 공의 개수 * B가 선택하는 경우의 수
 
 print(result)
-
