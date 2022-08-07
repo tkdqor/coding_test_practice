@@ -45,3 +45,9 @@
   - [관련 블로그](https://lelecoder.com/111)
 - **slice로 문자열 순서 뒤집기**
   - [관련 블로그](https://codechacha.com/ko/python-reverse-string/)
+- **리스트의 중복을 제거할 때는 set()을 사용할 생각해보기**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%8F%B0%EC%BC%93%EB%AA%AC.py)
+- **리스트가 여러 개 나올 때, 모든 리스트들을 sort()해서 비교하기**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%99%84%EC%A3%BC%ED%95%98%EC%A7%80%20%EB%AA%BB%ED%95%9C%20%EC%84%A0%EC%88%98.py)
+- **리스트로 풀었을 때 효율성 테스트가 실패하거나, 데이터를 빠르게 넣고 가져오려면 Hash 이용해보기(key - value pair를 의미)**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%99%84%EC%A3%BC%ED%95%98%EC%A7%80%20%EB%AA%BB%ED%95%9C%20%EC%84%A0%EC%88%98.py)
