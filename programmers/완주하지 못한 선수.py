@@ -1,3 +1,4 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/42576
 # 1번째 방법 = 두 리스트를 sorting하고 completion 리스트의 length만큼 돌면서 participant 리스트에 존재하지 않는 선수 찾기
 # for문으로 돌다가 if문으로 participant 리스트에는 없는 요소가 있다면 그게 바로 완주하지 못한 선수가 된다
 # 그렇게 다 돌아도 없을 경우에는, 마지막 주자가 완주하지 못한 선수가 된다

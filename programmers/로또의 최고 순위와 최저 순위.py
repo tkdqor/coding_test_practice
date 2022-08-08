@@ -1,3 +1,4 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/77484
 def solution(lottos, win_nums):
     equal_count = 0
     zero_count = 0
