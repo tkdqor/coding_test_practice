@@ -1,3 +1,4 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/42840
 def solution(answers):
     pattern1 = [1, 2, 3, 4, 5]
     pattern2 = [2, 1, 2, 3, 2, 4, 2, 5]
