@@ -17,6 +17,8 @@
   - [관련 블로그](https://brownbears.tistory.com/155)
 - string = "Hello World!", string3 = string.split(' '), print(string3) 하게되면 ['Hello', 'World!'] / 문자열을 split를 이용해 나누게 되면 리스트 형태가 된다.
   - [관련 블로그](https://wikidocs.net/2839)
+- for idx, answer in enumerate(answers): / enumerate 함수를 사용해서 자료형에서 인덱스와 함께 요소들을 뽑아낼 수 있다.
+  - [관련 블로그](https://hckcksrl.medium.com/python-enumerate-b19ad6b94c00)
 
 <br>
 
@@ -51,3 +53,8 @@
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%99%84%EC%A3%BC%ED%95%98%EC%A7%80%20%EB%AA%BB%ED%95%9C%20%EC%84%A0%EC%88%98.py)
 - **리스트로 풀었을 때 효율성 테스트가 실패하거나, 데이터를 빠르게 넣고 가져오려면 Hash 이용해보기(key - value pair를 의미)**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%99%84%EC%A3%BC%ED%95%98%EC%A7%80%20%EB%AA%BB%ED%95%9C%20%EC%84%A0%EC%88%98.py)
+- **어떤 리스트에 요소가 5개가 있고 그 5개가 순환주기로 계속 반복될 때 특정 인덱스가 어떤 요소를 가리키는지 확인해야 한다면, 인덱스 % 요소개수 = 인덱스 이렇게 구할 수 있다.**
+  - ex) pattern1 = [1, 2, 3, 4, 5] 일 때, 인덱스 6인 요소는 6 % len(pattern1) = 1이니까 6번째는 2가 된다.
+  - 어떤 수를 x로 나누면 나머지는 무조건 x보다 작다. 그래서 특정 범위 내 숫자를 구할 때 자주 사용된다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC.py)
+
