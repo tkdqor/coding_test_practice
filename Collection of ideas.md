@@ -19,6 +19,14 @@
   - [관련 블로그](https://wikidocs.net/2839)
 - for idx, answer in enumerate(answers): / enumerate 함수를 사용해서 자료형에서 인덱스와 함께 요소들을 뽑아낼 수 있다.
   - [관련 블로그](https://hckcksrl.medium.com/python-enumerate-b19ad6b94c00)
+- array[1:5] 이렇게 슬라이싱하면, 인덱스 1부터 4까지 슬라이싱된다.
+- ex) my_list = [“Mitch”, [3,6,7], [“yellow”, 5, 6]] 라고할 때, my_list[1][1:3]이면 -> [6,7] 슬라이싱
+- 리스트를 정렬할 때 사용하는 sort 함수와 sorted 함수의 차이점
+  - sort 함수는 리스트명.sort() 형식으로 리스트의 원본값을 직접 수정하며 리턴값이 None이다. 
+  - sorted 함수는 sorted(리스트명) 형식으로 리스트의 원본값은 그대로이고 새로운 리스트를 만들어 정렬값을 반환한다.
+  - [관련 블로그](https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=wideeyed&logNo=221745416992&redirect=Dlog&widgetTypeCall=true&directAccess=false)
+
+
 
 <br>
 
@@ -57,4 +65,8 @@
   - ex) pattern1 = [1, 2, 3, 4, 5] 일 때, 인덱스 6인 요소는 6 % len(pattern1) = 1이니까 6번째는 2가 된다.
   - 어떤 수를 x로 나누면 나머지는 무조건 x보다 작다. 그래서 특정 범위 내 숫자를 구할 때 자주 사용된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC.py)
-
+- **2차원 배열에서 리스트 뽑기**
+  - 2차원 배열에서 리스트 뽑을 때는 for문을 사용하면 된다. ex) commands = [[2, 5, 3], [4, 4, 1], [1, 7, 3]] 일 때, for command in commands: i,j,k = command 이렇게하면 i = 2, j = 5, k = 3 이렇게 변수 지정 가능.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/K%EB%B2%88%EC%A7%B8%20%EC%88%98.py)
+- **while문을 사용해서 하루씩 증가할 때 완료된 모든 업무의 개수를 count + 이미 들어가있는 리스트에서 완료될때마다 pop(0) 진행 + 자료구조 큐와 유사**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EA%B8%B0%EB%8A%A5%EA%B0%9C%EB%B0%9C.py)
