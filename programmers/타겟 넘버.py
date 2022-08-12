@@ -1,3 +1,4 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/43165
 answer = 0
 # idx는 numbers 리스트에서 사용한 숫자의 개수 / value는 그 숫자들을 조합해서 만든 수
 # 그래서 idx와 N이 같아야 numbers 모든 요소를 사용한 게 되고 / target과 value가 같아야 된다.
