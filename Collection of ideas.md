@@ -1,34 +1,78 @@
 ## collection of ideas
 
 ### Codes
-- len(array) / 리스트 요소 개수
-- array.sort() / 리스트 오름차순 정렬
-- array.count(i) / 리스트에서 i라는 요소의 개수
-- for i in range(~, ~) / 범위 for문
-- for _ in range(n+1) / 데이터 n개 for문
-- max(~, ~) / 둘 중 최댓값
-- min(~, ~) / 둘 중 최솟값
-- dx = [0, 1, 0, -1] dy = [-1, 0, 1, 0] / 서남동북 행과 열 표시
-- nx = x + dx[i] ny = y + dy[i] / (x, y)에서 좌표이동
-- n, m = map(int, input().split()) / 숫자들을 공백 기준으로 따로 변수에 저장
-- data = list(map(int, input().split())) / 숫자들을 공백 기준으로 입력받고 리스트로 저장
-- for i in range(1, m+1) / 1부터 m까지 for문으로 뽑기
-- isinstance(1.2, float) / 해당 매개변수가 지정한 타입이 맞는지 확인하는 함수
+- **len(array)** / 리스트 요소 개수
+- **array.sort()** / 리스트 오름차순 정렬
+- **array.count(i)** / 리스트에서 i라는 요소의 개수
+- **for i in range(~, ~)** / 범위 for문
+- **for _ in range(n+1)** / 데이터 n개 for문
+- **max(~, ~)** / 둘 중 최댓값
+- **min(~, ~)** / 둘 중 최솟값
+- **dx = [0, 1, 0, -1] dy = [-1, 0, 1, 0]** / 서남동북 행과 열 표시
+- **nx = x + dx[i] ny = y + dy[i]** / (x, y)에서 좌표이동
+- **n, m = map(int, input().split())** / 숫자들을 공백 기준으로 따로 변수에 저장
+- **data = list(map(int, input().split()))** / 숫자들을 공백 기준으로 입력받고 리스트로 저장
+- **for i in range(1, m+1)** / 1부터 m까지 for문으로 뽑기
+- **isinstance(1.2, float)** / 해당 매개변수가 지정한 타입이 맞는지 확인하는 함수
   - [관련 블로그](https://brownbears.tistory.com/155)
-- string = "Hello World!", string3 = string.split(' '), print(string3) 하게되면 ['Hello', 'World!'] / 문자열을 split를 이용해 나누게 되면 리스트 형태가 된다.
+- **string = "Hello World!", string3 = string.split(' '), print(string3) 하게되면 ['Hello', 'World!']** / 문자열을 split를 이용해 나누게 되면 리스트 형태가 된다.
   - [관련 블로그](https://wikidocs.net/2839)
-- for idx, answer in enumerate(answers): / enumerate 함수를 사용해서 자료형에서 인덱스와 함께 요소들을 뽑아낼 수 있다.
+- **for idx, answer in enumerate(answers):** / enumerate 함수를 사용해서 자료형에서 인덱스와 함께 요소들을 뽑아낼 수 있다.
   - [관련 블로그](https://hckcksrl.medium.com/python-enumerate-b19ad6b94c00)
-- array[1:5] 이렇게 슬라이싱하면, 인덱스 1부터 4까지 슬라이싱된다.
+- **array[1:5]** 이렇게 슬라이싱하면, 인덱스 1부터 4까지 슬라이싱된다.
 - ex) my_list = [“Mitch”, [3,6,7], [“yellow”, 5, 6]] 라고할 때, my_list[1][1:3]이면 -> [6,7] 슬라이싱
-- 리스트를 정렬할 때 사용하는 sort 함수와 sorted 함수의 차이점
+- **리스트를 정렬할 때 사용하는 sort 함수와 sorted 함수의 차이점**
   - sort 함수는 리스트명.sort() 형식으로 리스트의 원본값을 직접 수정하며 리턴값이 None이다. 
   - sorted 함수는 sorted(리스트명) 형식으로 리스트의 원본값은 그대로이고 새로운 리스트를 만들어 정렬값을 반환한다.
   - [관련 블로그](https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=wideeyed&logNo=221745416992&redirect=Dlog&widgetTypeCall=true&directAccess=false)
-- global 사용하기
+- **global 사용하기**
   - 함수밖에서 선언되는 변수를 “전역 변수”라고 하는데, 그 전역 변수의 값을 함수 안에서 변경하려면 global이라는 키워드를 사용해서 선언해주면 변경할 수 있다.
   - [관련 블로그](https://codingpractices.tistory.com/entry/Python-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%B4%9D-%EC%A0%95%EB%A6%AC-global-nonlocal)
+- **|= 연산자 사용하기**
+  - 병합 연산자로 union 즉, 합집합을 의미한다.
+  - [관련 블로그](https://velog.io/@nayoon-kim/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%97%B0%EC%82%B0%EC%9E%90) 
+- **itertools.permutation 함수로 수열 만들기**
+  - 이 함수를 사용하면 for문을 사용하지 않고도 순열을 구할 수 있다
+  - [관련 블로그](https://school.programmers.co.kr/learn/courses/4008/lessons/12836)
+```python
+from itertools import permutations
 
+pool = ['A', 'B', 'C']
+print(list(map(''.join, permutations(pool)))) # 3개의 원소로 수열 만들기
+print(list(map(''.join, permutations(pool, 2)))) # 2개의 원소로 수열 만들기
+
+['ABC', 'ACB', 'BAC', 'BCA', 'CAB', 'CBA']
+['AB', 'AC', 'BA', 'BC', 'CA', 'CB']
+```
+- **list 함수 예시**
+```python
+n = "17"
+print(list(n))
+
+['1', '7']
+```
+- **set 함수 예시**
+```python
+print(set(range(0, 2)))
+
+{0, 1}
+
+print(set(range(0, 3)) - set(range(0, 2)))
+
+{2}
+```
+- **range 함수의 마지막 매개변수는 range의 간격을 지정해준다**
+  - print(list(range(1, 11, 2))) / [1, 3, 5, 7, 9]
+  - 이렇게하면 원래는 1부터 10까지 출력되지만, 간격이 2이기 때문에 1부터 2씩 증가된 수가 출력된다
+- **join 함수 사용하기**
+  - ‘구분자’.join(리스트) / 이러한 원형으로 매개변수로 들어온 리스트에 있는 요소 하나하나 사이에 구분자를 넣어서 하나의 문자열로 합쳐주는 함수이다. 구분자는 공백일 수도 있다. 
+  - [관련 블로그](https://blockdmask.tistory.com/468)
+- **map 함수 사용하기**
+  - map(적용할 함수, 반복 가능한 자료형)
+  - map 함수를 활용하면 모든 반복가능 자료형 데이터 각각에 함수를 적용시킬 수 있다.
+- **루트 계산 관련**
+  - print(4 ** 0.5) / 2
+  - 루트 4를 의미하니까 2가 출력된다
 
 
 <br>
@@ -77,3 +121,11 @@
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%83%80%EA%B2%9F%20%EB%84%98%EB%B2%84.py)
   - 계속 진행되고 있는 재귀함수를 종료시켜버리고 만약 index와 value라는 값이 둘다 5였다가 return 공백이 실행되면 재귀함수도 종료되고 값도 둘다 4로 다시 돌아간다.
   - [관련 블로그](https://munang.tistory.com/entry/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC-Python-None-%EB%A6%AC%ED%84%B4%ED%95%98%EB%8A%94-%EA%B2%BD%EC%9A%B0-%EC%9E%AC%EA%B7%80%ED%95%A8%EC%88%98-None-%EB%A6%AC%ED%84%B4)
+- **소수를 구하는 방법**
+  - 소수란, 1과 자기 자신외의 약수를 가지지 않는 1보다 큰 자연수를 의미한다. 이론상으로 단일 숫자가 소수인지 판단하는 방법은, 숫자 n이 소수인지 알아보기 위해 2부터 n-1까지의 숫자를 반복하며, 나누어 떨어지는 숫자가 있는지 확인하고 만일 없다면, 소수가 된다.
+  - 더 효율적으로 소수를 구하는 공식이 있는데, 바로 **에라토스테네스의 체**라는 방법이다.
+    - 소수를 구하고자 하는 범위 2에서 n이 있을 때, 2~n의 제곱근에 해당하는 범위 안의 소수의 배수들을 계속 제외하면 결국 소수만 남는다는 이론이다.
+    - ex) 이를테면 n=100일 때, 100까지의 소수를 구하고 싶다면, 2에서 100까지 숫자에서 -> 100의 제곱근이 10이니까 2~10까지의 범위 안에 소수의 배수인 2의 배수 제외, 3의 배수 제외, 5의 배수 제외, 7의 배수 제외를 진행한다는 것이다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%86%8C%EC%88%98%20%EC%B0%BE%EA%B8%B0.py)
+  - [관련 블로그](https://velog.io/@jakeseo_me/%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-14-%EC%86%8C%EC%88%98-%EC%B0%BE%EA%B8%B0-%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98-%EC%B2%B4)
+
