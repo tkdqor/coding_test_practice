@@ -25,6 +25,9 @@
   - sort 함수는 리스트명.sort() 형식으로 리스트의 원본값을 직접 수정하며 리턴값이 None이다. 
   - sorted 함수는 sorted(리스트명) 형식으로 리스트의 원본값은 그대로이고 새로운 리스트를 만들어 정렬값을 반환한다.
   - [관련 블로그](https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=wideeyed&logNo=221745416992&redirect=Dlog&widgetTypeCall=true&directAccess=false)
+- global 사용하기
+  - 함수밖에서 선언되는 변수를 “전역 변수”라고 하는데, 그 전역 변수의 값을 함수 안에서 변경하려면 global이라는 키워드를 사용해서 선언해주면 변경할 수 있다.
+  - [관련 블로그](https://codingpractices.tistory.com/entry/Python-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%B4%9D-%EC%A0%95%EB%A6%AC-global-nonlocal)
 
 
 
@@ -70,3 +73,7 @@
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/K%EB%B2%88%EC%A7%B8%20%EC%88%98.py)
 - **while문을 사용해서 하루씩 증가할 때 완료된 모든 업무의 개수를 count + 이미 들어가있는 리스트에서 완료될때마다 pop(0) 진행 + 자료구조 큐와 유사**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EA%B8%B0%EB%8A%A5%EA%B0%9C%EB%B0%9C.py)
+- **함수 정의할 때 return 만 사용하고 아무것도 입력하지 않으면, 맥락 상 break와 유사한 효과를 내기 때문에 실행 중단의 의미가 된다. 즉, return 공백이면 실행되고있는 재귀함수 1개가 취소되는듯 하다.**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%83%80%EA%B2%9F%20%EB%84%98%EB%B2%84.py)
+  - 계속 진행되고 있는 재귀함수를 종료시켜버리고 만약 index와 value라는 값이 둘다 5였다가 return 공백이 실행되면 재귀함수도 종료되고 값도 둘다 4로 다시 돌아간다.
+  - [관련 블로그](https://munang.tistory.com/entry/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC-Python-None-%EB%A6%AC%ED%84%B4%ED%95%98%EB%8A%94-%EA%B2%BD%EC%9A%B0-%EC%9E%AC%EA%B7%80%ED%95%A8%EC%88%98-None-%EB%A6%AC%ED%84%B4)
