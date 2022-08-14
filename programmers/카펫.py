@@ -1,3 +1,4 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/42842
 def solution(brown, yellow):
     # 카펫 가로 * 세로 = 갈색 격자 개수 + 노란색 격자 개수
     nm = brown + yellow

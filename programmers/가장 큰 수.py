@@ -1,3 +1,4 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/42746
 def solution(numbers):
     # 리스트 요소를 문자열로 바꾸고 리스트로 설정
     input_list = list(map(str, numbers))
