@@ -73,6 +73,9 @@ print(set(range(0, 3)) - set(range(0, 2)))
 - **루트 계산 관련**
   - print(4 ** 0.5) / 2
   - 루트 4를 의미하니까 2가 출력된다
+- **해시(Hash) 딕셔너리에 특정 키가 있는지 확인하기**
+  - hash_map = {}, if temp in hash_map:
+  - [관련 블로그](https://hashcode.co.kr/questions/59/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC%EC%97%90%EC%84%9C-%ED%8A%B9%EC%A0%95-%ED%82%A4%EA%B0%80-%EC%9E%88%EB%8A%94%EC%A7%80-%ED%99%95%EC%9D%B8%ED%95%98%EA%B3%A0%EC%8B%B6%EC%96%B4%EC%9A%94)
 
 
 <br>
@@ -128,4 +131,6 @@ print(set(range(0, 3)) - set(range(0, 2)))
     - ex) 이를테면 n=100일 때, 100까지의 소수를 구하고 싶다면, 2에서 100까지 숫자에서 -> 100의 제곱근이 10이니까 2~10까지의 범위 안에 소수의 배수인 2의 배수 제외, 3의 배수 제외, 5의 배수 제외, 7의 배수 제외를 진행한다는 것이다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%86%8C%EC%88%98%20%EC%B0%BE%EA%B8%B0.py)
   - [관련 블로그](https://velog.io/@jakeseo_me/%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-14-%EC%86%8C%EC%88%98-%EC%B0%BE%EA%B8%B0-%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98-%EC%B2%B4)
-
+- **문제에서 주어진 리스트 요소들을 해시(Hash) 딕셔너리에 value가 1이 되게끔 추가해서 문제풀기**
+- **빈 문자열을 변수로 지정하고 해당 변수에 한 문자열씩 더해서 문제풀기**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EB%AA%A9%EB%A1%9D.py)
