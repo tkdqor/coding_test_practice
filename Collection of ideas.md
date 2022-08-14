@@ -76,7 +76,23 @@ print(set(range(0, 3)) - set(range(0, 2)))
 - **해시(Hash) 딕셔너리에 특정 키가 있는지 확인하기**
   - hash_map = {}, if temp in hash_map:
   - [관련 블로그](https://hashcode.co.kr/questions/59/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC%EC%97%90%EC%84%9C-%ED%8A%B9%EC%A0%95-%ED%82%A4%EA%B0%80-%EC%9E%88%EB%8A%94%EC%A7%80-%ED%99%95%EC%9D%B8%ED%95%98%EA%B3%A0%EC%8B%B6%EC%96%B4%EC%9A%94)
+- **12%1 = 0, 12//3 = 4, 12/3 = 4.0**
+- **continue는 반복문에서 조건이 맞지 않을 때 반복문을 종료시키지 않고 맨 처음의 조건문으로 보내주는 역할을 한다.**
+  - [관련 블로그](https://securityspecialist.tistory.com/73)
+- **sort, sorted 모두 key, reverse 매개변수를 갖고 있다**
+  - reverse는 bool값을 넣어준다. False이면 오름차순 / True이면 내림차순으로 정렬할 수 있다.
+  - key는 정렬을 목적으로 하는 함수를 값으로 넣어주면 된다. lambda를 이용할 수 있다. 즉, key값을 기준으로 정렬이 되고 기본값은 오름차순이다.
+```python
+>>> str_list = ['좋은하루','good_morning','굿모닝','niceday']
+>>> print(sorted(str_list, key=len))  # 함수
+['굿모닝', '좋은하루', 'niceday', 'good_morning']
 
+>>> print(sorted(str_list, key=lambda x : x[1]))  # 람다
+['niceday', 'good_morning', '굿모닝', '좋은하루']
+# lambda x 에서 x는 리스트의 요소 1개를 의미
+```
+- **문자열 반복하기**
+  - print("6"*3, "10"*3, "2"*3) / 666 101010 222
 
 <br>
 
@@ -134,3 +150,25 @@ print(set(range(0, 3)) - set(range(0, 2)))
 - **문제에서 주어진 리스트 요소들을 해시(Hash) 딕셔너리에 value가 1이 되게끔 추가해서 문제풀기**
 - **빈 문자열을 변수로 지정하고 해당 변수에 한 문자열씩 더해서 문제풀기**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EB%AA%A9%EB%A1%9D.py)
+- **문제에서 사각형과 그 안에 격자로 이루어져 있다면 ==> 사각형 가로 * 세로 = 갈색 격자 개수 + 노란색 격자 개수 라는 식을 세울 수 있다.**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%B9%B4%ED%8E%AB.py)
+- **문자형태의 숫자를 비교할 때 \*로 문자열의 길이를 늘려서 비교해볼 수도 있다**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EA%B0%80%EC%9E%A5%20%ED%81%B0%20%EC%88%98.py)
+  - 문자열로 되어있는 숫자들이 들어있는 리스트를 정렬해보면, 아래처럼 문자열의 첫번째 인덱스 수가 크면 내림차순 시, 먼저 나온다. 그리고 첫번째 인덱스 수가 같으면 그 다음 인덱스를 비교한다. 없으면 더 인덱스가 많은 수가 큰 수가 된다.
+  - 근데, 해당 문제에서는 이러면 안 된다. 그래서 문자열의 길이를 늘려서 비교해보는 것이다. 해당 문제는 리스트 원소가 1,000이하 이니까 * 3을 해준다. “3” 과 “300”과 “31”이 있을 때, “31”이 먼저 나오는 게 아니라 “3”이 먼저 나오게끔 해야되니까 문자열을 늘리는 것이다.
+  - [관련 블로그](https://esoongan.tistory.com/103)
+```python
+# 문자열로 되어있는 숫자들이 들어있는 리스트 정렬
+array = ["3","300","31","387"]
+array.sort(reverse=True)
+print(array)
+
+['387', '31', '300', '3']
+
+# 해당 문제를 위해 key를 이용한 정렬
+array.sort(key = lambda x : x*3, reverse=True)
+print(array)
+
+['387', '3', '31', '300']
+```
+
