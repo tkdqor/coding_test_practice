@@ -82,6 +82,7 @@ print(set(range(0, 3)) - set(range(0, 2)))
 - **sort, sorted 모두 key, reverse 매개변수를 갖고 있다**
   - reverse는 bool값을 넣어준다. False이면 오름차순 / True이면 내림차순으로 정렬할 수 있다.
   - key는 정렬을 목적으로 하는 함수를 값으로 넣어주면 된다. lambda를 이용할 수 있다. 즉, key값을 기준으로 정렬이 되고 기본값은 오름차순이다.
+  - [관련 블로그](https://ooyoung.tistory.com/59)
 ```python
 >>> str_list = ['좋은하루','good_morning','굿모닝','niceday']
 >>> print(sorted(str_list, key=len))  # 함수
