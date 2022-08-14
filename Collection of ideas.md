@@ -94,6 +94,8 @@ print(set(range(0, 3)) - set(range(0, 2)))
 ```
 - **문자열 반복하기**
   - print("6"*3, "10"*3, "2"*3) / 666 101010 222
+- **DFS 또는 BFS로 문제 풀 때, visited라는 리스트 만들고 visited = [False for i in range(n)] 이렇게 하면 만약에 n이 3이면 visited = [False, False, False] 이렇게 된다.**
+
 
 <br>
 
@@ -178,4 +180,5 @@ print(array)
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/H-Index.py)
 - **우선순위와 관련된 문제를 while문 안에있는 for문으로 구하는 과정**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%94%84%EB%A6%B0%ED%84%B0.py) 
-
+- **1문제를 재귀함수를 이용한 DFS 방법으로도 풀어보고 / 재귀함수 및 BFS 방법으로도 풀어보기**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.py)
