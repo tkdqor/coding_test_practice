@@ -176,6 +176,6 @@ print(array)
 - **리스트가 있을 때, 오름차순 정렬을 한 다음에 총 개수에서 특정 인덱스를 차감하면 -> 특정 인덱스 데이터 포함해서 남은 리스트 요소의 개수가 된다. 그리고 남은 리스트 요소들은 특정 인덱스 값보다 크다는 것을 알 수 있다.**
   - ex)정렬된 상태라고 생각하고 총 5개에서 인덱스 2를 빼면 -> 3이니까 인덱스 2 데이터 포함해서 뒤에 3개가 남아있다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/H-Index.py)
-
-
+- **우선순위와 관련된 문제를 while문 안에있는 for문으로 구하는 과정**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%94%84%EB%A6%B0%ED%84%B0.py) 
 
