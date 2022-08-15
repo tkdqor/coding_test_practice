@@ -33,6 +33,7 @@
   - [관련 블로그](https://velog.io/@nayoon-kim/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%97%B0%EC%82%B0%EC%9E%90) 
 - **itertools.permutation 함수로 순열 만들기**
   - 이 함수를 사용하면 for문을 사용하지 않고도 순열을 구할 수 있다
+  - **순열이란, 조합과 다르게 순서가 중요하다. 대표적으로 총 5개의 카드에서 3장을 뽑아 3자리 숫자를 만들어 줄을 세우는 경우를 생각할 수 있다.**
   - [관련 블로그](https://school.programmers.co.kr/learn/courses/4008/lessons/12836)
 ```python
 from itertools import permutations
