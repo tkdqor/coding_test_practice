@@ -31,8 +31,9 @@
 - **|= 연산자 사용하기**
   - 병합 연산자로 union 즉, 합집합을 의미한다.
   - [관련 블로그](https://velog.io/@nayoon-kim/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%97%B0%EC%82%B0%EC%9E%90) 
-- **itertools.permutation 함수로 수열 만들기**
+- **itertools.permutation 함수로 순열 만들기**
   - 이 함수를 사용하면 for문을 사용하지 않고도 순열을 구할 수 있다
+  - **순열이란, 조합과 다르게 순서가 중요하다. 대표적으로 총 5개의 카드에서 3장을 뽑아 3자리 숫자를 만들어 줄을 세우는 경우를 생각할 수 있다.**
   - [관련 블로그](https://school.programmers.co.kr/learn/courses/4008/lessons/12836)
 ```python
 from itertools import permutations
@@ -76,8 +77,9 @@ print(set(range(0, 3)) - set(range(0, 2)))
 - **해시(Hash) 딕셔너리에 특정 키가 있는지 확인하기**
   - hash_map = {}, if temp in hash_map:
   - [관련 블로그](https://hashcode.co.kr/questions/59/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC%EC%97%90%EC%84%9C-%ED%8A%B9%EC%A0%95-%ED%82%A4%EA%B0%80-%EC%9E%88%EB%8A%94%EC%A7%80-%ED%99%95%EC%9D%B8%ED%95%98%EA%B3%A0%EC%8B%B6%EC%96%B4%EC%9A%94)
-- **12%1 = 0, 12//3 = 4, 12/3 = 4.0**
+- **12%1 = 0, 12//3 = 4, 12/3 = 4.0, 0%5 = 0, 1%5 = 1**
 - **continue는 반복문에서 조건이 맞지 않을 때 반복문을 종료시키지 않고 맨 처음의 조건문으로 보내주는 역할을 한다.**
+  - **pass는 어떤 조건문에 대해서 아무런 실행을 하지 않고 아래 코드를 이어서 실행하게 된다. 반면에 continue는 맨 처음 조건문으로 돌아가면서 아래 코드를 실행하지 않는다.**
   - [관련 블로그](https://securityspecialist.tistory.com/73)
 - **sort, sorted 모두 key, reverse 매개변수를 갖고 있다**
   - reverse는 bool값을 넣어준다. False이면 오름차순 / True이면 내림차순으로 정렬할 수 있다.
@@ -94,6 +96,8 @@ print(set(range(0, 3)) - set(range(0, 2)))
 ```
 - **문자열 반복하기**
   - print("6"*3, "10"*3, "2"*3) / 666 101010 222
+- **DFS 또는 BFS로 문제 풀 때, visited라는 리스트 만들고 visited = [False for i in range(n)] 이렇게 하면 만약에 n이 3이면 visited = [False, False, False] 이렇게 된다.**
+
 
 <br>
 
@@ -151,6 +155,20 @@ print(set(range(0, 3)) - set(range(0, 2)))
 - **문제에서 주어진 리스트 요소들을 해시(Hash) 딕셔너리에 value가 1이 되게끔 추가해서 문제풀기**
 - **빈 문자열을 변수로 지정하고 해당 변수에 한 문자열씩 더해서 문제풀기**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EB%AA%A9%EB%A1%9D.py)
+```python
+# 빈 문자열을 변수로 지정할 때 예시
+temp = []
+temp += "tkdqor"
+print(temp)
+
+
+temp = []
+temp.append("tkdqor")
+print(temp)
+
+['t', 'k', 'd', 'q', 'o', 'r']
+['tkdqor']
+```
 - **문제에서 사각형과 그 안에 격자로 이루어져 있다면 ==> 사각형 가로 * 세로 = 갈색 격자 개수 + 노란색 격자 개수 라는 식을 세울 수 있다.**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%B9%B4%ED%8E%AB.py)
 - **문자형태의 숫자를 비교할 때 \*로 문자열의 길이를 늘려서 비교해볼 수도 있다**
@@ -178,4 +196,7 @@ print(array)
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/H-Index.py)
 - **우선순위와 관련된 문제를 while문 안에있는 for문으로 구하는 과정**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%94%84%EB%A6%B0%ED%84%B0.py) 
-
+- **1문제를 재귀함수를 이용한 DFS 방법으로도 풀어보고 / 재귀함수 및 BFS 방법으로도 풀어보기**
+  - **보통 DFS는 스택 자료구조를 활용**
+  - **보통 BFS는 큐 자료구조를 활용 / 처음 노드 방문 시 방문처리하고 -> 큐를 생성한 다음에는 큐에 넣었다가 pop(0) 이렇게 뺄 때 또 방문처리**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.py)
