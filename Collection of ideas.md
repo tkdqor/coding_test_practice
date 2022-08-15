@@ -155,6 +155,20 @@ print(set(range(0, 3)) - set(range(0, 2)))
 - **문제에서 주어진 리스트 요소들을 해시(Hash) 딕셔너리에 value가 1이 되게끔 추가해서 문제풀기**
 - **빈 문자열을 변수로 지정하고 해당 변수에 한 문자열씩 더해서 문제풀기**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EB%AA%A9%EB%A1%9D.py)
+```python
+# 빈 문자열을 변수로 지정할 때 예시
+temp = []
+temp += "tkdqor"
+print(temp)
+
+
+temp = []
+temp.append("tkdqor")
+print(temp)
+
+['t', 'k', 'd', 'q', 'o', 'r']
+['tkdqor']
+```
 - **문제에서 사각형과 그 안에 격자로 이루어져 있다면 ==> 사각형 가로 * 세로 = 갈색 격자 개수 + 노란색 격자 개수 라는 식을 세울 수 있다.**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%B9%B4%ED%8E%AB.py)
 - **문자형태의 숫자를 비교할 때 \*로 문자열의 길이를 늘려서 비교해볼 수도 있다**
