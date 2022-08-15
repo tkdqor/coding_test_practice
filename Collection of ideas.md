@@ -197,4 +197,6 @@ print(array)
 - **우선순위와 관련된 문제를 while문 안에있는 for문으로 구하는 과정**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%94%84%EB%A6%B0%ED%84%B0.py) 
 - **1문제를 재귀함수를 이용한 DFS 방법으로도 풀어보고 / 재귀함수 및 BFS 방법으로도 풀어보기**
+  - **보통 DFS는 스택 자료구조를 활용**
+  - **보통 BFS는 큐 자료구조를 활용 / 처음 노드 방문 시 방문처리하고 -> 큐를 생성한 다음에는 큐에 넣었다가 pop(0) 이렇게 뺄 때 또 방문처리**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.py)
