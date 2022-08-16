@@ -97,6 +97,8 @@ print(set(range(0, 3)) - set(range(0, 2)))
   - 리스트에 remove 함수 / 반복문 사용 / del 키워드 / pop 함수 / clear 함수를 이용해 원하는 값을 제거할 수 있다.
   - [관련 블로그](https://zeroaan.github.io/python/2020/05/02/Python-List%EC%97%90%EC%84%9C-%EC%9B%90%ED%95%98%EB%8A%94-%EA%B0%92-%EC%A0%9C%EA%B1%B0%ED%95%98%EA%B8%B0.html)
 
+- **def 함수를 정의하고 밑에 코드에서 return을 정의하면, 나중에 return이 실제로 실행될 때 그 즉시 함수가 종료되면서 return 값이 나오게 된다.**
+
 <br>
 
 ### Ideas
