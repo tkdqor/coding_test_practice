@@ -114,8 +114,6 @@ print(set(range(0, 3)) - set(range(0, 2)))
 - **루트 제곱근 계산 방법**
   - x를 제곱하여 a가 되었다면, x를 a의 제곱근이라고 부른다. 수학 라이브러리인 Math를 이용해서 제곱근을 구할 수 있다.
   - [관련 블로그](https://needneo.tistory.com/77)
-- **리스트의 중복을 제거할 때는 set()을 사용할 생각해보기**
-  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%99%84%EC%A0%84%ED%83%90%EC%83%89/%EC%86%8C%EC%88%98%20%EC%B0%BE%EA%B8%B0.py)
 - **어떤 리스트에 요소가 5개가 있고 그 5개가 순환주기로 계속 반복될 때 특정 인덱스가 어떤 요소를 가리키는지 확인해야 한다면, 인덱스 % 요소개수 = 인덱스 이렇게 구할 수 있다.**
   - ex) pattern1 = [1, 2, 3, 4, 5] 일 때, 인덱스 6인 요소는 6 % len(pattern1) = 1이니까 6번째는 2가 된다.
   - 어떤 수를 x로 나누면 나머지는 무조건 x보다 작다. 그래서 특정 범위 내 숫자를 구할 때 자주 사용된다.
@@ -164,6 +162,9 @@ print(array)
 
 
 ### 해시
+- **리스트에 요소의 종류가 다양할 때, 중복을 제거하기 위해 해시를 사용할 생각을 할 수 있다.**
+- **또한,리스트의 중복을 제거할 때는 set()을 사용할수도 있다.**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%95%B4%EC%8B%9C/%ED%8F%B0%EC%BC%93%EB%AA%AC.py)
 - **해시(Hash) 딕셔너리에 특정 키가 있는지 확인하기**
   - hash_map = {}, if temp in hash_map:
   - [관련 블로그](https://hashcode.co.kr/questions/59/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC%EC%97%90%EC%84%9C-%ED%8A%B9%EC%A0%95-%ED%82%A4%EA%B0%80-%EC%9E%88%EB%8A%94%EC%A7%80-%ED%99%95%EC%9D%B8%ED%95%98%EA%B3%A0%EC%8B%B6%EC%96%B4%EC%9A%94)
