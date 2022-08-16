@@ -21,3 +21,8 @@ def solution(numbers, target):
 
 
 print(solution([1, 1, 1, 1, 1], 3))
+
+# idx는 numbers라는 리스트의 순서를 의미하는듯하다.
+# numbers 리스트의 요소들을 전부 사용해서 target을 만들어야 하니까 if idx == N이라는 조건이 붙는다.
+# 그래서 idx == N인 상태에서 만든 value가 target이랑 같으면 answer 올려주고 재귀함수가 취소되는 것이고
+# idx == N이기만 하면 재귀함수만 취소되는 것이다.
