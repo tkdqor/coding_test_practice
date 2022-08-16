@@ -103,6 +103,7 @@ print(set(range(0, 3)) - set(range(0, 2)))
 
 ### 스택/큐
 - **while문을 사용해서 하루씩 증가할 때 완료된 모든 업무의 개수를 count + 이미 들어가있는 리스트에서 완료될때마다 pop(0) 진행 > 자료구조 큐 생각하기**
+  - **pop()을 하게 되면 while로 리스트의 요소가 있을 경우에만 진행되도록 설정하기**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%8A%A4%ED%83%9D%EA%B3%BC%20%ED%81%90/%EA%B8%B0%EB%8A%A5%EA%B0%9C%EB%B0%9C.py)
 - **우선순위와 관련된 문제를 while문 안에있는 for문으로 구하는 과정**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%8A%A4%ED%83%9D%EA%B3%BC%20%ED%81%90/%ED%94%84%EB%A6%B0%ED%84%B0.py) 
