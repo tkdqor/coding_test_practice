@@ -3,6 +3,7 @@
 ### Codes
 - **len(array)** / 리스트 요소 개수
 
+- **stack = [5, 2, 3, 1]일 때, print(stack[::-1]) 하면 [1, 3, 2, 5]**
 - **array.sort()** / 리스트 오름차순 정렬
 - **array.count(i)** / 리스트에서 i라는 요소의 개수
 - **for i in range(~, ~)** / 범위 for문
