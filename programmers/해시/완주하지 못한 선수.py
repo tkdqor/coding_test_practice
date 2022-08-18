@@ -13,6 +13,7 @@ def solution(participant, completion):
     
     return participant[len(participant) - 1]
 
+print(solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"]))
 
 # 2번째 방법 = Hash를 이용해서 문제 풀기
 # participant 리스트에 있는 선수들을 가지고 hash 맵을 하나 만든다. 선수들의 이름을 가지고 hash 값을 만들고 그 hash 값을 key / 선수들의 이름을 value로 하는

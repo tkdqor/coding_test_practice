@@ -1,13 +1,14 @@
-def solution(phone_book):
-    answer = True
-    hash_map = {}
-    for phone_number in phone_book:
-        hash_map[phone_number] = 1
-    for phone_number in phone_book:
-        temp = ""
-        for number in phone_number:
-            temp += number
-            if temp in hash_map and temp != phone_number:
-                answer = False
-    return answer
-    
+from collections import deque
+
+queue = deque()
+
+queue.append(5)
+queue.append(2)
+queue.append(3)
+queue.append(7)
+queue.popleft()
+queue.append(1)
+queue.append(4)
+queue.popleft()
+
+print(list(queue))
