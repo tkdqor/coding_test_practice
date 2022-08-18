@@ -3,6 +3,12 @@
 ### Codes
 - **len(array)** / 리스트 요소 개수
 
+- **리스트 요소의 인덱스를 확인하기 위해서는 리스트.index(특정요소) 이렇게 확인할 수 있다. 중복되는 요소들이 있다면 가장 처음 나온 요소의 인덱스를 반환한다.**
+  - L = [1,2,2,4,5], L.index(4) = 3, L.index(2) = 1
+- **result = [0] * len(A)** 이렇게 해야 [0, 0, 0, …] 이렇게 될 수 있다.
+- **bin() 함수** / bin(number) 이렇게 전달받은 integer 혹은 long integer 자료형의 값인 10진수 숫자를 이진수(binary) 문자열로 돌려주는 함수이다.
+  - print(bin(1041))하면, 0b10000010001 이렇게 출력됨
+  - [관련 블로그](https://iambeginnerdeveloper.tistory.com/114)
 - **stack = [5, 2, 3, 1]일 때, print(stack[::-1]) 하면 [1, 3, 2, 5]**
 - **array.sort()** / 리스트 오름차순 정렬
 - **array.count(i)** / 리스트에서 i라는 요소의 개수
@@ -268,3 +274,7 @@ print(temp)
 - **A가 특정한 무게의 볼링공을 선택했을 때, 이어서 B가 볼링공을 선택하는 경우 -> A를 기준으로 무게가 낮은 볼링공부터 무게가 높은 볼링공까지 순서대로 확인하기**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/greedy/%EC%9D%B4%EA%B2%83%EC%9D%B4%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%8B%A4_p315_%EB%B3%BC%EB%A7%81%EA%B3%B5%20%EA%B3%A0%EB%A5%B4%EA%B8%B0.py)
 
+
+### ETC
+- **이진수가 10010001 이렇게 있을 때 1과 1 사이에 있는 0의 개수를 파악하기 위해서는, 1이 있는 인덱스만 리스트에 추가하고 리스트[1] - 리스트[0] -1 이런식으로 계산하면 구할 수 있다.**
+  - ex) 이진수 10010001, index_list = [0, 3, 7] 이렇게 리스트를 만들 수 있다. 그리고 index_list[1] - index_list[0] -1 = 2가 1과 1사이의 0 개수이고, index_list[2] - index_list[1] -1 = 3이 뒤에 있는 1과 1사이의 0 개수가 된다.
