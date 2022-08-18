@@ -16,6 +16,8 @@
 - **for _ in range(n+1)** / 데이터 n개 for문
 - **max(~, ~)** / 둘 중 최댓값
 - **min(~, ~)** / 둘 중 최솟값
+- **array = [1,2,3,4]가 있을 때, 모든 요소들을 문자열로 만들고 싶다면 map(str, array) 이렇게 해주면 된다.**
+  - ex) array = [1,2,3,4], print(list(map(str, array))) 라고 입력하면 ['1', '2', '3', '4']
 - **n, m = map(int, input().split())** / 숫자들을 공백 기준으로 따로 변수에 저장
 - **data = list(map(int, input().split()))** / 숫자들을 공백 기준으로 입력받고 리스트로 저장
 - **for i in range(1, m+1)** / 1부터 m까지 for문으로 뽑기
