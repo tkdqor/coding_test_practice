@@ -3,6 +3,41 @@
 ### Codes
 - **len(array)** / 리스트 요소 개수
 
+- **append 와 extend 차이점**
+  - a = [1,2,3]이고 b = [3,4,5]일 때, a.append(b)는 a = [1,2,3,[3,4,5]] / a.extend(b)는 a = [1, 2, 3, 3, 4, 5] 가 된다.
+  - [관련 블로그](https://m.blog.naver.com/wideeyed/221541104629)
+
+- **해시에서 keys()와 values() 함수로 key만 따로, value만 따로 선택할 수 있다.**
+```python
+map = {'Seoul': 10, 'Tokyo': 20}
+for city in map.keys():
+    print(city)
+for score in map.values():
+    print(score)
+
+Seoul
+Tokyo
+10
+20
+```
+
+- **문자열에 0을 채우는 방법으로 rjust() 함수 사용하기**
+  - ex) ‘Hello’.rjust(7, “0”) 이렇게 하면 문자열이 원하는 길이인 7이 될 때까지 문자열 왼쪽에 원하는 문자인 “0”를 추가 / 그래서 00Hello가 출력된다.
+  - [관련 블로그](https://www.delftstack.com/ko/howto/python/pad-string-with-zeros-in-python/)
+
+- **format 함수로 문자열 포맷팅 하기 => 즉, 변수들을 이용해서 하나의 문자열로 조합하는 방법**
+  - ex) file = "{0}{1}.{2}".format(key, str(j+1).rjust(k,'0'), ext)
+  - item = 'Hello {1}. count: {0}'.format(10, 'Jim') => 'Hello Jim. count: 10'
+  - [관련 블로그](https://brownbears.tistory.com/421)
+
+- **a[-1]은 문자열에서와 마찬가지로 리스트 a의 마지막 요소 값을 출력하게 된다.**
+  - a = [1,2,3,4,5], print(a[-1]) => 5
+
+- **strip() 함수 관련 내용**
+  - item = '  apple ' item.strip(' ') 이렇게 했을 때, apple 이렇게 문자열의 양 옆 공백을 제거해주는 역할.
+  - str2 = "Welcome to Entity05", after_strip1 = str2.strip("05"), print(after_strip1) => Welcome to Entity 이렇게 문자열 매개변수가 지정되는 경우, 문자가 일치하면 문자열의 시작 또는 끝에 있는 문자가 원래 문자열에서 제거되고 나머지 문자열이 반환된다.
+  - [관련 블로그](https://www.entity.co.kr/entry/Python-String-strip-%ED%95%A8%EC%88%98-strip-%ED%95%A8%EC%88%98%EC%9D%98-%EC%A0%95%EC%9D%98)
+ 
 - **all(iterable) 함수**
   - all(iterable) 함수는 인자로 받은 반복 가능한 자료형(iterable)의 모든 요소가 참(True)이면 참(True)을 반환하는 함수
   - and의 특징을 가졌으며, 인자로 받은 요소중 하나라도 False이면 False를 반환하고 인자로 받은 요소가 비어있으면 True이다.
@@ -122,6 +157,19 @@ print(set(range(0, 3)) - set(range(0, 2)))
 
 ### Ideas
 
+### 시간복잡도
+- **X라는 위치에서 Y라는 위치까지 D씩 뛰어서 가는 방법을 구할 때, Y-X를 distance라는 변수로 두고 distance % D가 0이라면 distance // D 의 값인 X가, D가 몇번 반복되면 되는지 알려준다. 그리고 나눈 나머지보다 D가 더 크다면 정답은 X+1번이 된다.**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/Frogjmp.py)
+
+<br>
+
+### 배열
+- **리스트 요소의 갯수가 홀수이고 쌍을 이루는 요소들이 있을 때, 정렬을 해서 2개씩 뽑다보면 처음 뽑은 수가 쌍을 이루지 않는 하나의 요소가 될 수 있다. 그래서 2개씩 뽑을 때, 그 2개가 다르다면 첫번째가 쌍을 이루지 않는 요소가 된다.**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EB%B0%B0%EC%97%B4/OddOccurrencesInArray.py)
+  - [관련 블로그](https://smecsm.tistory.com/205)
+
+<br>
+
 ### 스택/큐
 - **문제 특징**
   - 리스트 요소마다 진행되는 속도가 서로 다르다.
@@ -137,6 +185,7 @@ print(set(range(0, 3)) - set(range(0, 2)))
 - **우선순위와 관련된 문제를 while문 안에있는 for문으로 구하는 과정**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%8A%A4%ED%83%9D%EA%B3%BC%20%ED%81%90/%ED%94%84%EB%A6%B0%ED%84%B0.py) 
 
+<br>
 
 ### 완전탐색
 - **문제 특징**
@@ -169,6 +218,7 @@ print(set(range(0, 3)) - set(range(0, 2)))
 - **문제에서 사각형과 그 안에 격자로 이루어져 있다면 ==> 사각형 가로 * 세로 = 갈색 격자 개수 + 노란색 격자 개수 라는 식을 세울 수 있다.**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%99%84%EC%A0%84%ED%83%90%EC%83%89/%EC%B9%B4%ED%8E%AB.py)
 
+<br>
 
 ### 정렬
 - **문제 특징**
@@ -211,6 +261,7 @@ print(array)
 - **slice로 문자열 순서 뒤집기**
   - [관련 블로그](https://codechacha.com/ko/python-reverse-string/)
 
+<br>
 
 ### 해시
 - **문제 특징**
@@ -250,6 +301,7 @@ print(temp)
 ['tkdqor']
 ```
 
+<br>
 
 ### DFS/BFS
 - **문제 특징**
@@ -272,6 +324,7 @@ print(temp)
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/DFS%EC%99%80BFS/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.py)
 - **DFS 또는 BFS로 문제 풀 때, visited라는 리스트 만들고 visited = [False for i in range(n)] 이렇게 하면 만약에 n이 3이면 visited = [False, False, False] 이렇게 된다.**
 
+<br>
 
 ### 그리디
 - **"가장 큰 수", "최소 횟수", "최댓값" 등을 요구하는 문제가 나온다면 "그리디" 문제라고 생각해보기. 그래서 최소의 input으로 답이 나오게끔 생각**
@@ -286,7 +339,13 @@ print(temp)
 - **A가 특정한 무게의 볼링공을 선택했을 때, 이어서 B가 볼링공을 선택하는 경우 -> A를 기준으로 무게가 낮은 볼링공부터 무게가 높은 볼링공까지 순서대로 확인하기**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/greedy/%EC%9D%B4%EA%B2%83%EC%9D%B4%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%8B%A4_p315_%EB%B3%BC%EB%A7%81%EA%B3%B5%20%EA%B3%A0%EB%A5%B4%EA%B8%B0.py)
 
+<br>
 
 ### ETC
 - **이진수가 10010001 이렇게 있을 때 1과 1 사이에 있는 0의 개수를 파악하기 위해서는, 1이 있는 인덱스만 리스트에 추가하고 리스트[1] - 리스트[0] -1 이런식으로 계산하면 구할 수 있다.**
   - ex) 이진수 10010001, index_list = [0, 3, 7] 이렇게 리스트를 만들 수 있다. 그리고 index_list[1] - index_list[0] -1 = 2가 1과 1사이의 0 개수이고, index_list[2] - index_list[1] -1 = 3이 뒤에 있는 1과 1사이의 0 개수가 된다.
+
+- **CSV 형태와 같은 데이터 파싱 문제**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/csv%ED%8C%8C%EC%8B%B1/csv%ED%8C%8C%EC%8B%B1%20%EB%AC%B8%EC%A0%9C.py)   
+  - 특정 데이터가 주어졌을 때, 해당 데이터를 정해진 조건의 이름으로 변경하는 문제 
+  - 해시로 key별로 그룹화 진행 후, value값 오름차순 정렬. 변경한 이름을 해시 value 리스트에 추가하고 문제에 맞게 정렬하는 과정
