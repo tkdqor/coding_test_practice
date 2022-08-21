@@ -3,6 +3,26 @@
 ### Codes
 - **len(array)** / 리스트 요소 개수
 
+- **if - else나 for-else는 인덴트로 작성 / 다른 문의 경우에는 한 인덱스 들여쓰고 쓰기**
+
+```python
+if … :
+
+else:
+
+while
+
+  break
+
+for ..
+
+else:
+
+def
+
+  return
+```
+
 - **append 와 extend 차이점**
   - a = [1,2,3]이고 b = [3,4,5]일 때, a.append(b)는 a = [1,2,3,[3,4,5]] / a.extend(b)는 a = [1, 2, 3, 3, 4, 5] 가 된다.
   - [관련 블로그](https://m.blog.naver.com/wideeyed/221541104629)
