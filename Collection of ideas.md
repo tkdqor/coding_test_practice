@@ -184,6 +184,9 @@ print(set(range(0, 3)) - set(range(0, 2)))
 - **A라는 리스트가 N개의 요소가 있을 때, 해당 리스트가 [1,2,3, …N]이 되는지 확인하는 문제 - A의 합과 / 1부터 A의 개수인 숫자까지 더한 값이 같다면, 조건에 맞는 리스트가 맞다.**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/PermCheck.py)
 
+- **리스트 A에는 없는 가장 작은 양의 정수를 반환하는 문제 - 먼저 sort()로 오름차순 정렬을 한 다음, A = list(set(A)) 이렇게 set으로 중복을 제거. 그리고 missingdata = 1 이렇게 처음에는 없는 양의 정수를 1로 고정시킨 상태에서 A 리스트의 요소를 하나씩 빼서 missingdata와 비교하기. 만약 같다면 missingdata를 1씩 올려주고 같지 않다면 그 때 시점의 missingdata가 리스트에 없는 가장 작은 양의 정수가 된다.**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/MissingInteger.py)
+
 
 <br>
 
