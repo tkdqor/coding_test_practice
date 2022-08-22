@@ -88,6 +88,13 @@
 
 
 
+def solution(N, A):
+    B = [0] * N  #새로운 Array 생성
+    for i in range(len(A)):
+        if 1 <= A[i] <= N:
+            B[A[i]-1] +=1
+        elif A[i] > N:
+            B = [max(B)] * N
+    return B
 
-A = [4,1,3,2]
-# 이건 순열이 맞다.. 1부터 N까지의 요소가 다 있는 것.. 그래서 이 리스트가 순열인지 아닌지 체크 / 순열이면 1 반환
+print(solution(5, [3,4,4,6,1,4,4]))
