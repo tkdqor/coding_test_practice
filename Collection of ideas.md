@@ -203,6 +203,9 @@ print(set(range(0, 3)) - set(range(0, 2)))
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EB%B0%B0%EC%97%B4/OddOccurrencesInArray.py)
   - [관련 블로그](https://smecsm.tistory.com/205)
 
+- **주어진 리스트를 enumerate 함수를 사용하여 인덱스와 값을 차례대로 뽑은 다음, hash_map = {}에 key와 value로 정의. 그 다음, 해당 hash_map의 key만 뽑을 수 있는 keys() 함수를 이용해 새로운 리스트를 정의할 수 있다.**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EB%B0%B0%EC%97%B4/CyclicRotation.py)
+
 <br>
 
 ### 스택/큐
