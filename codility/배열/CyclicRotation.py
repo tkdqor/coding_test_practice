@@ -22,4 +22,19 @@ def solution(A, K):
     return result
 
 
+###### 아래 방법이 더 좋은 점수를 받은 방법 ######
+def solution(A, K):
+    # write your code in Python 3.6
+    hash_map = {}
+    result = [0] * len(A)
+
+    for idx, i in enumerate(A):
+        hash_map[idx+K] = i
+    
+    for key in hash_map.keys():
+        index = key % len(A)
+        result[index] = hash_map[key]
+    return result
+
+
 print(solution([3, 8, 9, 7, 6], 3))
