@@ -3,6 +3,26 @@
 ### Codes
 - **len(array)** / 리스트 요소 개수
 
+- **if - else나 for-else는 인덴트로 작성 / 다른 문의 경우에는 한 인덱스 들여쓰고 쓰기**
+
+```python
+if … :
+
+else:
+
+while
+
+  break
+
+for ..
+
+else:
+
+def
+
+  return
+```
+
 - **append 와 extend 차이점**
   - a = [1,2,3]이고 b = [3,4,5]일 때, a.append(b)는 a = [1,2,3,[3,4,5]] / a.extend(b)는 a = [1, 2, 3, 3, 4, 5] 가 된다.
   - [관련 블로그](https://m.blog.naver.com/wideeyed/221541104629)
@@ -34,7 +54,7 @@ Tokyo
   - a = [1,2,3,4,5], print(a[-1]) => 5
 
 - **strip() 함수 관련 내용**
-  - item = '  apple ' item.strip(' ') 이렇게 했을 때, apple 이렇게 문자열의 양 옆 공백을 제거해주는 역할.
+  - item = '  apple ' / item.strip(' ') 이렇게 했을 때, apple 이렇게 문자열의 양 옆 공백을 제거해주는 역할.
   - str2 = "Welcome to Entity05", after_strip1 = str2.strip("05"), print(after_strip1) => Welcome to Entity 이렇게 문자열 매개변수가 지정되는 경우, 문자가 일치하면 문자열의 시작 또는 끝에 있는 문자가 원래 문자열에서 제거되고 나머지 문자열이 반환된다.
   - [관련 블로그](https://www.entity.co.kr/entry/Python-String-strip-%ED%95%A8%EC%88%98-strip-%ED%95%A8%EC%88%98%EC%9D%98-%EC%A0%95%EC%9D%98)
  
@@ -157,9 +177,24 @@ print(set(range(0, 3)) - set(range(0, 2)))
 
 ### Ideas
 
+### 계수요소
+- **해당 문제에서는 => A라는 리스트의 가장 큰 수가 X라고 할 때, B라는 리스트를 새롭게 생성하고 A 리스트의 요소들을 중복없이 담아내면, B 리스트 요소의 총합과 sum(range(1, X+1))의 값이 같게 된다.**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/FrogRiverOne.py)
+
+<br>
+
 ### 시간복잡도
 - **X라는 위치에서 Y라는 위치까지 D씩 뛰어서 가는 방법을 구할 때, Y-X를 distance라는 변수로 두고 distance % D가 0이라면 distance // D 의 값인 X가, D가 몇번 반복되면 되는지 알려준다. 그리고 나눈 나머지보다 D가 더 크다면 정답은 X+1번이 된다.**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/Frogjmp.py)
+
+- **리스트 A가 범위가 1부터 시작해서 1씩 커지고 n개를 가지고 있을 때, 순서에서 비어있는 1개의 원소를 찾는 것이 목표인 문제**
+  - 원소가 없는 A 리스트일 경우에는 1을 return 값으로 주고, 만약 리스트 A의 개수가 현재 4개라면 1개가 비었으니 원래 리스트 A의 개수는 5개이어야 한다.
+  - 따라서 result = sum(range(1, len(A)+2)) - sum(A) 이렇게 1부터 5까지를 더한 수에서 - 현재 리스트 A를 다 더한 수를 빼주면 비어있는 수를 알 수 있게 된다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/PermMissingElem.py)
+
+- **answer = list(map(abs, result_list)) ==> 이런식으로 리스트 요소마다 절대값을 적용할 수 있다.**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/TapeEquilibrium.py)
+  - [관련 블로그](https://blockdmask.tistory.com/380)
 
 <br>
 
