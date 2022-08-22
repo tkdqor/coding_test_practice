@@ -89,19 +89,10 @@
 
 
 
-# solution(S)
+A = [2,3,1,5]
 
-def solution(A, K):
+def solution(A):
     # write your code in Python 3.6
-    hash_map = {}
-    result = [0] * len(A)
+    return sum(range(1, len(A)+2)) - sum(A)
 
-    for idx, i in enumerate(A):
-        hash_map[idx+K] = i
-    
-    for key in hash_map.keys():
-        index = key % len(A)
-        result[index] = hash_map[key]
-    return result
-
-print(solution([3, 8, 9, 7, 6], 3))
+print(solution(A))
