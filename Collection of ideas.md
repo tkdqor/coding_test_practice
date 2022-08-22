@@ -181,6 +181,10 @@ print(set(range(0, 3)) - set(range(0, 2)))
 - **해당 문제에서는 => A라는 리스트의 가장 큰 수가 X라고 할 때, B라는 리스트를 새롭게 생성하고 A 리스트의 요소들을 중복없이 담아내면, B 리스트 요소의 총합과 sum(range(1, X+1))의 값이 같게 된다.**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/FrogRiverOne.py)
 
+- **A라는 리스트가 N개의 요소가 있을 때, 해당 리스트가 [1,2,3, …N]이 되는지 확인하는 문제 - A의 합과 / 1부터 A의 개수인 숫자까지 더한 값이 같다면, 조건에 맞는 리스트가 맞다.**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/PermCheck.py)
+
+
 <br>
 
 ### 시간복잡도
