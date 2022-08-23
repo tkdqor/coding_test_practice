@@ -389,6 +389,7 @@ print(temp)
 ### ETC
 - **이진수가 10010001 이렇게 있을 때 1과 1 사이에 있는 0의 개수를 파악하기 위해서는, 1이 있는 인덱스만 리스트에 추가하고 리스트[1] - 리스트[0] -1 이런식으로 계산하면 구할 수 있다.**
   - ex) 이진수 10010001, index_list = [0, 3, 7] 이렇게 리스트를 만들 수 있다. 그리고 index_list[1] - index_list[0] -1 = 2가 1과 1사이의 0 개수이고, index_list[2] - index_list[1] -1 = 3이 뒤에 있는 1과 1사이의 0 개수가 된다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EB%B0%98%EB%B3%B5/binarygap.py)
 
 - **CSV 형태와 같은 데이터 파싱 문제**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/csv%ED%8C%8C%EC%8B%B1/csv%ED%8C%8C%EC%8B%B1%20%EB%AC%B8%EC%A0%9C.py)   
