@@ -3,7 +3,7 @@
 ### Codes
 - **len(array)** / 리스트 요소 개수
 
-- **if - else나 for-else는 인덴트로 작성 / 다른 문의 경우에는 한 인덱스 들여쓰고 쓰기**
+- **if - else나 for-else는 같은 인덴트로 작성 / 다른 문의 경우에는 한 인덱스 들여쓰고 쓰기**
 
 ```python
 if … :
