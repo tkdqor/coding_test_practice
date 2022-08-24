@@ -333,6 +333,10 @@ print(array)
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%95%B4%EC%8B%9C/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EB%AA%A9%EB%A1%9D.py)
 ```python
 # 빈 문자열을 변수로 지정할 때 예시
+temp = ""
+temp += "tkdqor"
+print(temp)
+
 temp = []
 temp += "tkdqor"
 print(temp)
@@ -342,6 +346,7 @@ temp = []
 temp.append("tkdqor")
 print(temp)
 
+tkdqor
 ['t', 'k', 'd', 'q', 'o', 'r']
 ['tkdqor']
 ```
