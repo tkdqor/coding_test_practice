@@ -1,6 +1,18 @@
 ## collection of ideas
 
 ### Codes
+
+- **값 교환하기**
+```python
+a, b = 10, 20
+print(a, b)
+a, b = b, a
+print(a, b)
+
+10 20
+20 10
+```
+
 - **len(array)** / 리스트 요소 개수
 
 - **if - else나 for-else는 같은 인덴트로 작성 / 다른 문의 경우에는 한 인덱스 들여쓰고 쓰기**
