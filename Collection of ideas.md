@@ -2,6 +2,21 @@
 
 ### Codes
 
+- **서로 다른 리스트나 문자열을 zip 함수를 이용해 같은 인덱스에 해당하는 요소들을 뽑기**
+```python
+numbers = [1,2,3]
+letters = ["A", "B", "C"]
+for pair in zip(numbers, letters):
+    print(pair)
+
+(1, 'A')
+(2, 'B')
+(3, 'C')
+
+# letters = "ABC" 라고 해도 같은 결과가 나온다.
+```
+- [관련 블로그](https://www.daleseo.com/python-zip/)
+
 - **값 교환하기**
 ```python
 a, b = 10, 20
