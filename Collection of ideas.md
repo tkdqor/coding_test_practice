@@ -2,6 +2,23 @@
 
 ### Codes
 
+- **List Comprehension**
+  - 코드 한 줄로 기존 list에서 원하는 조건을 충족하는 값으로 이루어진 새로운 list 만들기
+```python
+# [ 변수 for 변수 in 기존리스트 if 조건]
+list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evenlist= [i for i in list if i%2 == 0]
+print(evenlist)
+
+# 다르게 활용하는 경우
+visited = [False for i in range(3)]
+print(visited)
+
+
+[2, 4, 6, 8, 10]
+[False, False, False]
+```
+
 - **서로 다른 리스트나 문자열을 zip 함수를 이용해 같은 인덱스에 해당하는 요소들을 뽑기**
 ```python
 numbers = [1,2,3]
