@@ -87,14 +87,149 @@
 # # 답을 형식에 맞추기
 
 
+# today = "오늘 합격 각"
+# print(f"{today}")
 
-def solution(N, A):
-    B = [0] * N  #새로운 Array 생성
-    for i in range(len(A)):
-        if 1 <= A[i] <= N:
-            B[A[i]-1] +=1
-        elif A[i] > N:
-            B = [max(B)] * N
-    return B
+# temp = ""
+# temp += "tkdqor"
+# print(temp)
 
-print(solution(5, [3,4,4,6,1,4,4]))
+
+
+
+########### 일단 보류!!!
+# def solution(S):
+#     # write your code in Python 3.6
+#     count = 0
+#     road = list(S)
+
+#     for i in range(len(road)):
+#         before = road.count(1)
+#         if road[i] == 'X':
+#             road[i] = 1
+#         if road[i+1] == 'X':
+#             road[i+1] = 1
+#         if road[i+2] == 'X':
+#             road[i+2] = 1
+#         after = road.count(1)
+        
+#         if before != after:
+#             count += 1
+#         if road.count('X') == 0:
+#             return count
+
+
+#### 1번
+# def solution(A):
+#     # write your code in Python 3.6
+#     A = sorted(A)
+#     answer = False
+
+#     while A:
+#         try:
+#             a = A.pop()
+#             b = A.pop()
+#         except:
+#             return False
+        
+#         if a == b:
+#             answer = True
+#     return answer
+
+
+
+
+#### 2번
+# def solution(S):
+#     # write your code in Python 3.6
+#     count = 0
+#     road = list(S)
+
+#     for i in range(0, len(road), 3):
+#         if road[i] or road[i+1] or road[i+2] == 'X':
+#             for j in range(i, i+3):
+#                 try:
+#                     if road[j]:
+#                         road[j] = 'O'
+#                 except IndexError:
+#                     continue
+#             count += 1    
+#         if road.count('X') == 0:
+#             break
+#     return count
+
+
+# print(solution('.X..X'))
+
+
+
+### 3번
+# def solution(R, V):
+#     # write your code in Python 3.6
+#     bank = list(R)
+#     x, y = 0, 0
+#     balance = [x,y]
+#     balance_sum = balance[0] + balance[1]
+#     result = balance_sum * (len(V)+1)
+#     # 이 result랑 매 거래 후 잔액을 다 더했을 때 금액이랑 같아야 한다
+#     result2 = 0
+
+#     for i in range(len(V)):
+#         if R[i] == 'B':
+#             balance[1] += V[i]
+#             balance[0] -= V[i]
+#         else:
+#             balance[0] += V[i]
+#             balance[1] -= V[i]
+#         result2 += balance[0] + balance[1]
+    
+#     for i in range(1, 10001):
+#         for j in range(1, 10001):
+#             balance[0] = i
+#             balance[1] = j
+#             if result == result2:
+#                 return [balance[0], balance[1]]
+
+
+
+# ### 틀린 3번 제출 답
+# def solution(R, V):
+#     # write your code in Python 3.6
+#     bank = list(R)
+#     balance = [0,0]
+#     # 이 result랑 매 거래 후 잔액을 다 더했을 때 금액이랑 같아야 한다
+#     result2 = 0
+
+#     for i in range(1, 10001):
+#         for j in range(1, 10001):
+#             balance[0] = i
+#             balance[1] = j
+
+#             for i in range(len(V)):
+#                 if R[i] == 'B':
+#                     balance[1] += V[i]
+#                     balance[0] -= V[i]
+#                 else:
+#                     balance[0] += V[i]
+#                     balance[1] -= V[i]
+#                 balance_sum = balance[0] + balance[1]
+#                 result = balance_sum * (len(V)+1)
+#                 result2 += balance[0] + balance[1]
+#                 if result == result2:
+#                     return [balance[0], balance[1]]
+            
+
+# print(solution('BAABA', [2, 4, 1, 1, 2]))
+
+
+
+
+def plus_one(x):
+    return x+1
+
+plus_two = lambda x: x+2
+print(plus_two(1))
+
+a = [1,2,3]
+print(list(map(plus_one, a)))
+print(list(map(lambda x: x+1, a)))
