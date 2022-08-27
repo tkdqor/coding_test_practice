@@ -2,6 +2,247 @@
 
 ### Codes
 
+- **리스트 관련 내장함수 - clear()**
+```python
+a = list(range(1, 11))
+a.clear()
+print(a)
+
+[]
+```
+- clear() 함수를 사용하면 리스트 요소들을 전부 제거해준다.
+
+<br>
+
+- **리스트 관련 내장함수 - remove()**
+```python
+a = [1,2,3,4,5]
+a.remove(4)
+print(a)
+
+[1, 2, 3, 5]
+```
+- remove 함수에 값을 넣으면, 해당 값을 리스트에서 찾아서 삭제해준다.
+
+<br>
+
+- **리스트 관련 내장함수 - pop()**
+```python
+a = [1,2,3,4,5]
+a.pop()
+print(a)
+
+[1,2,3,4] 
+```
+- 이렇게 pop은 리스트 맨 뒤의 요소를 하나 뺀다. 
+
+<br>
+
+- **리스트 관련 내장함수 - insert(,)**
+```python
+a = [1,2,3,4,5]
+a.insert(3, 7)
+print(a)
+
+[1, 2, 3, 7, 4, 5]
+```
+- insert는 특정 인덱스 지점에다가 어떤 값을 넣는 함수이다. 위의 예시에서는 3번 인덱스에 7이 들어가는 것이다.
+
+<br>
+
+- **리스트 합치기**
+```python
+a = [1,2,3]
+b = [3,4,5]
+print(a+b)
+
+[1, 2, 3, 3, 4, 5]
+```
+
+<br>
+
+- **특정 아스키번호에 대응되는 알파벳 문자열을 반환해는 chr() 함수**
+```python
+tmp = 65
+print(chr(tmp))
+
+A
+```
+
+<br>
+
+- **특정 알파벳 문자열의 아스키번호를 반환하는 ord() 함수**
+```python
+tmp = ‘AZ’
+for x in tmp:
+	print(ord(x))
+
+65
+90
+
+tmp = 'az'
+for x in tmp:
+    print(ord(x))
+
+97
+122
+```
+- ord() 함수는 특정 문자열의 아스키번호를 출력해준다. 아스키번호는 대문자 A부터 Z까지 65부터 90를 의미한다. 그리고 소문자 a부터 z는 97부터 122를 의미한다.
+
+
+- **알파벳일 경우에만 True반환하는 isalpha() 함수**
+
+<br>
+
+- **특정 문자열이 대문자인지 소문자인지 확인하는 함수 - isupper()는 대문자이면 True 반환, islower()는 소문자이면 True 반환**
+```python
+msg = "It is Time"
+for x in msg:
+	if x.isupper():
+		print(x)
+
+I T
+
+msg = "It is Time"
+for x in msg:
+	if x.islower():
+		print(x)
+
+t i s i m e
+```
+
+<br>
+
+- **A = [1,2,3,4] 가 있으면, A[:2]는 인덱스 0,1에 해당하는 값이 출력된다. 즉 리스트의 제일 처음부터 1번까지만 추출해 내는 것이다.**
+
+<br>
+
+- **find 함수는 문자열에서 찾고자 하는 문자열의 인덱스 번호를 출력해준다**
+```python
+msg = "It is Time"
+tmp = msg.upper()
+print(tmp)
+print(tmp.find('T'))
+print(tmp.count('T'))
+
+IT IS TIME
+1
+2
+```
+- 중복되는 문자열이 여러개있으면 처음 발견되는 인덱스 번호를 출력해준다. 
+
+<br>
+
+- **문자열을 전부 대문자 혹은 소문자로 바꾸는 함수 - upper(), lower()**
+```python
+msg = "It is Time"
+M = msg.upper()
+m = msg.lower()
+print(M)
+print(m)
+
+IT IS TIME
+it is time
+```
+- 원본인 msg는 그대로 있고 새로운 값을 만들어주는 것이다. 
+
+<br>
+
+- **2중 for문으로 별 5개부터 1개 출력하기**
+```python
+for i in range(5):
+    for j in range(5-i):
+        print("*", end=' ')
+    print()
+```
+
+<br>
+
+- **N의 약수 출력하기**
+```python
+n = int(input())
+for i in range(1, n+1):
+    if n % i == 0:
+        print(i, end=' ')
+```
+
+<br>
+
+- **for - else 구문**
+```python
+for i in range(1, 11):
+	print(i)
+	if i == 5:
+		break
+else:
+	print(11)
+```
+- 위의 경우, for문이 1부터 10까지 빼서 출력하다가 if i == 5에서 브레이크를 수행한다. 이렇게 정상적인 종료를 하지 않고 중간에 브레이크를 당해 끝내버리면, else를 실행시키지 않는다. 근데 만약 for문이 정상적으로 브레이크를 당하지 않고 정상 종료를 했다면, 마지막에 else 밑에 있는 코드들을 실행시킨다.
+
+<br>
+
+- **range로 10부터 1까지 출력하기**
+```python
+for i in range(10, 0, -1):
+	print(i)
+```
+- 이렇게 하면 10부터 1까지 출력된다.
+
+<br>
+
+- **range을 변수에 넣어서도 사용가능**
+```python
+a = range(10)
+print(list(a))
+
+[0,1,2,3,4,5,6,7,8,9]
+```
+
+<br>
+
+- **if - elif - else문은 하나의 문장 구조이다.**
+```python
+x = 93
+If x >= 90:
+	print(‘A’)
+elif …
+	print(‘B’)
+…
+else:
+	print(‘F’)
+```
+- 위에서는 도중에 조건이 맞으면 print 함수를 실행시키고 하나의 문장이 끝난다.
+
+```python
+x = 93
+if x >= 90:
+	print(‘A’)
+If x >= 80:
+	print(‘B’)
+If x >= 70:
+	print(‘C’)
+
+A
+B
+C
+```
+- 근데, 위와 같은 경우는 여러 개의 문장 구조가 있는 경우이다. 이렇게 되면 3개의 문장구조가 있는 것이라서 각자 따로 If문이니까 조건이 맞으면 다 print를 하게 된다.
+
+<br>
+
+- **실수와 정수 더하면 Type은 실수형이 된다.**
+```python
+a = 4.3
+b = 5
+c = a+b
+print(type(c))
+
+float
+```
+- 실수는 정수를 포함하고 있는 더 넓은 범위이다. 그래서 더 넓은 범위로 연산결과가 나온다.
+
+<br>
+
 - **List Comprehension**
   - 코드 한 줄로 기존 list에서 원하는 조건을 충족하는 값으로 이루어진 새로운 list 만들기
 ```python
@@ -19,6 +260,8 @@ print(visited)
 [False, False, False]
 ```
 
+<br>
+
 - **서로 다른 리스트나 문자열을 zip 함수를 이용해 같은 인덱스에 해당하는 요소들을 뽑기**
 ```python
 numbers = [1,2,3]
@@ -34,6 +277,8 @@ for pair in zip(numbers, letters):
 ```
 - [관련 블로그](https://www.daleseo.com/python-zip/)
 
+<br>
+
 - **값 교환하기**
 ```python
 a, b = 10, 20
@@ -45,7 +290,11 @@ print(a, b)
 20 10
 ```
 
+<br>
+
 - **len(array)** / 리스트 요소 개수
+
+<br>
 
 - **if - else나 for-else는 같은 인덴트로 작성 / 다른 문의 경우에는 한 인덱스 들여쓰고 쓰기**
 
@@ -67,9 +316,13 @@ def
   return
 ```
 
+<br>
+
 - **append 와 extend 차이점**
   - a = [1,2,3]이고 b = [3,4,5]일 때, a.append(b)는 a = [1,2,3,[3,4,5]] / a.extend(b)는 a = [1, 2, 3, 3, 4, 5] 가 된다.
   - [관련 블로그](https://m.blog.naver.com/wideeyed/221541104629)
+
+<br>
 
 - **해시에서 keys()와 values() 함수로 key만 따로, value만 따로 선택할 수 있다.**
 ```python
@@ -85,69 +338,148 @@ Tokyo
 20
 ```
 
+<br>
+
 - **문자열에 0을 채우는 방법으로 rjust() 함수 사용하기**
   - ex) ‘Hello’.rjust(7, “0”) 이렇게 하면 문자열이 원하는 길이인 7이 될 때까지 문자열 왼쪽에 원하는 문자인 “0”를 추가 / 그래서 00Hello가 출력된다.
   - [관련 블로그](https://www.delftstack.com/ko/howto/python/pad-string-with-zeros-in-python/)
+
+<br>
 
 - **format 함수로 문자열 포맷팅 하기 => 즉, 변수들을 이용해서 하나의 문자열로 조합하는 방법**
   - ex) file = "{0}{1}.{2}".format(key, str(j+1).rjust(k,'0'), ext)
   - item = 'Hello {1}. count: {0}'.format(10, 'Jim') => 'Hello Jim. count: 10'
   - [관련 블로그](https://brownbears.tistory.com/421)
 
+<br>
+
 - **a[-1]은 문자열에서와 마찬가지로 리스트 a의 마지막 요소 값을 출력하게 된다.**
   - a = [1,2,3,4,5], print(a[-1]) => 5
+
+<br>
 
 - **strip() 함수 관련 내용**
   - item = '  apple ' / item.strip(' ') 이렇게 했을 때, apple 이렇게 문자열의 양 옆 공백을 제거해주는 역할.
   - str2 = "Welcome to Entity05", after_strip1 = str2.strip("05"), print(after_strip1) => Welcome to Entity 이렇게 문자열 매개변수가 지정되는 경우, 문자가 일치하면 문자열의 시작 또는 끝에 있는 문자가 원래 문자열에서 제거되고 나머지 문자열이 반환된다.
   - [관련 블로그](https://www.entity.co.kr/entry/Python-String-strip-%ED%95%A8%EC%88%98-strip-%ED%95%A8%EC%88%98%EC%9D%98-%EC%A0%95%EC%9D%98)
  
+ <br>
+ 
 - **all(iterable) 함수**
   - all(iterable) 함수는 인자로 받은 반복 가능한 자료형(iterable)의 모든 요소가 참(True)이면 참(True)을 반환하는 함수
   - and의 특징을 가졌으며, 인자로 받은 요소중 하나라도 False이면 False를 반환하고 인자로 받은 요소가 비어있으면 True이다.
   - 리스트, 튜플, 집합, 딕셔너리, 문자열이 변수가 될 수 있다.
   - [관련 블로그](https://blockdmask.tistory.com/430)
+
+<br>
+
 - **any(iterable) 함수**
   - any(iterable) 함수는 인자로 받은 반복가능한 자료형(iterable)중 단 하나라도 참(True)이 있으면 참(True)를 반환하는 함수
   - or의 특징을 가졌으며, 인자로 받은 요소중 하나라도 True이면 True를 반환하고 인자로 받은 자료형이 비어있는 경우 False를 반환한다.
   - 리스트, 튜플, 집합, 딕셔너리, 문자열이 변수가 될 수 있다.
   - [관련 블로그](https://blockdmask.tistory.com/430)
+
+<br>
+
 - **리스트 요소의 인덱스를 확인하기 위해서는 리스트.index(특정요소) 이렇게 확인할 수 있다. 중복되는 요소들이 있다면 가장 처음 나온 요소의 인덱스를 반환한다.**
   - L = [1,2,2,4,5], L.index(4) = 3, L.index(2) = 1
+
+<br>
+
 - **result = [0] * len(A)** 이렇게 해야 [0, 0, 0, …] 이렇게 될 수 있다.
+
+<br>
+
 - **bin() 함수** / bin(number) 이렇게 전달받은 integer 혹은 long integer 자료형의 값인 10진수 숫자를 이진수(binary) 문자열로 돌려주는 함수이다.
   - print(bin(1041))하면, 0b10000010001 이렇게 출력됨
   - [관련 블로그](https://iambeginnerdeveloper.tistory.com/114)
+
+<br>
+
 - **stack = [5, 2, 3, 1]일 때, print(stack[::-1]) 하면 [1, 3, 2, 5]**
+
+<br>
+
 - **array.sort()** / 리스트 오름차순 정렬
+
+<br>
+
 - **array.count(i)** / 리스트에서 i라는 요소의 개수
+
+<br>
+
 - **for i in range(~, ~)** / 범위 for문
+
+<br>
+
 - **for _ in range(n+1)** / 데이터 n개 for문
+
+<br>
+
 - **max(~, ~)** / 둘 중 최댓값
+
+<br>
+
 - **min(~, ~)** / 둘 중 최솟값
+
+<br>
+
 - **array = [1,2,3,4]가 있을 때, 모든 요소들을 문자열로 만들고 싶다면 map(str, array) 이렇게 해주면 된다.**
   - ex) array = [1,2,3,4], print(list(map(str, array))) 라고 입력하면 ['1', '2', '3', '4']
+
+<br>
+
 - **n, m = map(int, input().split())** / 숫자들을 공백 기준으로 따로 변수에 저장
+
+<br>
+
 - **data = list(map(int, input().split()))** / 숫자들을 공백 기준으로 입력받고 리스트로 저장
+
+<br>
+
 - **for i in range(1, m+1)** / 1부터 m까지 for문으로 뽑기
+
+<br>
+
 - **isinstance(1.2, float)** / 해당 매개변수가 지정한 타입이 맞는지 확인하는 함수
   - [관련 블로그](https://brownbears.tistory.com/155)
+
+<br>
+
 - **string = "Hello World!", string3 = string.split(' '), print(string3) 하게되면 ['Hello', 'World!']** / 문자열을 split를 이용해 나누게 되면 리스트 형태가 된다.
   - [관련 블로그](https://wikidocs.net/2839)
+
+<br>
+
 - **for idx, answer in enumerate(answers):** / enumerate 함수를 사용해서 자료형에서 인덱스와 함께 요소들을 뽑아낼 수 있다.
   - [관련 블로그](https://hckcksrl.medium.com/python-enumerate-b19ad6b94c00)
+
+<br>
+
 - **array[1:5]** 이렇게 슬라이싱하면, 인덱스 1부터 4까지 슬라이싱된다.
-- ex) my_list = [“Mitch”, [3,6,7], [“yellow”, 5, 6]] 라고할 때, my_list[1][1:3]이면 -> [6,7] 슬라이싱
+  - ex) my_list = [“Mitch”, [3,6,7], [“yellow”, 5, 6]] 라고할 때, my_list[1][1:3]이면 -> [6,7] 슬라이싱
+
+<br>
+
 - **리스트를 정렬할 때 사용하는 sort 함수와 sorted 함수의 차이점**
   - sort 함수는 리스트명.sort() 형식으로 리스트의 원본값을 직접 수정하며 리턴값이 None이다. 
   - sorted 함수는 sorted(리스트명) 형식으로 리스트의 원본값은 그대로이고 새로운 리스트를 만들어 정렬값을 반환한다.
   - [관련 블로그](https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=wideeyed&logNo=221745416992&redirect=Dlog&widgetTypeCall=true&directAccess=false)
+
+<br>
+
 - **global 사용하기**
   - 함수밖에서 선언되는 변수를 “전역 변수”라고 하는데, 그 전역 변수의 값을 함수 안에서 변경하려면 global이라는 키워드를 사용해서 선언해주면 변경할 수 있다.
   - [관련 블로그](https://codingpractices.tistory.com/entry/Python-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%B4%9D-%EC%A0%95%EB%A6%AC-global-nonlocal)
+
+<br>
+
 - **|= 연산자 사용하기**
   - 병합 연산자로 union 즉, 합집합을 의미한다.
   - [관련 블로그](https://velog.io/@nayoon-kim/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%97%B0%EC%82%B0%EC%9E%90) 
+
+<br>
+
 - **itertools.permutation 함수로 순열 만들기**
   - 이 함수를 사용하면 for문을 사용하지 않고도 순열을 구할 수 있다
   - **순열이란, 조합과 다르게 순서가 중요하다. 대표적으로 총 5개의 카드에서 3장을 뽑아 3자리 숫자를 만들어 줄을 세우는 경우를 생각할 수 있다.**
@@ -162,6 +494,9 @@ print(list(map(''.join, permutations(pool, 2)))) # 2개의 원소로 수열 만�
 ['ABC', 'ACB', 'BAC', 'BCA', 'CAB', 'CBA']
 ['AB', 'AC', 'BA', 'BC', 'CA', 'CB']
 ```
+
+<br>
+
 - **list 함수 예시**
 ```python
 n = "17"
@@ -169,6 +504,9 @@ print(list(n))
 
 ['1', '7']
 ```
+
+<br>
+
 - **set 함수 예시**
 ```python
 print(set(range(0, 2)))
@@ -179,22 +517,43 @@ print(set(range(0, 3)) - set(range(0, 2)))
 
 {2}
 ```
+
+<br>
+
 - **range 함수의 마지막 매개변수는 range의 간격을 지정해준다**
   - print(list(range(1, 11, 2))) / [1, 3, 5, 7, 9]
   - 이렇게하면 원래는 1부터 10까지 출력되지만, 간격이 2이기 때문에 1부터 2씩 증가된 수가 출력된다
+
+<br>
+
 - **join 함수 사용하기**
   - ‘구분자’.join(리스트) / 이러한 원형으로 매개변수로 들어온 리스트에 있는 요소 하나하나 사이에 구분자를 넣어서 하나의 문자열로 합쳐주는 함수이다. 구분자는 공백일 수도 있다. 
   - [관련 블로그](https://blockdmask.tistory.com/468)
+
+<br>
+
 - **map 함수 사용하기**
   - map(적용할 함수, 반복 가능한 자료형)
   - map 함수를 활용하면 모든 반복가능 자료형 데이터 각각에 함수를 적용시킬 수 있다.
+
+<br>
+
 - **루트 계산 관련**
   - print(4 ** 0.5) / 2
   - 루트 4를 의미하니까 2가 출력된다
+
+<br>
+
 - **12%1 = 0, 12//3 = 4, 12/3 = 4.0, 0%5 = 0, 1%5 = 1**
+
+<br>
+
 - **continue는 반복문에서 조건이 맞지 않을 때 반복문을 종료시키지 않고 맨 처음의 조건문으로 보내주는 역할을 한다.**
   - **pass는 어떤 조건문에 대해서 아무런 실행을 하지 않고 아래 코드를 이어서 실행하게 된다. 반면에 continue는 맨 처음 조건문으로 돌아가면서 아래 코드를 실행하지 않는다.**
   - [관련 블로그](https://securityspecialist.tistory.com/73)
+
+<br>
+
 - **sort, sorted 모두 key, reverse 매개변수를 갖고 있다**
   - reverse는 bool값을 넣어준다. False이면 오름차순 / True이면 내림차순으로 정렬할 수 있다.
   - key는 정렬을 목적으로 하는 함수를 값으로 넣어주면 된다. lambda를 이용할 수 있다. 즉, key값을 기준으로 정렬이 되고 기본값은 오름차순이다.
@@ -208,12 +567,19 @@ print(set(range(0, 3)) - set(range(0, 2)))
 ['niceday', 'good_morning', '굿모닝', '좋은하루']
 # lambda x 에서 x는 리스트의 요소 1개를 의미
 ```
+
+<br>
+
 - **문자열 반복하기**
   - print("6"*3, "10"*3, "2"*3) / 666 101010 222
+
+<br>
 
 - **리스트에서 원하는 값 제거하는 방법**
   - 리스트에 remove 함수 / 반복문 사용 / del 키워드 / pop 함수 / clear 함수를 이용해 원하는 값을 제거할 수 있다.
   - [관련 블로그](https://zeroaan.github.io/python/2020/05/02/Python-List%EC%97%90%EC%84%9C-%EC%9B%90%ED%95%98%EB%8A%94-%EA%B0%92-%EC%A0%9C%EA%B1%B0%ED%95%98%EA%B8%B0.html)
+
+<br>
 
 - **def 함수를 정의하고 밑에 코드에서 return을 정의하면, 나중에 return이 실제로 실행될 때 그 즉시 함수가 종료되면서 return 값이 나오게 된다.**
 
