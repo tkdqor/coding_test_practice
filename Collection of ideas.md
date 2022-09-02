@@ -59,7 +59,6 @@
   - [병합 연산자 사용하기](#병합-연산자-사용하기)
   - [permutation 함수로 순열 만들기](#permutation-함수로-순열-만들기)
   - [문자열 변수로 리스트를 만드는 list 함수](#문자열-변수로-리스트를-만드는-list-함수)
-  - [set 함수 예시](#set-함수-예시)
   - [range 함수의 마지막 매개변수는 range의 간격을 지정](#range-함수의-마지막-매개변수는-range의-간격을-지정)
   - [join 함수 사용하기](#join-함수-사용하기)
   - [루트 계산 관련](#루트-계산-관련)
@@ -101,6 +100,17 @@ a = int(a)
 ### set 함수
 - **set() 자료구조에서는 요소를 추가할 때 append가 아니라 add를 사용**
 - **set()이라는 자료구조는 sort() 기능이 없다. 그래서 다시 list화 해야된다.**
+
+- **set 함수 예시**
+```python
+print(set(range(0, 2)))
+
+{0, 1}
+
+print(set(range(0, 3)) - set(range(0, 2)))
+
+{2}
+```
 
 <br>
 
@@ -812,19 +822,6 @@ n = "17"
 print(list(n))
 
 ['1', '7']
-```
-
-<br>
-
-### set 함수 예시
-```python
-print(set(range(0, 2)))
-
-{0, 1}
-
-print(set(range(0, 3)) - set(range(0, 2)))
-
-{2}
 ```
 
 <br>
