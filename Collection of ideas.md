@@ -36,6 +36,18 @@
   - [값 교환하기](#값-교환하기)
   - [if else나 for else는 같은 인덴트로 작성하고 다른 문의 경우에는 한 인덱스 들여쓰고 쓰는 예시](#if-else나-for-else는-같은-인덴트로-작성하고-다른-문의-경우에는-한-인덱스-들여쓰고-쓰는-예시)
   - [append와 extend 차이점](#append와-extend-차이점)
+  - [해시에서 key만 따로 value만 따로 선택할 수 있게 해주는 keys와 values함수](#해시에서-key만-따로-value만-따로-선택할-수-있게-해주는-keys와-values함수)
+  - [문자열에 0을 채우는 방법으로 rjust 함수 사용하기](#문자열에-0을-채우는-방법으로-rjust-함수-사용하기)
+  - [format 함수 문자열 포맷팅으로 변수들을 이용해서 하나의 문자열로 조합하는 방법](#format-함수-문자열-포맷팅으로-변수들을-이용해서-하나의-문자열로-조합하는-방법)
+  - [리스트의 마지막 요소 값 출력하기](#리스트의-마지막-요소-값-출력하기)
+  - [strip 함수 관련 내용](#strip-함수-관련-내용)
+  - [all 함수란](#all-함수란)
+  - [any 함수란](#any-함수란)
+  - [리스트 요소의 인덱스를 확인하는 index 함수](#리스트-요소의-인덱스를-확인하는-index-함수)
+  - [리스트를 만드는 다른 방법](#리스트를-만드는-다른-방법)
+  - [10진수 숫자를 이진수 문자열로 돌려주는 bin 함수](#10진수-숫자를-이진수-문자열로-돌려주는-bin-함수)
+  - [리스트 요소 순서 거꾸로 하기](#리스트-요소-순서-거꾸로-하기)
+
 
 <br>
 
@@ -536,7 +548,7 @@ def
 
 <br>
 
-- **해시에서 keys()와 values() 함수로 key만 따로, value만 따로 선택할 수 있다.**
+### 해시에서 key만 따로 value만 따로 선택할 수 있게 해주는 keys와 values함수
 ```python
 map = {'Seoul': 10, 'Tokyo': 20}
 for city in map.keys():
@@ -552,32 +564,32 @@ Tokyo
 
 <br>
 
-- **문자열에 0을 채우는 방법으로 rjust() 함수 사용하기**
+### 문자열에 0을 채우는 방법으로 rjust 함수 사용하기
   - ex) ‘Hello’.rjust(7, “0”) 이렇게 하면 문자열이 원하는 길이인 7이 될 때까지 문자열 왼쪽에 원하는 문자인 “0”를 추가 / 그래서 00Hello가 출력된다.
   - [관련 블로그](https://www.delftstack.com/ko/howto/python/pad-string-with-zeros-in-python/)
 
 <br>
 
-- **format 함수로 문자열 포맷팅 하기 => 즉, 변수들을 이용해서 하나의 문자열로 조합하는 방법**
+### format 함수 문자열 포맷팅으로 변수들을 이용해서 하나의 문자열로 조합하는 방법
   - ex) file = "{0}{1}.{2}".format(key, str(j+1).rjust(k,'0'), ext)
   - item = 'Hello {1}. count: {0}'.format(10, 'Jim') => 'Hello Jim. count: 10'
   - [관련 블로그](https://brownbears.tistory.com/421)
 
 <br>
 
-- **a[-1]은 문자열에서와 마찬가지로 리스트 a의 마지막 요소 값을 출력하게 된다.**
+### 리스트의 마지막 요소 값 출력하기
   - a = [1,2,3,4,5], print(a[-1]) => 5
 
 <br>
 
-- **strip() 함수 관련 내용**
+### strip 함수 관련 내용
   - item = '  apple ' / item.strip(' ') 이렇게 했을 때, apple 이렇게 문자열의 양 옆 공백을 제거해주는 역할.
   - str2 = "Welcome to Entity05", after_strip1 = str2.strip("05"), print(after_strip1) => Welcome to Entity 이렇게 문자열 매개변수가 지정되는 경우, 문자가 일치하면 문자열의 시작 또는 끝에 있는 문자가 원래 문자열에서 제거되고 나머지 문자열이 반환된다.
   - [관련 블로그](https://www.entity.co.kr/entry/Python-String-strip-%ED%95%A8%EC%88%98-strip-%ED%95%A8%EC%88%98%EC%9D%98-%EC%A0%95%EC%9D%98)
  
  <br>
  
-- **all(iterable) 함수**
+### all 함수란
   - all(iterable) 함수는 인자로 받은 반복 가능한 자료형(iterable)의 모든 요소가 참(True)이면 참(True)을 반환하는 함수
   - and의 특징을 가졌으며, 인자로 받은 요소중 하나라도 False이면 False를 반환하고 인자로 받은 요소가 비어있으면 True이다.
   - 리스트, 튜플, 집합, 딕셔너리, 문자열이 변수가 될 수 있다.
@@ -596,7 +608,7 @@ YES
 
 <br>
 
-- **any(iterable) 함수**
+### any 함수란
   - any(iterable) 함수는 인자로 받은 반복가능한 자료형(iterable)중 단 하나라도 참(True)이 있으면 참(True)를 반환하는 함수
   - or의 특징을 가졌으며, 인자로 받은 요소중 하나라도 True이면 True를 반환하고 인자로 받은 자료형이 비어있는 경우 False를 반환한다.
   - 리스트, 튜플, 집합, 딕셔너리, 문자열이 변수가 될 수 있다.
@@ -615,22 +627,26 @@ YES
 
 <br>
 
-- **리스트 요소의 인덱스를 확인하기 위해서는 리스트.index(특정요소) 이렇게 확인할 수 있다. 중복되는 요소들이 있다면 가장 처음 나온 요소의 인덱스를 반환한다.**
-  - L = [1,2,2,4,5], L.index(4) = 3, L.index(2) = 1
+### 리스트 요소의 인덱스를 확인하는 index 함수
+- 중복되는 요소들이 있다면 가장 처음 나온 요소의 인덱스를 반환한다.
+- L = [1,2,2,4,5], L.index(4) = 3, L.index(2) = 1
 
 <br>
 
+### 리스트를 만드는 다른 방법
 - **result = [0] * len(A)** 이렇게 해야 [0, 0, 0, …] 이렇게 될 수 있다.
 
 <br>
 
-- **bin() 함수** / bin(number) 이렇게 전달받은 integer 혹은 long integer 자료형의 값인 10진수 숫자를 이진수(binary) 문자열로 돌려주는 함수이다.
-  - print(bin(1041))하면, 0b10000010001 이렇게 출력됨
-  - [관련 블로그](https://iambeginnerdeveloper.tistory.com/114)
+### 10진수 숫자를 이진수 문자열로 돌려주는 bin 함수
+- bin(number) 이렇게 전달받은 integer 혹은 long integer 자료형의 값인 10진수 숫자를 이진수(binary) 문자열로 돌려주는 함수이다.
+- print(bin(1041))하면, 0b10000010001 이렇게 출력됨
+- [관련 블로그](https://iambeginnerdeveloper.tistory.com/114)
 
 <br>
 
-- **stack = [5, 2, 3, 1]일 때, print(stack[::-1]) 하면 [1, 3, 2, 5]**
+### 리스트 요소 순서 거꾸로 하기
+- stack = [5, 2, 3, 1]일 때, print(stack[::-1]) 하면 [1, 3, 2, 5]
 
 <br>
 
