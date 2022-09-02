@@ -59,6 +59,14 @@
   - [병합 연산자 사용하기](#병합-연산자-사용하기)
   - [permutation 함수로 순열 만들기](#permutation-함수로-순열-만들기)
   - [문자열 변수로 리스트를 만드는 list 함수](#문자열-변수로-리스트를-만드는-list-함수)
+  - [set 함수 예시](#set-함수-예시)
+  - [range 함수의 마지막 매개변수는 range의 간격을 지정](#range-함수의-마지막-매개변수는-range의-간격을-지정)
+  - [join 함수 사용하기](#join-함수-사용하기)
+  - [루트 계산 관련](#루트-계산-관련)
+  - [정수 연산 예시](#정수-연산-예시)
+  - [반복문에서 조건이 맞지 않을 때 반복문을 종료시키지 않고 맨 처음의 조건문으로 보내주는 continue](#반복문에서-조건이-맞지-않을-때-반복문을-종료시키지-않고-맨-처음의-조건문으로-보내주는-continue)
+  - [문자열 반복하기](#문자열-반복하기)
+  - [리스트에서 원하는 값 제거하는 방법](#리스트에서-원하는-값-제거하는-방법)
 
 
 <br>
@@ -686,6 +694,9 @@ print(max(7, 5))
 <br>
 
 ### map 함수 사용하기
+- **map(적용할 함수, 반복 가능한 자료형)**
+  - map 함수를 활용하면 모든 반복가능 자료형 데이터 각각에 함수를 적용시킬 수 있다.
+
 - **array = [1,2,3,4]가 있을 때, 모든 요소들을 문자열로 만들고 싶다면 map(str, array) 이렇게 해주면 된다.**
   - ex) array = [1,2,3,4], print(list(map(str, array))) 라고 입력하면 ['1', '2', '3', '4']
 
@@ -748,6 +759,20 @@ for x in enumerate(a):
   - sorted 함수는 sorted(리스트명) 형식으로 리스트의 원본값은 그대로이고 새로운 리스트를 만들어 정렬값을 반환한다.
   - [관련 블로그](https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=wideeyed&logNo=221745416992&redirect=Dlog&widgetTypeCall=true&directAccess=false)
 
+- **sort, sorted 모두 key, reverse 매개변수를 갖고 있다**
+  - reverse는 bool값을 넣어준다. False이면 오름차순 / True이면 내림차순으로 정렬할 수 있다.
+  - key는 정렬을 목적으로 하는 함수를 값으로 넣어주면 된다. lambda를 이용할 수 있다. 즉, key값을 기준으로 정렬이 되고 기본값은 오름차순이다.
+  - [관련 블로그](https://ooyoung.tistory.com/59)
+```python
+>>> str_list = ['좋은하루','good_morning','굿모닝','niceday']
+>>> print(sorted(str_list, key=len))  # 함수
+['굿모닝', '좋은하루', 'niceday', 'good_morning']
+
+>>> print(sorted(str_list, key=lambda x : x[1]))  # 람다
+['niceday', 'good_morning', '굿모닝', '좋은하루']
+# lambda x 에서 x는 리스트의 요소 1개를 의미
+```
+
 <br>
 
 ### global 사용하기
@@ -791,7 +816,7 @@ print(list(n))
 
 <br>
 
-- **set 함수 예시**
+### set 함수 예시
 ```python
 print(set(range(0, 2)))
 
@@ -804,70 +829,49 @@ print(set(range(0, 3)) - set(range(0, 2)))
 
 <br>
 
-- **range 함수의 마지막 매개변수는 range의 간격을 지정해준다**
+### range 함수의 마지막 매개변수는 range의 간격을 지정
   - print(list(range(1, 11, 2))) / [1, 3, 5, 7, 9]
   - 이렇게하면 원래는 1부터 10까지 출력되지만, 간격이 2이기 때문에 1부터 2씩 증가된 수가 출력된다
 
 <br>
 
-- **join 함수 사용하기**
+### join 함수 사용하기
   - ‘구분자’.join(리스트) / 이러한 원형으로 매개변수로 들어온 리스트에 있는 요소 하나하나 사이에 구분자를 넣어서 하나의 문자열로 합쳐주는 함수이다. 구분자는 공백일 수도 있다. 
   - [관련 블로그](https://blockdmask.tistory.com/468)
 
 <br>
 
-- **map 함수 사용하기**
-  - map(적용할 함수, 반복 가능한 자료형)
-  - map 함수를 활용하면 모든 반복가능 자료형 데이터 각각에 함수를 적용시킬 수 있다.
-
-<br>
-
-- **루트 계산 관련**
+### 루트 계산 관련
   - print(4 ** 0.5) / 2
   - 루트 4를 의미하니까 2가 출력된다
 
 <br>
 
+### 정수 연산 예시
 - **12%1 = 0, 12//3 = 4, 12/3 = 4.0, 0%5 = 0, 1%5 = 1**
 
 <br>
 
+### 반복문에서 조건이 맞지 않을 때 반복문을 종료시키지 않고 맨 처음의 조건문으로 보내주는 continue
 - **continue는 반복문에서 조건이 맞지 않을 때 반복문을 종료시키지 않고 맨 처음의 조건문으로 보내주는 역할을 한다.**
   - **pass는 어떤 조건문에 대해서 아무런 실행을 하지 않고 아래 코드를 이어서 실행하게 된다. 반면에 continue는 맨 처음 조건문으로 돌아가면서 아래 코드를 실행하지 않는다.**
   - [관련 블로그](https://securityspecialist.tistory.com/73)
 
 <br>
 
-- **sort, sorted 모두 key, reverse 매개변수를 갖고 있다**
-  - reverse는 bool값을 넣어준다. False이면 오름차순 / True이면 내림차순으로 정렬할 수 있다.
-  - key는 정렬을 목적으로 하는 함수를 값으로 넣어주면 된다. lambda를 이용할 수 있다. 즉, key값을 기준으로 정렬이 되고 기본값은 오름차순이다.
-  - [관련 블로그](https://ooyoung.tistory.com/59)
-```python
->>> str_list = ['좋은하루','good_morning','굿모닝','niceday']
->>> print(sorted(str_list, key=len))  # 함수
-['굿모닝', '좋은하루', 'niceday', 'good_morning']
-
->>> print(sorted(str_list, key=lambda x : x[1]))  # 람다
-['niceday', 'good_morning', '굿모닝', '좋은하루']
-# lambda x 에서 x는 리스트의 요소 1개를 의미
-```
-
-<br>
-
-- **문자열 반복하기**
+### 문자열 반복하기
   - print("6"*3, "10"*3, "2"*3) / 666 101010 222
 
 <br>
 
-- **리스트에서 원하는 값 제거하는 방법**
+### 리스트에서 원하는 값 제거하는 방법
   - 리스트에 remove 함수 / 반복문 사용 / del 키워드 / pop 함수 / clear 함수를 이용해 원하는 값을 제거할 수 있다.
   - [관련 블로그](https://zeroaan.github.io/python/2020/05/02/Python-List%EC%97%90%EC%84%9C-%EC%9B%90%ED%95%98%EB%8A%94-%EA%B0%92-%EC%A0%9C%EA%B1%B0%ED%95%98%EA%B8%B0.html)
 
 <br>
 
-- **def 함수를 정의하고 밑에 코드에서 return을 정의하면, 나중에 return이 실제로 실행될 때 그 즉시 함수가 종료되면서 return 값이 나오게 된다.**
 
-<br>
+
 
 ### Ideas
 
