@@ -47,6 +47,18 @@
   - [리스트를 만드는 다른 방법](#리스트를-만드는-다른-방법)
   - [10진수 숫자를 이진수 문자열로 돌려주는 bin 함수](#10진수-숫자를-이진수-문자열로-돌려주는-bin-함수)
   - [리스트 요소 순서 거꾸로 하기](#리스트-요소-순서-거꾸로-하기)
+  - [for문으로 범위 설정하기](#for문으로-범위-설정하기)
+  - [max와 min 함수](#max와-min-함수)
+  - [map 함수 사용하기](#map-함수-사용하기)
+  - [해당 매개변수가 지정한 타입이 맞는지 확인하는 isinstance 함수](#해당-매개변수가-지정한-타입이-맞는지-확인하는-isinstance-함수)
+  - [문자열을 split를 이용해 나누게 되면 리스트 형태](#문자열을-split를-이용해-나누게-되면-리스트-형태)
+  - [인덱스와 함께 요소들을 뽑아낼 수 있는 enumerate 함수](#인덱스와-함께-요소들을-뽑아낼-수-있는-enumerate-함수)
+  - [리스트 슬라이싱](#리스트-슬라이싱)
+  - [sort 함수와 sorted 함수](#sort-함수와-sorted-함수)
+  - [global 사용하기](#global-사용하기)
+  - [병합 연산자 사용하기](#병합-연산자-사용하기)
+  - [permutation 함수로 순열 만들기](#permutation-함수로-순열-만들기)
+  - [문자열 변수로 리스트를 만드는 list 함수](#문자열-변수로-리스트를-만드는-list-함수)
 
 
 <br>
@@ -358,6 +370,7 @@ IT IS TIME
 2
 ```
 - 중복되는 문자열이 여러개있으면 처음 발견되는 인덱스 번호를 출력해준다. 
+- array.count(i) / 리스트에서 i라는 요소의 개수를 출력한다.
 
 <br>
 
@@ -650,22 +663,16 @@ YES
 
 <br>
 
-- **array.sort()** / 리스트 오름차순 정렬
-
-<br>
-
-- **array.count(i)** / 리스트에서 i라는 요소의 개수
-
-<br>
-
+### for문으로 범위 설정하기
 - **for i in range(~, ~)** / 범위 for문
-
-<br>
 
 - **for _ in range(n+1)** / 데이터 n개 for문
 
+- **for i in range(1, m+1)** / 1부터 m까지 for문으로 뽑기
+
 <br>
 
+### max와 min 함수
 - **max(~, ~)** / 둘 중 최댓값, **min(~, ~)** / 둘 중 최솟값
 ```python
 print(min(7, 5))
@@ -678,34 +685,29 @@ print(max(7, 5))
 
 <br>
 
+### map 함수 사용하기
 - **array = [1,2,3,4]가 있을 때, 모든 요소들을 문자열로 만들고 싶다면 map(str, array) 이렇게 해주면 된다.**
   - ex) array = [1,2,3,4], print(list(map(str, array))) 라고 입력하면 ['1', '2', '3', '4']
 
-<br>
-
 - **n, m = map(int, input().split())** / 숫자들을 공백 기준으로 따로 변수에 저장
-
-<br>
 
 - **data = list(map(int, input().split()))** / 숫자들을 공백 기준으로 입력받고 리스트로 저장
 
 <br>
 
-- **for i in range(1, m+1)** / 1부터 m까지 for문으로 뽑기
-
-<br>
-
+### 해당 매개변수가 지정한 타입이 맞는지 확인하는 isinstance 함수
 - **isinstance(1.2, float)** / 해당 매개변수가 지정한 타입이 맞는지 확인하는 함수
   - [관련 블로그](https://brownbears.tistory.com/155)
 
 <br>
 
+### 문자열을 split를 이용해 나누게 되면 리스트 형태
 - **string = "Hello World!", string3 = string.split(' '), print(string3) 하게되면 ['Hello', 'World!']** / 문자열을 split를 이용해 나누게 되면 리스트 형태가 된다.
   - [관련 블로그](https://wikidocs.net/2839)
 
 <br>
 
-- **enumerate 함수**
+### 인덱스와 함께 요소들을 뽑아낼 수 있는 enumerate 함수
 ```python
 a = [23, 12, 36, 53, 19]
 for x in enumerate(a):
@@ -734,30 +736,34 @@ for x in enumerate(a):
 
 <br>
 
+### 리스트 슬라이싱
 - **array[1:5]** 이렇게 슬라이싱하면, 인덱스 1부터 4까지 슬라이싱된다.
   - ex) my_list = [“Mitch”, [3,6,7], [“yellow”, 5, 6]] 라고할 때, my_list[1][1:3]이면 -> [6,7] 슬라이싱
 
 <br>
 
+### sort 함수와 sorted 함수
 - **리스트를 정렬할 때 사용하는 sort 함수와 sorted 함수의 차이점**
-  - sort 함수는 리스트명.sort() 형식으로 리스트의 원본값을 직접 수정하며 리턴값이 None이다. 
+  - sort 함수는 리스트명.sort() 형식으로 리스트의 원본값을 직접 수정하며 리턴값이 None이다. 기본적으로 오름차순 정렬을 진행한다.
   - sorted 함수는 sorted(리스트명) 형식으로 리스트의 원본값은 그대로이고 새로운 리스트를 만들어 정렬값을 반환한다.
   - [관련 블로그](https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=wideeyed&logNo=221745416992&redirect=Dlog&widgetTypeCall=true&directAccess=false)
 
 <br>
 
-- **global 사용하기**
+### global 사용하기
   - 함수밖에서 선언되는 변수를 “전역 변수”라고 하는데, 그 전역 변수의 값을 함수 안에서 변경하려면 global이라는 키워드를 사용해서 선언해주면 변경할 수 있다.
   - [관련 블로그](https://codingpractices.tistory.com/entry/Python-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%B4%9D-%EC%A0%95%EB%A6%AC-global-nonlocal)
 
 <br>
 
-- **|= 연산자 사용하기**
+### 병합 연산자 사용하기
+- |= 연산자 사용하기
   - 병합 연산자로 union 즉, 합집합을 의미한다.
   - [관련 블로그](https://velog.io/@nayoon-kim/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%97%B0%EC%82%B0%EC%9E%90) 
 
 <br>
 
+### permutation 함수로 순열 만들기
 - **itertools.permutation 함수로 순열 만들기**
   - 이 함수를 사용하면 for문을 사용하지 않고도 순열을 구할 수 있다
   - **순열이란, 조합과 다르게 순서가 중요하다. 대표적으로 총 5개의 카드에서 3장을 뽑아 3자리 숫자를 만들어 줄을 세우는 경우를 생각할 수 있다.**
@@ -775,7 +781,7 @@ print(list(map(''.join, permutations(pool, 2)))) # 2개의 원소로 수열 만�
 
 <br>
 
-- **list 함수 예시**
+### 문자열 변수로 리스트를 만드는 list 함수
 ```python
 n = "17"
 print(list(n))
