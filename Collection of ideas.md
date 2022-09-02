@@ -25,6 +25,17 @@
   - [문자열 관련 find와 count 함수](#문자열-관련-find와-count-함수)
   - [문자열을 전부 대문자 혹은 소문자로 바꾸는 upper와 lower 함수](#문자열을-전부-대문자-혹은-소문자로-바꾸는-upper와-lower-함수)
   - [2중 for문으로 별 5개부터 1개 출력하기](#2중-for문으로-별-5개부터-1개-출력하기)
+  - [N의 약수 출력하기](#n의-약수-출력하기)
+  - [for와 else 구문](#for와-else-구문)
+  - [range로 10부터 1까지 출력하기](#range로-10부터-1까지-출력하기)
+  - [range를 변수로 리스트 만들기](#range를-변수로-리스트-만들기)
+  - [if elif else문은 하나의 문장 구조](#if-elif-else문은-하나의-문장-구조)
+  - [실수와 정수 더하면 Type은 실수형](#실수와-정수-더하면-type은-실수형)
+  - [List Comprehension](#list-comprehension)
+  - [zip 함수를 이용해 같은 인덱스에 해당하는 요소들을 뽑기](#zip-함수를-이용해-같은-인덱스에-해당하는-요소들을-뽑기)
+  - [값 교환하기](#값-교환하기)
+  - [if else나 for else는 같은 인덴트로 작성하고 다른 문의 경우에는 한 인덱스 들여쓰고 쓰는 예시](#if-else나-for-else는-같은-인덴트로-작성하고-다른-문의-경우에는-한-인덱스-들여쓰고-쓰는-예시)
+  - [append와 extend 차이점](#append와-extend-차이점)
 
 <br>
 
@@ -363,7 +374,7 @@ for i in range(5):
 
 <br>
 
-- **N의 약수 출력하기**
+### N의 약수 출력하기
 ```python
 n = int(input())
 for i in range(1, n+1):
@@ -373,7 +384,7 @@ for i in range(1, n+1):
 
 <br>
 
-- **for - else 구문**
+### for와 else 구문
 ```python
 for i in range(1, 11):
 	print(i)
@@ -386,7 +397,7 @@ else:
 
 <br>
 
-- **range로 10부터 1까지 출력하기**
+### range로 10부터 1까지 출력하기
 ```python
 for i in range(10, 0, -1):
 	print(i)
@@ -395,7 +406,7 @@ for i in range(10, 0, -1):
 
 <br>
 
-- **range을 변수에 넣어서도 사용가능**
+### range를 변수로 리스트 만들기
 ```python
 a = range(10)
 print(list(a))
@@ -405,7 +416,7 @@ print(list(a))
 
 <br>
 
-- **if - elif - else문은 하나의 문장 구조이다.**
+### if elif else문은 하나의 문장 구조
 ```python
 x = 93
 If x >= 90:
@@ -435,7 +446,7 @@ C
 
 <br>
 
-- **실수와 정수 더하면 Type은 실수형이 된다.**
+### 실수와 정수 더하면 Type은 실수형
 ```python
 a = 4.3
 b = 5
@@ -448,7 +459,7 @@ float
 
 <br>
 
-- **List Comprehension**
+### List Comprehension
   - 코드 한 줄로 기존 list에서 원하는 조건을 충족하는 값으로 이루어진 새로운 list 만들기
 ```python
 # [ 변수 for 변수 in 기존리스트 if 조건]
@@ -467,7 +478,7 @@ print(visited)
 
 <br>
 
-- **서로 다른 리스트나 문자열을 zip 함수를 이용해 같은 인덱스에 해당하는 요소들을 뽑기**
+### zip 함수를 이용해 같은 인덱스에 해당하는 요소들을 뽑기
 ```python
 numbers = [1,2,3]
 letters = ["A", "B", "C"]
@@ -484,7 +495,7 @@ for pair in zip(numbers, letters):
 
 <br>
 
-- **값 교환하기**
+### 값 교환하기
 ```python
 a, b = 10, 20
 print(a, b)
@@ -497,11 +508,7 @@ print(a, b)
 
 <br>
 
-- **len(array)** / 리스트 요소 개수
-
-<br>
-
-- **if - else나 for-else는 같은 인덴트로 작성 / 다른 문의 경우에는 한 인덱스 들여쓰고 쓰기**
+### if else나 for else는 같은 인덴트로 작성하고 다른 문의 경우에는 한 인덱스 들여쓰고 쓰는 예시
 
 ```python
 if … :
@@ -523,7 +530,7 @@ def
 
 <br>
 
-- **append 와 extend 차이점**
+### append와 extend 차이점
   - a = [1,2,3]이고 b = [3,4,5]일 때, a.append(b)는 a = [1,2,3,[3,4,5]] / a.extend(b)는 a = [1, 2, 3, 3, 4, 5] 가 된다.
   - [관련 블로그](https://m.blog.naver.com/wideeyed/221541104629)
 
