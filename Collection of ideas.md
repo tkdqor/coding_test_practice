@@ -877,6 +877,14 @@ print(list(n))
   - [계수요소](#계수요소)
     - [주어진 리스트의 요소들을 새로운 리스트를 만들어서 중복없이 담아내기](#주어진-리스트의-요소들을-새로운-리스트를-만들어서-중복없이-담아내기)
     - [주어진 리스트의 요소들이 1부터 N까지 1씩 증가하는지 확인하기](#주어진-리스트의-요소들이-1부터-n까지-1씩-증가하는지-확인하기)
+    - [리스트를 정렬해서 리스트에는 없는 가장 작은 양의 정수를 찾기](#리스트를-정렬해서-리스트에는-없는-가장-작은-양의-정수를-찾기)
+  - [시간복잡도](#시간복잡도)
+    - [서로 다른 두 위치의 거리를 변수로 설정해서 가는 횟수 구하기](#서로-다른-두-위치의-거리를-변수로-설정해서-가는-횟수-구하기)
+    - [1부터 1씩 커지는 요소가 들어있는 리스트에서 비어있는 요소 찾기](#1부터-1씩-커지는-요소가-들어있는-리스트에서-비어있는-요소-찾기)
+    - [리스트 요소마다 절대값 적용하기](#리스트-요소마다-절대값-적용하기)
+  - [배열](#배열)
+    - [리스트 요소의 갯수가 홀수이고 쌍을 이룰 때 쌍을 이루지 않는 요소 찾기](#리스트-요소의-갯수가-홀수이고-쌍을-이룰-때-쌍을-이루지-않는-요소-찾기)
+    - [주어진 리스트를 enumerate 함수로 인덱스와 값을 뽑고 해시에 key와 value로 정의하기](#주어진-리스트를-enumerate-함수로-인덱스와-값을-뽑고-해시에-key와-value로-정의하기)
    
 
 <br>
@@ -884,44 +892,58 @@ print(list(n))
 ## 계수요소
 
 ### 주어진 리스트의 요소들을 새로운 리스트를 만들어서 중복없이 담아내기
-- **해당 문제에서는 => A라는 리스트의 가장 큰 수가 X라고 할 때, B라는 리스트를 새롭게 생성하고 A 리스트의 요소들을 중복없이 담아내면, B 리스트 요소의 총합과 sum(range(1, X+1))의 값이 같게 된다.**
+- 해당 문제에서는 => A라는 리스트의 가장 큰 수가 X라고 할 때, B라는 리스트를 새롭게 생성하고 A 리스트의 요소들을 중복없이 담아내면, B 리스트 요소의 총합과 sum(range(1, X+1))의 값이 같게 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/FrogRiverOne.py)
 
 <br>
 
 ### 주어진 리스트의 요소들이 1부터 N까지 1씩 증가하는지 확인하기
-- **A라는 리스트가 N개의 요소가 있을 때, 해당 리스트가 [1,2,3, …N]이 되는지 확인하는 문제 - A의 합과 / 1부터 A의 개수인 숫자까지 더한 값이 같다면, 조건에 맞는 리스트가 맞다.**
+- A라는 리스트가 N개의 요소가 있을 때, 해당 리스트가 [1,2,3, …N]이 되는지 확인하는 문제 - A의 합과 / 1부터 A의 개수인 숫자까지 더한 값이 같다면, 조건에 맞는 리스트가 맞다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/PermCheck.py)
 
 <br>
 
-- **리스트 A에는 없는 가장 작은 양의 정수를 반환하는 문제 - 먼저 sort()로 오름차순 정렬을 한 다음, A = list(set(A)) 이렇게 set으로 중복을 제거. 그리고 missingdata = 1 이렇게 처음에는 없는 양의 정수를 1로 고정시킨 상태에서 A 리스트의 요소를 하나씩 빼서 missingdata와 비교하기. 만약 같다면 missingdata를 1씩 올려주고 같지 않다면 그 때 시점의 missingdata가 리스트에 없는 가장 작은 양의 정수가 된다.**
+### 리스트를 정렬해서 리스트에는 없는 가장 작은 양의 정수를 찾기
+- 리스트 A에는 없는 가장 작은 양의 정수를 반환하는 문제 - 먼저 sort()로 오름차순 정렬을 한 다음, A = list(set(A)) 이렇게 set으로 중복을 제거. 그리고 missingdata = 1 이렇게 처음에는 없는 양의 정수를 1로 고정시킨 상태에서 A 리스트의 요소를 하나씩 빼서 missingdata와 비교하기. 만약 같다면 missingdata를 1씩 올려주고 같지 않다면 그 때 시점의 missingdata가 리스트에 없는 가장 작은 양의 정수가 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/MissingInteger.py)
 
 
 <br>
 
-### 시간복잡도
-- **X라는 위치에서 Y라는 위치까지 D씩 뛰어서 가는 방법을 구할 때, Y-X를 distance라는 변수로 두고 distance % D가 0이라면 distance // D 의 값인 X가, D가 몇번 반복되면 되는지 알려준다. 그리고 나눈 나머지보다 D가 더 크다면 정답은 X+1번이 된다.**
+## 시간복잡도
+
+### 서로 다른 두 위치의 거리를 변수로 설정해서 가는 횟수 구하기
+- X라는 위치에서 Y라는 위치까지 D씩 뛰어서 가는 방법을 구할 때, Y-X를 distance라는 변수로 두고 distance % D가 0이라면 distance // D 의 값인 X가, D가 몇번 반복되면 되는지 알려준다. 그리고 나눈 나머지보다 D가 더 크다면 정답은 X+1번이 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/Frogjmp.py)
 
-- **리스트 A가 범위가 1부터 시작해서 1씩 커지고 n개를 가지고 있을 때, 순서에서 비어있는 1개의 원소를 찾는 것이 목표인 문제**
+<br>
+
+### 1부터 1씩 커지는 요소가 들어있는 리스트에서 비어있는 요소 찾기
+- 리스트 A가 범위가 1부터 시작해서 1씩 커지고 n개를 가지고 있을 때, 순서에서 비어있는 1개의 원소를 찾는 것이 목표인 문제
   - 원소가 없는 A 리스트일 경우에는 1을 return 값으로 주고, 만약 리스트 A의 개수가 현재 4개라면 1개가 비었으니 원래 리스트 A의 개수는 5개이어야 한다.
   - 따라서 result = sum(range(1, len(A)+2)) - sum(A) 이렇게 1부터 5까지를 더한 수에서 - 현재 리스트 A를 다 더한 수를 빼주면 비어있는 수를 알 수 있게 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/PermMissingElem.py)
 
-- **answer = list(map(abs, result_list)) ==> 이런식으로 리스트 요소마다 절대값을 적용할 수 있다.**
+<br>
+
+### 리스트 요소마다 절대값 적용하기
+- answer = list(map(abs, result_list)) ==> 이런식으로 리스트 요소마다 절대값을 적용할 수 있다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/TapeEquilibrium.py)
   - [관련 블로그](https://blockdmask.tistory.com/380)
 
 <br>
 
-### 배열
-- **리스트 요소의 갯수가 홀수이고 쌍을 이루는 요소들이 있을 때, 정렬을 해서 2개씩 뽑다보면 처음 뽑은 수가 쌍을 이루지 않는 하나의 요소가 될 수 있다. 그래서 2개씩 뽑을 때, 그 2개가 다르다면 첫번째가 쌍을 이루지 않는 요소가 된다.**
+## 배열
+
+### 리스트 요소의 갯수가 홀수이고 쌍을 이룰 때 쌍을 이루지 않는 요소 찾기
+- 리스트 요소의 갯수가 홀수이고 쌍을 이루는 요소들이 있을 때, 정렬을 해서 2개씩 뽑다보면 처음 뽑은 수가 쌍을 이루지 않는 하나의 요소가 될 수 있다. 그래서 2개씩 뽑을 때, 그 2개가 다르다면 첫번째가 쌍을 이루지 않는 요소가 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EB%B0%B0%EC%97%B4/OddOccurrencesInArray.py)
   - [관련 블로그](https://smecsm.tistory.com/205)
 
-- **주어진 리스트를 enumerate 함수를 사용하여 인덱스와 값을 차례대로 뽑은 다음, hash_map = {}에 key와 value로 정의. 그 다음, 해당 hash_map의 key만 뽑을 수 있는 keys() 함수를 이용해 새로운 리스트를 정의할 수 있다.**
+<br>
+
+### 주어진 리스트를 enumerate 함수로 인덱스와 값을 뽑고 해시에 key와 value로 정의하기
+- 주어진 리스트를 enumerate 함수를 사용하여 인덱스와 값을 차례대로 뽑은 다음, hash_map = {}에 key와 value로 정의. 그 다음, 해당 hash_map의 key만 뽑을 수 있는 keys() 함수를 이용해 새로운 리스트를 정의할 수 있다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EB%B0%B0%EC%97%B4/CyclicRotation.py)
 
 <br>
