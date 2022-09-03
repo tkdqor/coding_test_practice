@@ -873,12 +873,27 @@ print(list(n))
 
 ### Ideas
 
-### 계수요소
+- 📖 **Contents**
+  - [계수요소](#계수요소)
+    - [주어진 리스트의 요소들을 새로운 리스트를 만들어서 중복없이 담아내기](#주어진-리스트의-요소들을-새로운-리스트를-만들어서-중복없이-담아내기)
+    - [주어진 리스트의 요소들이 1부터 N까지 1씩 증가하는지 확인하기](#주어진-리스트의-요소들이-1부터-n까지-1씩-증가하는지-확인하기)
+   
+
+<br>
+
+## 계수요소
+
+### 주어진 리스트의 요소들을 새로운 리스트를 만들어서 중복없이 담아내기
 - **해당 문제에서는 => A라는 리스트의 가장 큰 수가 X라고 할 때, B라는 리스트를 새롭게 생성하고 A 리스트의 요소들을 중복없이 담아내면, B 리스트 요소의 총합과 sum(range(1, X+1))의 값이 같게 된다.**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/FrogRiverOne.py)
 
+<br>
+
+### 주어진 리스트의 요소들이 1부터 N까지 1씩 증가하는지 확인하기
 - **A라는 리스트가 N개의 요소가 있을 때, 해당 리스트가 [1,2,3, …N]이 되는지 확인하는 문제 - A의 합과 / 1부터 A의 개수인 숫자까지 더한 값이 같다면, 조건에 맞는 리스트가 맞다.**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/PermCheck.py)
+
+<br>
 
 - **리스트 A에는 없는 가장 작은 양의 정수를 반환하는 문제 - 먼저 sort()로 오름차순 정렬을 한 다음, A = list(set(A)) 이렇게 set으로 중복을 제거. 그리고 missingdata = 1 이렇게 처음에는 없는 양의 정수를 1로 고정시킨 상태에서 A 리스트의 요소를 하나씩 빼서 missingdata와 비교하기. 만약 같다면 missingdata를 1씩 올려주고 같지 않다면 그 때 시점의 missingdata가 리스트에 없는 가장 작은 양의 정수가 된다.**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/MissingInteger.py)
