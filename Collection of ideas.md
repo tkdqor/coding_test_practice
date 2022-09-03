@@ -26,7 +26,7 @@
   - [문자열을 전부 대문자 혹은 소문자로 바꾸는 upper와 lower 함수](#문자열을-전부-대문자-혹은-소문자로-바꾸는-upper와-lower-함수)
   - [2중 for문으로 별 5개부터 1개 출력하기](#2중-for문으로-별-5개부터-1개-출력하기)
   - [N의 약수 출력하기](#n의-약수-출력하기)
-  - [for와 else 구문](#for와-else-구문)
+  - [for와 else 구문 그리고 break](#for와-else-구문-그리고-break)
   - [range로 10부터 1까지 출력하기](#range로-10부터-1까지-출력하기)
   - [range를 변수로 리스트 만들기](#range를-변수로-리스트-만들기)
   - [if elif else문은 하나의 문장 구조](#if-elif-else문은-하나의-문장-구조)
@@ -427,7 +427,7 @@ for i in range(1, n+1):
 
 <br>
 
-### for와 else 구문
+### for와 else 구문 그리고 break
 ```python
 for i in range(1, 11):
 	print(i)
