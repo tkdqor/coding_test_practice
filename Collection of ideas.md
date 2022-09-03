@@ -26,7 +26,7 @@
   - [문자열을 전부 대문자 혹은 소문자로 바꾸는 upper와 lower 함수](#문자열을-전부-대문자-혹은-소문자로-바꾸는-upper와-lower-함수)
   - [2중 for문으로 별 5개부터 1개 출력하기](#2중-for문으로-별-5개부터-1개-출력하기)
   - [N의 약수 출력하기](#n의-약수-출력하기)
-  - [for와 else 구문](#for와-else-구문)
+  - [for와 else 구문 그리고 break](#for와-else-구문-그리고-break)
   - [range로 10부터 1까지 출력하기](#range로-10부터-1까지-출력하기)
   - [range를 변수로 리스트 만들기](#range를-변수로-리스트-만들기)
   - [if elif else문은 하나의 문장 구조](#if-elif-else문은-하나의-문장-구조)
@@ -427,7 +427,7 @@ for i in range(1, n+1):
 
 <br>
 
-### for와 else 구문
+### for와 else 구문 그리고 break
 ```python
 for i in range(1, 11):
 	print(i)
@@ -437,6 +437,7 @@ else:
 	print(11)
 ```
 - 위의 경우, for문이 1부터 10까지 빼서 출력하다가 if i == 5에서 브레이크를 수행한다. 이렇게 정상적인 종료를 하지 않고 중간에 브레이크를 당해 끝내버리면, else를 실행시키지 않는다. 근데 만약 for문이 정상적으로 브레이크를 당하지 않고 정상 종료를 했다면, 마지막에 else 밑에 있는 코드들을 실행시킨다.
+- 위와같이 for문을 중지하고 싶을 때는 break를 사용한다.
 
 <br>
 
@@ -1091,7 +1092,22 @@ tkdqor
   - ex) 이진수 10010001, index_list = [0, 3, 7] 이렇게 리스트를 만들 수 있다. 그리고 index_list[1] - index_list[0] -1 = 2가 1과 1사이의 0 개수이고, index_list[2] - index_list[1] -1 = 3이 뒤에 있는 1과 1사이의 0 개수가 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EB%B0%98%EB%B3%B5/binarygap.py)
 
+<br>
+
 - **CSV 형태와 같은 데이터 파싱 문제**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/csv%ED%8C%8C%EC%8B%B1/csv%ED%8C%8C%EC%8B%B1%20%EB%AC%B8%EC%A0%9C.py)   
   - 특정 데이터가 주어졌을 때, 해당 데이터를 정해진 조건의 이름으로 변경하는 문제 
   - 해시로 key별로 그룹화 진행 후, value값 오름차순 정렬. 변경한 이름을 해시 value 리스트에 추가하고 문제에 맞게 정렬하는 과정
+
+<br>
+
+- **요소를 전부 0으로 초기화한 리스트의 인덱스를 어떤 수들의 합이라고 생각할 수 있다.**
+  - 그래서 해당 합이 되면, 리스트의 요소를 1씩 추가해주고 어떤 합이 가장 많이 나왔는지 확인할 수 있다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EC%A0%95%EB%8B%A4%EB%A9%B4%EC%B2%B4.py)
+
+<br>
+
+- **어떤 수 x가 있을 때, 그 수의 자릿수의 합을 구하는 문제**
+  - 첫번째로, x를 10으로 나눈 몫으로 바꿔주면서 x를 10으로 나눈 나머지를 계속 더해주면 된다. ex) 125를 10으로 나눈 나머지는 5가 되고 몫은 12가 된다. 12를 다시 10으로 나누면 나머지는 2가 되고 몫은 1이 된다. 마지막으로 1을 10으로 나누면 나머지는 1이 되고 몫은 0이 된다.
+  - 두번째 방법은, 어떤 수 x를 str로 문자열로 바꾸고 for문으로 하나씩 뽑은 다음, 다시 int로 정수화해서 더해주면 된다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EC%9E%90%EB%A6%BF%EC%88%98%EC%9D%98%20%ED%95%A9.py)
