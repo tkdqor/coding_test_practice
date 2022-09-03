@@ -974,9 +974,15 @@ print(list(n))
 
 - **로또 번호 순위 리스트에 미리 정의해놓기, 일치번호 개수와 불일치번호 개수로 나누기**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%A0%95%EB%A0%AC/%EB%A1%9C%EB%98%90%EC%9D%98%20%EC%B5%9C%EA%B3%A0%20%EC%88%9C%EC%9C%84%EC%99%80%20%EC%B5%9C%EC%A0%80%20%EC%88%9C%EC%9C%84.py)
+
+<br>
+
 - **2차원 배열에서 리스트 뽑기**
   - 2차원 배열에서 리스트 뽑을 때는 for문을 사용하면 된다. ex) commands = [[2, 5, 3], [4, 4, 1], [1, 7, 3]] 일 때, for command in commands: i,j,k = command 이렇게하면 i = 2, j = 5, k = 3 이렇게 변수 지정 가능.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%A0%95%EB%A0%AC/K%EB%B2%88%EC%A7%B8%20%EC%88%98.py)
+
+<br>
+
 - **문자형태의 숫자를 비교할 때 \*로 문자열의 길이를 늘려서 비교해볼 수도 있다**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%A0%95%EB%A0%AC/%EA%B0%80%EC%9E%A5%20%ED%81%B0%20%EC%88%98.py)
   - 문자열로 되어있는 숫자들이 들어있는 리스트를 정렬해보면, 아래처럼 문자열의 첫번째 인덱스 수가 크면 내림차순 시, 먼저 나온다. 그리고 첫번째 인덱스 수가 같으면 그 다음 인덱스를 비교한다. 없으면 더 인덱스가 많은 수가 큰 수가 된다.
@@ -996,11 +1002,23 @@ print(array)
 
 ['387', '3', '31', '300']
 ```
+
+<br>
+
 - **리스트가 있을 때, 오름차순 정렬을 한 다음에 총 개수에서 특정 인덱스를 차감하면 -> 특정 인덱스 데이터 포함해서 남은 리스트 요소의 개수가 된다. 그리고 남은 리스트 요소들은 특정 인덱스 값보다 크다는 것을 알 수 있다.**
   - ex)정렬된 상태라고 생각하고 총 5개에서 인덱스 2를 빼면 -> 3이니까 인덱스 2 데이터 포함해서 뒤에 3개가 남아있다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%A0%95%EB%A0%AC/H-Index.py)
+
+<br>
+
 - **slice로 문자열 순서 뒤집기**
   - [관련 블로그](https://codechacha.com/ko/python-reverse-string/)
+
+<br>
+
+- **오름차순 정렬을 진행한 리스트에서 가장 큰 수는 리스트의 마지막 요소가 된다**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EC%A3%BC%EC%82%AC%EC%9C%84%20%EA%B2%8C%EC%9E%84.py)
+
 
 <br>
 
@@ -1111,3 +1129,30 @@ tkdqor
   - 첫번째로, x를 10으로 나눈 몫으로 바꿔주면서 x를 10으로 나눈 나머지를 계속 더해주면 된다. ex) 125를 10으로 나눈 나머지는 5가 되고 몫은 12가 된다. 12를 다시 10으로 나누면 나머지는 2가 되고 몫은 1이 된다. 마지막으로 1을 10으로 나누면 나머지는 1이 되고 몫은 0이 된다.
   - 두번째 방법은, 어떤 수 x를 str로 문자열로 바꾸고 for문으로 하나씩 뽑은 다음, 다시 int로 정수화해서 더해주면 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EC%9E%90%EB%A6%BF%EC%88%98%EC%9D%98%20%ED%95%A9.py)
+
+<br>
+
+- **어떤 숫자가 주어질 때, 1부터 그 숫자까지의 범위안에 소수를 구하는 방법**
+  - 값이 모두 0인 리스트를 생성하고 이 리스트의 인덱스가 1부터 주어진 숫자까지라고 생각하기.
+  - 2부터 숫자 n까지 for문으로 뽑아서 리스트 요소가 0이면 소수 개수 변수를 1증가 시킨다. 그리고 2의 배수, 3의 배수 이렇게 배수들을 뽑아서 해당되는 리스트 인덱스에 값을 1로 바꿔준다. 최종적으로 리스트에 값이 0인 인덱스들이 소수가 된다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EC%86%8C%EC%88%98.py)
+
+<br>
+
+- **어떤 숫자 x가 주어질 때, 그 숫자를 뒤집은 숫자를 만들기 위한 방법**
+  - t = x % 10으로 한 자리씩 선택하고 res = (res * 10) + t라는 식으로 기존의 뒤집은 숫자를 * 10해서 한자리씩 증가시켜주고 새롭게 뒤집은 수를 일의 자리로 하기 위해 더해준다. 그 다음 주어진 수 x를 x = x // 10으로 바꿔주고 반복하면 된다.
+  - 최종적으로 res 값이 주어진 수 x를 뒤집은 수가 된다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EB%92%A4%EC%A7%91%EC%9D%80%20%EC%86%8C%EC%88%98.py)
+
+<br>
+
+- **특정 숫자가 소수인지 아닌지 확인하는 방법**
+  - 16이라는 수가 주어졌을 때, 소수인지 확인하려면 16이 약수가 있는지 보면 된다.
+  - 1과 16 자기자신을 빼고 약수는 자기자신 절반인 8까지에서 존재하게 된다. 16의 약수를 구하라고 하면 1*16, 2*8이니까 소수인지 확인할 때는 절반까지만 for문으로 확인하면 된다.
+  - 그래서 16를 2부터 8까지 차례대로 나눴을 때 나머지가 0이 하나라도 있다면 16은 약수가 있으니 소수가 될 수 없다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EB%92%A4%EC%A7%91%EC%9D%80%20%EC%86%8C%EC%88%98.py)
+
+<br>
+
+- **가산점을 고려한 총 점수를 계산하는 경우, 총 점수를 계산하는 sum이라는 변수와 가산점을 계산하는 cnt라는 변수로 나눠서 진행해보기**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EC%A0%90%EC%88%98%20%EA%B3%84%EC%82%B0.py)
