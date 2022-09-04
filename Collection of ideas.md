@@ -787,8 +787,11 @@ for x in enumerate(a):
 <br>
 
 ### global 사용하기
-  - 함수밖에서 선언되는 변수를 “전역 변수”라고 하는데, 그 전역 변수의 값을 함수 안에서 변경하려면 global이라는 키워드를 사용해서 선언해주면 변경할 수 있다.
+- 함수밖에서 선언되는 변수를 “전역 변수”라고 하는데, 그 전역 변수의 값을 함수 안에서 변경하려면 global이라는 키워드를 사용해서 선언해주면 변경할 수 있다.
   - [관련 블로그](https://codingpractices.tistory.com/entry/Python-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%B4%9D-%EC%A0%95%EB%A6%AC-global-nonlocal)
+
+- 참고로 **local**은 함수내에서 사용하는 "지역 변수"이다.
+- 또한, **non local**은 함수 a가 있고 그 내부에 함수 b가 있을 때 b한테 함수 a의 공간을 의미한다. 그래서, 함수 b 내부에서 함수 a의 지역변수를 가져올 때는 non local 키워드를 사용한다.
 
 <br>
 
