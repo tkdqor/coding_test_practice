@@ -868,6 +868,23 @@ print(list(n))
 
 <br>
 
+- **del 키워드 사용하기 - remove 함수는 원하는 값을 매개변수로 받아 삭제하지만 del 키워드는 인덱스를 입력 받아 삭제**
+```python
+>>> int_list = [1, 2, 3, 4, 5, 6, 7]
+>>> str_list = ['가','나','다','라','마']
+
+>>> del int_list[0]  # 한개의 요소를 삭제
+>>> print(int_list)
+[2, 3, 4, 5, 6, 7]
+
+>>> del str_list[3:]  # 여러개의 요소를 삭제
+>>> print(str_list)
+['가', '나', '다']
+```
+- [관련 블로그](https://ooyoung.tistory.com/49)
+
+<br>
+
 <hr>
 
 
