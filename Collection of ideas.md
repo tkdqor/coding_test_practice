@@ -716,6 +716,17 @@ YES
 ### 10진수 숫자를 이진수 문자열로 돌려주는 bin 함수
 - bin(number) 이렇게 전달받은 integer 혹은 long integer 자료형의 값인 10진수 숫자를 이진수(binary) 문자열로 돌려주는 함수이다.
 - print(bin(1041))하면, 0b10000010001 이렇게 출력됨
+
+```python
+a = bin(10234)
+b = a[2:]
+
+print(a)
+print(b)
+
+0b10011111111010
+10011111111010
+```
 - [관련 블로그](https://iambeginnerdeveloper.tistory.com/114)
 
 <br>
