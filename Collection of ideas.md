@@ -131,6 +131,18 @@ print(set(range(0, 3)) - set(range(0, 2)))
 <br>
 
 ### 퍼센트 포매팅
+```python
+num = 50
+s = 'my age %d' % num
+print(s)
+
+my age 50
+
+# %s -> 문자열
+# %d -> 정수
+# %f -> 실수
+```
+
 - https://blockdmask.tistory.com/428	
 
 <br>
