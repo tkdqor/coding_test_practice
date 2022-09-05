@@ -808,7 +808,19 @@ for x in enumerate(a):
 <br>
 
 - **for idx, answer in enumerate(answers):** / enumerate 함수를 사용해서 자료형에서 인덱스와 함께 요소들을 뽑아낼 수 있다.
-  - [관련 블로그](https://hckcksrl.medium.com/python-enumerate-b19ad6b94c00)
+```python
+a = [23, 53, 12, 36, 19]
+for idx, x in enumerate(a):
+    print(idx, x)
+
+0 23
+1 53
+2 12
+3 36
+4 19
+```
+
+- [관련 블로그](https://hckcksrl.medium.com/python-enumerate-b19ad6b94c00)
 
 <br>
 
