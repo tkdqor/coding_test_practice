@@ -380,6 +380,15 @@ for x in tmp:
 
 
 ### 알파벳일 경우에만 True 반환하는 isalpha 함수
+```python
+Ex1 = 'A'
+Ex2 = '100'
+print(Ex1.isalpha())
+print(Ex2.isalpha())
+
+True
+False
+```
 
 <br>
 
