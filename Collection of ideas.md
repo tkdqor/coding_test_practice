@@ -3,6 +3,7 @@
 ### Codes
 
 - 📖 **Contents**
+  - [숫자 구분자](#숫자-구분자)	
   - [소수 반올림](#소수-반올림)
   - [set 함수](#set-함수)
   - [퍼센트 포매팅](#퍼센트-포매팅)
@@ -70,6 +71,21 @@
 
 <br>
 
+### 숫자 구분자
+- python에서 변수를 정수로 입력할 때, 언더바(_)를 이용해서 세자리 단위를 표현할 수 있다. 
+
+```python
+num = 1000000
+num2 = 1_000_000
+print(num)
+print(num2)
+
+1000000
+1000000
+```
+
+<br>
+
 ### 소수 반올림
 - **python에서의 round 함수는 round_half_even 방식을 택하고 있고, 우리가 흔히 알고 있는 반올림은 round_half_up 방식으로 4까지는 내림이고 5부터는 올림을 진행한다. 그래서 다르게 해야한다.**
 ```python
@@ -115,6 +131,18 @@ print(set(range(0, 3)) - set(range(0, 2)))
 <br>
 
 ### 퍼센트 포매팅
+```python
+num = 50
+s = 'my age %d' % num
+print(s)
+
+my age 50
+
+# %s -> 문자열
+# %d -> 정수
+# %f -> 실수
+```
+
 - https://blockdmask.tistory.com/428	
 
 <br>
@@ -287,7 +315,13 @@ a = [1,2,3,4,5]
 a.pop()
 print(a)
 
-[1,2,3,4] 
+[1,2,3,4]
+
+b = [1,2,3,4,5] 
+b.pop(0)
+print(b)
+
+[2, 3, 4, 5]
 ```
 - 이렇게 pop은 리스트 맨 뒤의 요소를 하나 뺀다. 
 
@@ -346,6 +380,15 @@ for x in tmp:
 
 
 ### 알파벳일 경우에만 True 반환하는 isalpha 함수
+```python
+Ex1 = 'A'
+Ex2 = '100'
+print(Ex1.isalpha())
+print(Ex2.isalpha())
+
+True
+False
+```
 
 <br>
 
@@ -673,6 +716,17 @@ YES
 ### 10진수 숫자를 이진수 문자열로 돌려주는 bin 함수
 - bin(number) 이렇게 전달받은 integer 혹은 long integer 자료형의 값인 10진수 숫자를 이진수(binary) 문자열로 돌려주는 함수이다.
 - print(bin(1041))하면, 0b10000010001 이렇게 출력됨
+
+```python
+a = bin(10234)
+b = a[2:]
+
+print(a)
+print(b)
+
+0b10011111111010
+10011111111010
+```
 - [관련 블로그](https://iambeginnerdeveloper.tistory.com/114)
 
 <br>
@@ -754,7 +808,19 @@ for x in enumerate(a):
 <br>
 
 - **for idx, answer in enumerate(answers):** / enumerate 함수를 사용해서 자료형에서 인덱스와 함께 요소들을 뽑아낼 수 있다.
-  - [관련 블로그](https://hckcksrl.medium.com/python-enumerate-b19ad6b94c00)
+```python
+a = [23, 53, 12, 36, 19]
+for idx, x in enumerate(a):
+    print(idx, x)
+
+0 23
+1 53
+2 12
+3 36
+4 19
+```
+
+- [관련 블로그](https://hckcksrl.medium.com/python-enumerate-b19ad6b94c00)
 
 <br>
 
@@ -787,8 +853,11 @@ for x in enumerate(a):
 <br>
 
 ### global 사용하기
-  - 함수밖에서 선언되는 변수를 “전역 변수”라고 하는데, 그 전역 변수의 값을 함수 안에서 변경하려면 global이라는 키워드를 사용해서 선언해주면 변경할 수 있다.
+- 함수밖에서 선언되는 변수를 “전역 변수”라고 하는데, 그 전역 변수의 값을 함수 안에서 변경하려면 global이라는 키워드를 사용해서 선언해주면 변경할 수 있다.
   - [관련 블로그](https://codingpractices.tistory.com/entry/Python-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%B4%9D-%EC%A0%95%EB%A6%AC-global-nonlocal)
+
+- 참고로 **local**은 함수내에서 사용하는 "지역 변수"이다.
+- 또한, **non local**은 함수 a가 있고 그 내부에 함수 b가 있을 때 b한테 함수 a의 공간을 의미한다. 그래서, 함수 b 내부에서 함수 a의 지역변수를 가져올 때는 non local 키워드를 사용한다.
 
 <br>
 
@@ -868,50 +937,141 @@ print(list(n))
 
 <br>
 
+- **del 키워드 사용하기 - remove 함수는 원하는 값을 매개변수로 받아 삭제하지만 del 키워드는 인덱스를 입력 받아 삭제**
+```python
+>>> int_list = [1, 2, 3, 4, 5, 6, 7]
+>>> str_list = ['가','나','다','라','마']
 
+>>> del int_list[0]  # 한개의 요소를 삭제
+>>> print(int_list)
+[2, 3, 4, 5, 6, 7]
+
+>>> del str_list[3:]  # 여러개의 요소를 삭제
+>>> print(str_list)
+['가', '나', '다']
+```
+- [관련 블로그](https://ooyoung.tistory.com/49)
+
+<br>
+
+<hr>
 
 
 ### Ideas
 
-### 계수요소
-- **해당 문제에서는 => A라는 리스트의 가장 큰 수가 X라고 할 때, B라는 리스트를 새롭게 생성하고 A 리스트의 요소들을 중복없이 담아내면, B 리스트 요소의 총합과 sum(range(1, X+1))의 값이 같게 된다.**
+- 📖 **Contents**
+  - [계수요소](#계수요소)
+    - [주어진 리스트의 요소들을 새로운 리스트를 만들어서 중복없이 담아내기](#주어진-리스트의-요소들을-새로운-리스트를-만들어서-중복없이-담아내기)
+    - [주어진 리스트의 요소들이 1부터 N까지 1씩 증가하는지 확인하기](#주어진-리스트의-요소들이-1부터-n까지-1씩-증가하는지-확인하기)
+    - [리스트를 정렬해서 리스트에는 없는 가장 작은 양의 정수를 찾기](#리스트를-정렬해서-리스트에는-없는-가장-작은-양의-정수를-찾기)
+  - [시간복잡도](#시간복잡도)
+    - [서로 다른 두 위치의 거리를 변수로 설정해서 가는 횟수 구하기](#서로-다른-두-위치의-거리를-변수로-설정해서-가는-횟수-구하기)
+    - [1부터 1씩 커지는 요소가 들어있는 리스트에서 비어있는 요소 찾기](#1부터-1씩-커지는-요소가-들어있는-리스트에서-비어있는-요소-찾기)
+    - [리스트 요소마다 절대값 적용하기](#리스트-요소마다-절대값-적용하기)
+  - [배열](#배열)
+    - [리스트 요소의 갯수가 홀수이고 쌍을 이룰 때 쌍을 이루지 않는 요소 찾기](#리스트-요소의-갯수가-홀수이고-쌍을-이룰-때-쌍을-이루지-않는-요소-찾기)
+    - [주어진 리스트를 enumerate 함수로 인덱스와 값을 뽑고 해시에 key와 value로 정의하기](#주어진-리스트를-enumerate-함수로-인덱스와-값을-뽑고-해시에-key와-value로-정의하기)
+  - [스택과 큐](#스택과-큐)
+    - [while문으로 하루씩 지나갈 때 완료된 업무 개수 증가시키고 리스트에서 pop 진행](#while문으로-하루씩-지나갈-때-완료된-업무-개수-증가시키고-리스트에서-pop-진행)
+    - [while문 안에 for문 설정하기](#while문-안에-for문-설정하기)
+  - [완전탐색](#완전탐색)
+    - [dx 리스트와 dy 리스트로 좌표 정의하기](#dx-리스트와-dy-리스트로-좌표-정의하기)
+    - [루트 제곱근 계산 하기](#루트-제곱근-계산-하기)
+    - [리스트의 요소가 주기를 가지고 계속 반복될 때 특정 인덱스가 가리키는 요소 확인하기](#리스트의-요소가-주기를-가지고-계속-반복될-때-특정-인덱스가-가리키는-요소-확인하기)
+    - [1부터 주어진 수까지 소수 구하기](#1부터-주어진-수까지-소수-구하기)
+    - [문제에서 주어진 사각형이 격자로 이루어져 있을 때 식 만들기](#문제에서-주어진-사각형이-격자로-이루어져-있을-때-식-만들기)
+  - [정렬](#정렬)
+    - [로또 번호 일치 개수를 리스트의 인덱스라고 생각하기](#로또-번호-일치-개수를-리스트의-인덱스라고-생각하기)
+    - [for문으로 2차원 배열의 리스트 1개씩 뽑기](#for문으로-2차원-배열의-리스트-1개씩-뽑기)
+    - [문자열로 되어있는 숫자들이 들어있는 리스트 정렬하기](#문자열로-되어있는-숫자들이-들어있는-리스트-정렬하기)
+    - [리스트 오름차순 정렬 후 총 개수에서 특정 인덱스를 차감하면 해당 인덱스 요소를 포함한 남은 요소 개수가 된다](#리스트-오름차순-정렬-후-총-개수에서-특정-인덱스를-차감하면-해당-인덱스-요소를-포함한-남은-요소-개수가-된다)
+    - [슬라이싱으로 문자열 순서 뒤집기](#슬라이싱으로-문자열-순서-뒤집기)
+    - [오름차순 정렬을 진행한 리스트에서 가장 큰 수는 리스트의 마지막 요소](#오름차순-정렬을-진행한-리스트에서-가장-큰-수는-리스트의-마지막-요소)
+  - [해시](#해시)
+    - [주어진 리스트 요소들의 중복을 제거하기 위해 해시를 사용할 수 있다](#주어진-리스트-요소들의-중복을-제거하기-위해-해시를-사용할-수-있다)
+    - [주어진 리스트 요소들의 중복을 제거하기 위해 set 함수를 사용할 수 있다](#주어진-리스트-요소들의-중복을-제거하기-위해-set-함수를-사용할-수-있다)
+    - [해시 딕셔너리에 특정 키가 있는지 확인하기](#해시-딕셔너리에-특정-키가-있는지-확인하기)
+    - [리스트에 특정 값이 있는지 없는지 확인하기](#리스트에-특정-값이-있는지-없는지-확인하기)
+    - [리스트가 여러 개 있을 때 모든 리스트들을 sort해서 비교할 생각하기](#리스트가-여러-개-있을-때-모든-리스트들을-sort해서-비교할-생각하기)
+    - [문제에서 주어진 리스트 요소들을 해시 딕셔너리에 value가 1이 되게끔 추가해서 문제풀기](#문제에서-주어진-리스트-요소들을-해시-딕셔너리에-value가-1이-되게끔-추가해서-문제풀기)
+    - [빈 문자열을 변수로 지정하고 해당 변수에 한 문자열씩 더해서 문제풀기](#빈-문자열을-변수로-지정하고-해당-변수에-한-문자열씩-더해서-문제풀기)
+  - [DFS와 BFS](#dfs와-bfs)
+    - [함수에서 return 공백으로 재귀함수 1개 취소하기](#함수에서-return-공백으로-재귀함수-1개-취소하기)
+    - [1문제를 DFS 또는 BFS로 푸는 예시](#1문제를-dfs-또는-bfs로-푸는-예시)
+    - [방문여부를 확인하기 위한 리스트를 list comprehension으로 설정하기](#방문여부를-확인하기-위한-리스트를-list-comprehension으로-설정하기)
+  - [ETC](#etc)
+    - [주어진 이진수 사이에 있는 0의 개수 계산하기](#주어진-이진수-사이에-있는-0의-개수-계산하기)
+    - [CSV 형태와 같은 데이터 파싱 문제](#csv-형태와-같은-데이터-파싱-문제)
+    - [리스트의 인덱스를 어떤 수들의 합이라고 생각하기](#리스트의-인덱스를-어떤-수들의-합이라고-생각하기)
+    - [어떤 수가 주어졌을 때 그 수의 자릿수의 합을 구하기](#어떤-수가-주어졌을-때-그-수의-자릿수의-합을-구하기)
+    - [어떤 숫자가 주어질 때 1부터 그 숫자까지의 범위안에 소수 구하기](#어떤-숫자가-주어질-때-1부터-그-숫자까지의-범위안에-소수-구하기)
+    - [어떤 숫자가 주어질 때 그 숫자를 뒤집은 숫자를 만들기](#어떤-숫자가-주어질-때-그-숫자를-뒤집은-숫자를-만들기)
+    - [특정 숫자가 소수인지 아닌지 확인하기](#특정-숫자가-소수인지-아닌지-확인하기)
+    - [가산점을 고려한 총 점수를 계산하기](#가산점을-고려한-총-점수를-계산하기)
+   
+
+<br>
+
+## 계수요소
+
+### 주어진 리스트의 요소들을 새로운 리스트를 만들어서 중복없이 담아내기
+- 해당 문제에서는 => A라는 리스트의 가장 큰 수가 X라고 할 때, B라는 리스트를 새롭게 생성하고 A 리스트의 요소들을 중복없이 담아내면, B 리스트 요소의 총합과 sum(range(1, X+1))의 값이 같게 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/FrogRiverOne.py)
 
-- **A라는 리스트가 N개의 요소가 있을 때, 해당 리스트가 [1,2,3, …N]이 되는지 확인하는 문제 - A의 합과 / 1부터 A의 개수인 숫자까지 더한 값이 같다면, 조건에 맞는 리스트가 맞다.**
+<br>
+
+### 주어진 리스트의 요소들이 1부터 N까지 1씩 증가하는지 확인하기
+- A라는 리스트가 N개의 요소가 있을 때, 해당 리스트가 [1,2,3, …N]이 되는지 확인하는 문제 - A의 합과 / 1부터 A의 개수인 숫자까지 더한 값이 같다면, 조건에 맞는 리스트가 맞다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/PermCheck.py)
 
-- **리스트 A에는 없는 가장 작은 양의 정수를 반환하는 문제 - 먼저 sort()로 오름차순 정렬을 한 다음, A = list(set(A)) 이렇게 set으로 중복을 제거. 그리고 missingdata = 1 이렇게 처음에는 없는 양의 정수를 1로 고정시킨 상태에서 A 리스트의 요소를 하나씩 빼서 missingdata와 비교하기. 만약 같다면 missingdata를 1씩 올려주고 같지 않다면 그 때 시점의 missingdata가 리스트에 없는 가장 작은 양의 정수가 된다.**
+<br>
+
+### 리스트를 정렬해서 리스트에는 없는 가장 작은 양의 정수를 찾기
+- 리스트 A에는 없는 가장 작은 양의 정수를 반환하는 문제 - 먼저 sort()로 오름차순 정렬을 한 다음, A = list(set(A)) 이렇게 set으로 중복을 제거. 그리고 missingdata = 1 이렇게 처음에는 없는 양의 정수를 1로 고정시킨 상태에서 A 리스트의 요소를 하나씩 빼서 missingdata와 비교하기. 만약 같다면 missingdata를 1씩 올려주고 같지 않다면 그 때 시점의 missingdata가 리스트에 없는 가장 작은 양의 정수가 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EA%B3%84%EC%88%98%EC%9A%94%EC%86%8C/MissingInteger.py)
 
 
 <br>
 
-### 시간복잡도
-- **X라는 위치에서 Y라는 위치까지 D씩 뛰어서 가는 방법을 구할 때, Y-X를 distance라는 변수로 두고 distance % D가 0이라면 distance // D 의 값인 X가, D가 몇번 반복되면 되는지 알려준다. 그리고 나눈 나머지보다 D가 더 크다면 정답은 X+1번이 된다.**
+## 시간복잡도
+
+### 서로 다른 두 위치의 거리를 변수로 설정해서 가는 횟수 구하기
+- X라는 위치에서 Y라는 위치까지 D씩 뛰어서 가는 방법을 구할 때, Y-X를 distance라는 변수로 두고 distance % D가 0이라면 distance // D 의 값인 X가, D가 몇번 반복되면 되는지 알려준다. 그리고 나눈 나머지보다 D가 더 크다면 정답은 X+1번이 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/Frogjmp.py)
 
-- **리스트 A가 범위가 1부터 시작해서 1씩 커지고 n개를 가지고 있을 때, 순서에서 비어있는 1개의 원소를 찾는 것이 목표인 문제**
+<br>
+
+### 1부터 1씩 커지는 요소가 들어있는 리스트에서 비어있는 요소 찾기
+- 리스트 A가 범위가 1부터 시작해서 1씩 커지고 n개를 가지고 있을 때, 순서에서 비어있는 1개의 원소를 찾는 것이 목표인 문제
   - 원소가 없는 A 리스트일 경우에는 1을 return 값으로 주고, 만약 리스트 A의 개수가 현재 4개라면 1개가 비었으니 원래 리스트 A의 개수는 5개이어야 한다.
   - 따라서 result = sum(range(1, len(A)+2)) - sum(A) 이렇게 1부터 5까지를 더한 수에서 - 현재 리스트 A를 다 더한 수를 빼주면 비어있는 수를 알 수 있게 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/PermMissingElem.py)
 
-- **answer = list(map(abs, result_list)) ==> 이런식으로 리스트 요소마다 절대값을 적용할 수 있다.**
+<br>
+
+### 리스트 요소마다 절대값 적용하기
+- answer = list(map(abs, result_list)) ==> 이런식으로 리스트 요소마다 절대값을 적용할 수 있다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/TapeEquilibrium.py)
   - [관련 블로그](https://blockdmask.tistory.com/380)
 
 <br>
 
-### 배열
-- **리스트 요소의 갯수가 홀수이고 쌍을 이루는 요소들이 있을 때, 정렬을 해서 2개씩 뽑다보면 처음 뽑은 수가 쌍을 이루지 않는 하나의 요소가 될 수 있다. 그래서 2개씩 뽑을 때, 그 2개가 다르다면 첫번째가 쌍을 이루지 않는 요소가 된다.**
+## 배열
+
+### 리스트 요소의 갯수가 홀수이고 쌍을 이룰 때 쌍을 이루지 않는 요소 찾기
+- 리스트 요소의 갯수가 홀수이고 쌍을 이루는 요소들이 있을 때, 정렬을 해서 2개씩 뽑다보면 처음 뽑은 수가 쌍을 이루지 않는 하나의 요소가 될 수 있다. 그래서 2개씩 뽑을 때, 그 2개가 다르다면 첫번째가 쌍을 이루지 않는 요소가 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EB%B0%B0%EC%97%B4/OddOccurrencesInArray.py)
   - [관련 블로그](https://smecsm.tistory.com/205)
 
-- **주어진 리스트를 enumerate 함수를 사용하여 인덱스와 값을 차례대로 뽑은 다음, hash_map = {}에 key와 value로 정의. 그 다음, 해당 hash_map의 key만 뽑을 수 있는 keys() 함수를 이용해 새로운 리스트를 정의할 수 있다.**
+<br>
+
+### 주어진 리스트를 enumerate 함수로 인덱스와 값을 뽑고 해시에 key와 value로 정의하기
+- 주어진 리스트를 enumerate 함수를 사용하여 인덱스와 값을 차례대로 뽑은 다음, hash_map = {}에 key와 value로 정의. 그 다음, 해당 hash_map의 key만 뽑을 수 있는 keys() 함수를 이용해 새로운 리스트를 정의할 수 있다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EB%B0%B0%EC%97%B4/CyclicRotation.py)
 
 <br>
 
-### 스택/큐
+## 스택과 큐
 - **문제 특징**
   - 리스트 요소마다 진행되는 속도가 서로 다르다.
   - 대기목록 리스트가 있고 우선순위에 따라 순서가 달라질 수 있다.
@@ -920,15 +1080,20 @@ print(list(n))
 
 <br>
 
-- **while문을 사용해서 하루씩 증가할 때 완료된 모든 업무의 개수를 count + 이미 들어가있는 리스트에서 완료될때마다 pop(0) 진행 > 자료구조 큐 생각하기**
-  - **pop()을 하게 되면 while로 리스트의 요소가 있을 경우에만 진행되도록 설정하기**
+### while문으로 하루씩 지나갈 때 완료된 업무 개수 증가시키고 리스트에서 pop 진행
+- while문을 사용해서 하루씩 증가할 때 완료된 모든 업무의 개수를 count + 이미 들어가있는 리스트에서 완료될때마다 pop(0) 진행 > 자료구조 큐 생각하기
+  - pop()을 하게 되면 while로 리스트의 요소가 있을 경우에만 진행되도록 설정하기
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%8A%A4%ED%83%9D%EA%B3%BC%20%ED%81%90/%EA%B8%B0%EB%8A%A5%EA%B0%9C%EB%B0%9C.py)
-- **우선순위와 관련된 문제를 while문 안에있는 for문으로 구하는 과정**
+
+<br>
+
+### while문 안에 for문 설정하기
+- 우선순위와 관련된 문제를 while문 안에있는 for문으로 구하는 과정
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%8A%A4%ED%83%9D%EA%B3%BC%20%ED%81%90/%ED%94%84%EB%A6%B0%ED%84%B0.py) 
 
 <br>
 
-### 완전탐색
+## 완전탐색
 - **문제 특징**
   - 코드를 작성할 때, 여러 변수들을 리스트로 정의해서 요소들을 미리 나열해서 푸는 경우가 많다.
   - 문제에 일정한 패턴이 존재할 수 있다.
@@ -939,15 +1104,29 @@ print(list(n))
 
 <br>
 
-- **dx = [0, 1, 0, -1] dy = [-1, 0, 1, 0]** / 서남동북 행과 열 표시
-- **nx = x + dx[i] ny = y + dy[i]** / (x, y)에서 좌표이동
-- **루트 제곱근 계산 방법**
+### dx 리스트와 dy 리스트로 좌표 정의하기
+- dx = [0, 1, 0, -1] dy = [-1, 0, 1, 0] / 서남동북 행과 열 표시
+- nx = x + dx[i] ny = y + dy[i] / (x, y)에서 좌표이동
+
+<br>
+
+### 루트 제곱근 계산 하기
+- 루트 제곱근 계산 방법
   - x를 제곱하여 a가 되었다면, x를 a의 제곱근이라고 부른다. 수학 라이브러리인 Math를 이용해서 제곱근을 구할 수 있다.
+  - 또한, print(4 ** 0.5) = 2.0 이렇게 어떤 수에 0.5를 제곱해서 구할 수 있다.
   - [관련 블로그](https://needneo.tistory.com/77)
-- **어떤 리스트에 요소가 5개가 있고 그 5개가 순환주기로 계속 반복될 때 특정 인덱스가 어떤 요소를 가리키는지 확인해야 한다면, 인덱스 % 요소개수 = 인덱스 이렇게 구할 수 있다.**
+
+<br>
+
+### 리스트의 요소가 주기를 가지고 계속 반복될 때 특정 인덱스가 가리키는 요소 확인하기
+- 어떤 리스트에 요소가 5개가 있고 그 5개가 순환주기로 계속 반복될 때 특정 인덱스가 어떤 요소를 가리키는지 확인해야 한다면, 인덱스 % 요소개수 = 인덱스 이렇게 구할 수 있다.
   - ex) pattern1 = [1, 2, 3, 4, 5] 일 때, 인덱스 6인 요소는 6 % len(pattern1) = 1이니까 6번째는 2가 된다.
   - 어떤 수를 x로 나누면 나머지는 무조건 x보다 작다. 그래서 특정 범위 내 숫자를 구할 때 자주 사용된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%99%84%EC%A0%84%ED%83%90%EC%83%89/%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC.py)
+
+<br>
+
+### 1부터 주어진 수까지 소수 구하기
 - **소수를 구하는 방법**
   - 소수란, 1과 자기 자신외의 약수를 가지지 않는 1보다 큰 자연수를 의미한다. 이론상으로 단일 숫자가 소수인지 판단하는 방법은, 숫자 n이 소수인지 알아보기 위해 2부터 n-1까지의 숫자를 반복하며, 나누어 떨어지는 숫자가 있는지 확인하고 만일 없다면, 소수가 된다.
   - 더 효율적으로 소수를 구하는 공식이 있는데, 바로 **에라토스테네스의 체**라는 방법이다.
@@ -956,12 +1135,16 @@ print(list(n))
     - 밑에 관련 문제에서는 2부터 제곱근까지 있는 수의 배수를 전부 제외했다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%99%84%EC%A0%84%ED%83%90%EC%83%89/%EC%86%8C%EC%88%98%20%EC%B0%BE%EA%B8%B0.py)
   - [관련 블로그](https://velog.io/@jakeseo_me/%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-14-%EC%86%8C%EC%88%98-%EC%B0%BE%EA%B8%B0-%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98-%EC%B2%B4)
+
+<br>
+
+### 문제에서 주어진 사각형이 격자로 이루어져 있을 때 식 만들기
 - **문제에서 사각형과 그 안에 격자로 이루어져 있다면 ==> 사각형 가로 * 세로 = 갈색 격자 개수 + 노란색 격자 개수 라는 식을 세울 수 있다.**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%99%84%EC%A0%84%ED%83%90%EC%83%89/%EC%B9%B4%ED%8E%AB.py)
 
 <br>
 
-### 정렬
+## 정렬
 - **문제 특징**
   - 문제 자체에서 “정렬”이라는 단어가 나올 수 있다.
   - 리스트 정렬 과정에서 슬라이싱이 활용될 수 있다.
@@ -972,11 +1155,20 @@ print(list(n))
 
 <br>
 
-- **로또 번호 순위 리스트에 미리 정의해놓기, 일치번호 개수와 불일치번호 개수로 나누기**
+### 로또 번호 일치 개수를 리스트의 인덱스라고 생각하기
+- 로또 번호 순위 리스트에 미리 정의해놓기, 일치번호 개수와 불일치번호 개수로 나누기
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%A0%95%EB%A0%AC/%EB%A1%9C%EB%98%90%EC%9D%98%20%EC%B5%9C%EA%B3%A0%20%EC%88%9C%EC%9C%84%EC%99%80%20%EC%B5%9C%EC%A0%80%20%EC%88%9C%EC%9C%84.py)
-- **2차원 배열에서 리스트 뽑기**
+
+<br>
+
+### for문으로 2차원 배열의 리스트 1개씩 뽑기
+- 2차원 배열에서 리스트 뽑기
   - 2차원 배열에서 리스트 뽑을 때는 for문을 사용하면 된다. ex) commands = [[2, 5, 3], [4, 4, 1], [1, 7, 3]] 일 때, for command in commands: i,j,k = command 이렇게하면 i = 2, j = 5, k = 3 이렇게 변수 지정 가능.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%A0%95%EB%A0%AC/K%EB%B2%88%EC%A7%B8%20%EC%88%98.py)
+
+<br>
+
+### 문자열로 되어있는 숫자들이 들어있는 리스트 정렬하기
 - **문자형태의 숫자를 비교할 때 \*로 문자열의 길이를 늘려서 비교해볼 수도 있다**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%A0%95%EB%A0%AC/%EA%B0%80%EC%9E%A5%20%ED%81%B0%20%EC%88%98.py)
   - 문자열로 되어있는 숫자들이 들어있는 리스트를 정렬해보면, 아래처럼 문자열의 첫번째 인덱스 수가 크면 내림차순 시, 먼저 나온다. 그리고 첫번째 인덱스 수가 같으면 그 다음 인덱스를 비교한다. 없으면 더 인덱스가 많은 수가 큰 수가 된다.
@@ -996,15 +1188,39 @@ print(array)
 
 ['387', '3', '31', '300']
 ```
+
+<br>
+
+### 리스트 오름차순 정렬 후 총 개수에서 특정 인덱스를 차감하면 해당 인덱스 요소를 포함한 남은 요소 개수가 된다
 - **리스트가 있을 때, 오름차순 정렬을 한 다음에 총 개수에서 특정 인덱스를 차감하면 -> 특정 인덱스 데이터 포함해서 남은 리스트 요소의 개수가 된다. 그리고 남은 리스트 요소들은 특정 인덱스 값보다 크다는 것을 알 수 있다.**
   - ex)정렬된 상태라고 생각하고 총 5개에서 인덱스 2를 빼면 -> 3이니까 인덱스 2 데이터 포함해서 뒤에 3개가 남아있다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%A0%95%EB%A0%AC/H-Index.py)
-- **slice로 문자열 순서 뒤집기**
+
+<br>
+
+### 슬라이싱으로 문자열 순서 뒤집기
+
+```python
+string = 'Hello, World!'
+reversed_str = string[::-1]
+
+print(f'Original String: {string}')
+print(f'Reversed String: {reversed_str}')
+
+Original String: Hello, World!
+Reversed String: !dlroW ,olleH
+```
   - [관련 블로그](https://codechacha.com/ko/python-reverse-string/)
 
 <br>
 
-### 해시
+### 오름차순 정렬을 진행한 리스트에서 가장 큰 수는 리스트의 마지막 요소
+- [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EC%A3%BC%EC%82%AC%EC%9C%84%20%EA%B2%8C%EC%9E%84.py)
+
+
+<br>
+
+## 해시
 - **문제 특징**
   - 리스트에 중복되는 요소가 존재한다. 그래서 중복을 제거하기 위해 해시를 사용할 생각을 할 수 있다.
   - 서로 다른 리스트에 겹치는 요소가 존재할 수 있다. 그래서 중복이 제거된 해시를 이용해 겹치는 요소와 안 겹치는 요소를 구분할 수 있다.
@@ -1013,20 +1229,41 @@ print(array)
 
 <br>
 
+### 주어진 리스트 요소들의 중복을 제거하기 위해 해시를 사용할 수 있다
 - **리스트에 요소의 종류가 다양할 때, 중복을 제거하기 위해 해시를 사용할 생각을 할 수 있다.**
+
+<br>
+
+### 주어진 리스트 요소들의 중복을 제거하기 위해 set 함수를 사용할 수 있다
 - **또한,리스트의 중복을 제거할 때는 set()을 사용할수도 있다.**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%95%B4%EC%8B%9C/%ED%8F%B0%EC%BC%93%EB%AA%AC.py)
-- **해시(Hash) 딕셔너리에 특정 키가 있는지 확인하기**
+
+<br>
+
+### 해시 딕셔너리에 특정 키가 있는지 확인하기
+- 해시(Hash) 딕셔너리에 특정 키가 있는지 확인하기
   - hash_map = {}, if temp in hash_map:
   - [관련 블로그](https://hashcode.co.kr/questions/59/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC%EC%97%90%EC%84%9C-%ED%8A%B9%EC%A0%95-%ED%82%A4%EA%B0%80-%EC%9E%88%EB%8A%94%EC%A7%80-%ED%99%95%EC%9D%B8%ED%95%98%EA%B3%A0%EC%8B%B6%EC%96%B4%EC%9A%94)
-- **리스트에 특정 값이 있는지 없는지 확인하기**
-  - ex) if item in list: / if item not in list: 
+
+<br>
+
+### 리스트에 특정 값이 있는지 없는지 확인하기
+- ex) if item in list: / if item not in list: 
   - [관련 블로그](https://lelecoder.com/111)
-- **리스트가 여러 개 나올 때, 모든 리스트들을 sort()해서 비교하기**
-  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%95%B4%EC%8B%9C/%EC%99%84%EC%A3%BC%ED%95%98%EC%A7%80%20%EB%AA%BB%ED%95%9C%20%EC%84%A0%EC%88%98.py)
-- **문제에서 주어진 리스트 요소들을 해시(Hash) 딕셔너리에 value가 1이 되게끔 추가해서 문제풀기**
-- **빈 문자열을 변수로 지정하고 해당 변수에 한 문자열씩 더해서 문제풀기**
-  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%95%B4%EC%8B%9C/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EB%AA%A9%EB%A1%9D.py)
+
+<br>
+
+### 리스트가 여러 개 있을 때 모든 리스트들을 sort해서 비교할 생각하기
+- [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%95%B4%EC%8B%9C/%EC%99%84%EC%A3%BC%ED%95%98%EC%A7%80%20%EB%AA%BB%ED%95%9C%20%EC%84%A0%EC%88%98.py)
+
+<br>
+
+### 문제에서 주어진 리스트 요소들을 해시 딕셔너리에 value가 1이 되게끔 추가해서 문제풀기
+
+<br>
+
+### 빈 문자열을 변수로 지정하고 해당 변수에 한 문자열씩 더해서 문제풀기
+- [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%ED%95%B4%EC%8B%9C/%EC%A0%84%ED%99%94%EB%B2%88%ED%98%B8%20%EB%AA%A9%EB%A1%9D.py)
 ```python
 # 빈 문자열을 변수로 지정할 때 예시
 temp = ""
@@ -1049,7 +1286,7 @@ tkdqor
 
 <br>
 
-### DFS/BFS
+## DFS와 BFS
 - **문제 특징**
   - 어떤 것들이 연결되어 있다는 정보를 2차원 배열로 제시할 수 있다.
   - def solution 부분에서 DFS 또는 BFS 함수를 호출한다. 그래서 그 밑에 DFS 또는 BFS 함수를 정의한다.
@@ -1060,54 +1297,81 @@ tkdqor
 
 <br>
 
+### 함수에서 return 공백으로 재귀함수 1개 취소하기
 - **함수 정의할 때 return 만 사용하고 아무것도 입력하지 않으면, 맥락 상 break와 유사한 효과를 내기 때문에 실행 중단의 의미가 된다. 즉, return 공백이면 실행되고있는 재귀함수 1개가 취소되는듯 하다.**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/DFS%EC%99%80BFS/%ED%83%80%EA%B2%9F%20%EB%84%98%EB%B2%84.py)
   - 계속 진행되고 있는 재귀함수를 종료시켜버리고 만약 index와 value라는 값이 둘다 5였다가 return 공백이 실행되면 재귀함수도 종료되고 값도 둘다 4로 다시 돌아간다.
   - [관련 블로그](https://munang.tistory.com/entry/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC-Python-None-%EB%A6%AC%ED%84%B4%ED%95%98%EB%8A%94-%EA%B2%BD%EC%9A%B0-%EC%9E%AC%EA%B7%80%ED%95%A8%EC%88%98-None-%EB%A6%AC%ED%84%B4)
+
+<br>
+
+### 1문제를 DFS 또는 BFS로 푸는 예시
 - **1문제를 재귀함수를 이용한 DFS 방법으로도 풀어보고 / 재귀함수 및 BFS 방법으로도 풀어보기**
   - **보통 DFS는 스택 자료구조를 활용**
   - **보통 BFS는 큐 자료구조를 활용 / 처음 노드 방문 시 방문처리하고 -> 큐를 생성한 다음에는 큐에 넣었다가 pop(0) 이렇게 뺄 때 또 방문처리**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/programmers/DFS%EC%99%80BFS/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.py)
+
+<br>
+
+### 방문여부를 확인하기 위한 리스트를 list comprehension으로 설정하기
 - **DFS 또는 BFS로 문제 풀 때, visited라는 리스트 만들고 visited = [False for i in range(n)] 이렇게 하면 만약에 n이 3이면 visited = [False, False, False] 이렇게 된다.**
 
 <br>
 
-### 그리디
-- **"가장 큰 수", "최소 횟수", "최댓값" 등을 요구하는 문제가 나온다면 "그리디" 문제라고 생각해보기. 그래서 최소의 input으로 답이 나오게끔 생각**
-- **전부 0으로 바꾸는 경우와 전부 1로 바꾸는 경우 중에서 더 적은 횟수를 가지는 경우를 계산** 
-  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/greedy/%EC%9D%B4%EA%B2%83%EC%9D%B4%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%8B%A4_p313_%EB%AC%B8%EC%9E%90%EC%97%B4%20%EB%92%A4%EC%A7%91%EA%B8%B0.py)
-- **리스트가 있을 때 첫 번째 원소만 따로 처리한 다음, 두 번째 원소부터 마지막까지 for문으로 처리**
-  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/greedy/%EC%9D%B4%EA%B2%83%EC%9D%B4%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%8B%A4_p313_%EB%AC%B8%EC%9E%90%EC%97%B4%20%EB%92%A4%EC%A7%91%EA%B8%B0.py)
-- **if문에서 문자열과 숫자를 비교해야 할 때, if data[i] == '1': 이런식으로도 가능**
-  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/greedy/%EC%9D%B4%EA%B2%83%EC%9D%B4%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%8B%A4_p313_%EB%AC%B8%EC%9E%90%EC%97%B4%20%EB%92%A4%EC%A7%91%EA%B8%B0.py)
-- **리스트에서 만들 수 없는 양의 정수 금액 중 최솟값**
-  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/greedy/%EC%9D%B4%EA%B2%83%EC%9D%B4%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%8B%A4_p314_%EB%A7%8C%EB%93%A4%20%EC%88%98%20%EC%97%86%EB%8A%94%20%EA%B8%88%EC%95%A1.py)
-- **A가 특정한 무게의 볼링공을 선택했을 때, 이어서 B가 볼링공을 선택하는 경우 -> A를 기준으로 무게가 낮은 볼링공부터 무게가 높은 볼링공까지 순서대로 확인하기**
-  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/greedy/%EC%9D%B4%EA%B2%83%EC%9D%B4%20%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%8B%A4_p315_%EB%B3%BC%EB%A7%81%EA%B3%B5%20%EA%B3%A0%EB%A5%B4%EA%B8%B0.py)
+## ETC
 
-<br>
-
-### ETC
+### 주어진 이진수 사이에 있는 0의 개수 계산하기
 - **이진수가 10010001 이렇게 있을 때 1과 1 사이에 있는 0의 개수를 파악하기 위해서는, 1이 있는 인덱스만 리스트에 추가하고 리스트[1] - 리스트[0] -1 이런식으로 계산하면 구할 수 있다.**
   - ex) 이진수 10010001, index_list = [0, 3, 7] 이렇게 리스트를 만들 수 있다. 그리고 index_list[1] - index_list[0] -1 = 2가 1과 1사이의 0 개수이고, index_list[2] - index_list[1] -1 = 3이 뒤에 있는 1과 1사이의 0 개수가 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/%EB%B0%98%EB%B3%B5/binarygap.py)
 
 <br>
 
-- **CSV 형태와 같은 데이터 파싱 문제**
-  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/csv%ED%8C%8C%EC%8B%B1/csv%ED%8C%8C%EC%8B%B1%20%EB%AC%B8%EC%A0%9C.py)   
-  - 특정 데이터가 주어졌을 때, 해당 데이터를 정해진 조건의 이름으로 변경하는 문제 
-  - 해시로 key별로 그룹화 진행 후, value값 오름차순 정렬. 변경한 이름을 해시 value 리스트에 추가하고 문제에 맞게 정렬하는 과정
+### CSV 형태와 같은 데이터 파싱 문제
+- [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/codility/csv%ED%8C%8C%EC%8B%B1/csv%ED%8C%8C%EC%8B%B1%20%EB%AC%B8%EC%A0%9C.py)   
+- 특정 데이터가 주어졌을 때, 해당 데이터를 정해진 조건의 이름으로 변경하는 문제 
+- 해시로 key별로 그룹화 진행 후, value값 오름차순 정렬. 변경한 이름을 해시 value 리스트에 추가하고 문제에 맞게 정렬하는 과정
 
 <br>
 
+### 리스트의 인덱스를 어떤 수들의 합이라고 생각하기
 - **요소를 전부 0으로 초기화한 리스트의 인덱스를 어떤 수들의 합이라고 생각할 수 있다.**
   - 그래서 해당 합이 되면, 리스트의 요소를 1씩 추가해주고 어떤 합이 가장 많이 나왔는지 확인할 수 있다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EC%A0%95%EB%8B%A4%EB%A9%B4%EC%B2%B4.py)
 
 <br>
 
+### 어떤 수가 주어졌을 때 그 수의 자릿수의 합을 구하기
 - **어떤 수 x가 있을 때, 그 수의 자릿수의 합을 구하는 문제**
   - 첫번째로, x를 10으로 나눈 몫으로 바꿔주면서 x를 10으로 나눈 나머지를 계속 더해주면 된다. ex) 125를 10으로 나눈 나머지는 5가 되고 몫은 12가 된다. 12를 다시 10으로 나누면 나머지는 2가 되고 몫은 1이 된다. 마지막으로 1을 10으로 나누면 나머지는 1이 되고 몫은 0이 된다.
   - 두번째 방법은, 어떤 수 x를 str로 문자열로 바꾸고 for문으로 하나씩 뽑은 다음, 다시 int로 정수화해서 더해주면 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EC%9E%90%EB%A6%BF%EC%88%98%EC%9D%98%20%ED%95%A9.py)
+
+<br>
+
+### 어떤 숫자가 주어질 때 1부터 그 숫자까지의 범위안에 소수 구하기
+- 값이 모두 0인 리스트를 생성하고 이 리스트의 인덱스가 1부터 주어진 숫자까지라고 생각하기.
+- 2부터 숫자 n까지 for문으로 뽑아서 리스트 요소가 0이면 소수 개수 변수를 1증가 시킨다. 그리고 2의 배수, 3의 배수 이렇게 배수들을 뽑아서 해당되는 리스트 인덱스에 값을 1로 바꿔준다. 최종적으로 리스트에 값이 0인 인덱스들이 소수가 된다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EC%86%8C%EC%88%98.py)
+
+<br>
+
+### 어떤 숫자가 주어질 때 그 숫자를 뒤집은 숫자를 만들기
+- **어떤 숫자 x가 주어질 때, 그 숫자를 뒤집은 숫자를 만들기 위한 방법**
+  - t = x % 10으로 한 자리씩 선택하고 res = (res * 10) + t라는 식으로 기존의 뒤집은 숫자를 * 10해서 한자리씩 증가시켜주고 새롭게 뒤집은 수를 일의 자리로 하기 위해 더해준다. 그 다음 주어진 수 x를 x = x // 10으로 바꿔주고 반복하면 된다.
+  - 최종적으로 res 값이 주어진 수 x를 뒤집은 수가 된다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EB%92%A4%EC%A7%91%EC%9D%80%20%EC%86%8C%EC%88%98.py)
+
+<br>
+
+### 특정 숫자가 소수인지 아닌지 확인하기
+- 16이라는 수가 주어졌을 때, 소수인지 확인하려면 16이 약수가 있는지 보면 된다.
+- 1과 16 자기자신을 빼고 약수는 자기자신 절반인 8까지에서 존재하게 된다. 16의 약수를 구하라고 하면 1\*16, 2\*8이니까 소수인지 확인할 때는 절반까지만 for문으로 확인하면 된다.
+- 그래서 16를 2부터 8까지 차례대로 나눴을 때 나머지가 0이 하나라도 있다면 16은 약수가 있으니 소수가 될 수 없다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EB%92%A4%EC%A7%91%EC%9D%80%20%EC%86%8C%EC%88%98.py)
+
+<br>
+
+### 가산점을 고려한 총 점수를 계산하기
+- **가산점을 고려한 총 점수를 계산하는 경우, 총 점수를 계산하는 sum이라는 변수와 가산점을 계산하는 cnt라는 변수로 나눠서 진행해보기**
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EC%A0%90%EC%88%98%20%EA%B3%84%EC%82%B0.py)
