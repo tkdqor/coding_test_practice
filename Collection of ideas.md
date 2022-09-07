@@ -1117,6 +1117,12 @@ print(list(n))
   - 또한, print(4 ** 0.5) = 2.0 이렇게 어떤 수에 0.5를 제곱해서 구할 수 있다.
   - [관련 블로그](https://needneo.tistory.com/77)
 
+```python
+result = 4 ** 0.5
+print(int(result))
+
+2
+```
 <br>
 
 ### 리스트의 요소가 주기를 가지고 계속 반복될 때 특정 인덱스가 가리키는 요소 확인하기
