@@ -664,6 +664,25 @@ Tokyo
  
  <br>
  
+ - **rstrip(), lstrip() 함수**
+   - strip 함수와 마찬가지로 인자를 전달하지 않으면 문자열에서 공백을 제거해주는데, rstrip()의 경우 오른쪽의 공백을 제거해주고 lstrip()의 경우 왼쪽의 공백을 제거해준다.
+   - 인자를 전달한다면, 그 인자와 동일한 문자를 각각 오른쪽에서, 왼쪽에서 제거해준다.
+ 
+ ```python
+ text = ' Water boils at 100 degrees '
+print('[' + text.rstrip() + ']')
+print('[' + text.lstrip() + ']')
+print('[' + text.strip() + ']')
+
+[ Water boils at 100 degrees]
+[Water boils at 100 degrees ]
+[Water boils at 100 degrees]
+```
+
+- [관련 블로그](https://codechacha.com/ko/python-string-strip/)
+
+ <br>
+ 
 ### all 함수란
   - all(iterable) 함수는 인자로 받은 반복 가능한 자료형(iterable)의 모든 요소가 참(True)이면 참(True)을 반환하는 함수
   - and의 특징을 가졌으며, 인자로 받은 요소중 하나라도 False이면 False를 반환하고 인자로 받은 요소가 비어있으면 True이다.
