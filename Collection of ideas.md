@@ -664,6 +664,25 @@ Tokyo
  
  <br>
  
+ - **rstrip(), lstrip() 함수**
+   - strip 함수와 마찬가지로 인자를 전달하지 않으면 문자열에서 공백을 제거해주는데, rstrip()의 경우 오른쪽의 공백을 제거해주고 lstrip()의 경우 왼쪽의 공백을 제거해준다.
+   - 인자를 전달한다면, 그 인자와 동일한 문자를 각각 오른쪽에서, 왼쪽에서 제거해준다.
+ 
+ ```python
+ text = ' Water boils at 100 degrees '
+print('[' + text.rstrip() + ']')
+print('[' + text.lstrip() + ']')
+print('[' + text.strip() + ']')
+
+[ Water boils at 100 degrees]
+[Water boils at 100 degrees ]
+[Water boils at 100 degrees]
+```
+
+- [관련 블로그](https://codechacha.com/ko/python-string-strip/)
+
+ <br>
+ 
 ### all 함수란
   - all(iterable) 함수는 인자로 받은 반복 가능한 자료형(iterable)의 모든 요소가 참(True)이면 참(True)을 반환하는 함수
   - and의 특징을 가졌으며, 인자로 받은 요소중 하나라도 False이면 False를 반환하고 인자로 받은 요소가 비어있으면 True이다.
@@ -1008,6 +1027,8 @@ print(list(n))
     - [어떤 숫자가 주어질 때 그 숫자를 뒤집은 숫자를 만들기](#어떤-숫자가-주어질-때-그-숫자를-뒤집은-숫자를-만들기)
     - [특정 숫자가 소수인지 아닌지 확인하기](#특정-숫자가-소수인지-아닌지-확인하기)
     - [가산점을 고려한 총 점수를 계산하기](#가산점을-고려한-총-점수를-계산하기)
+    - [리스트 인덱스가 없는 경우 예외처리 하기](#리스트-인덱스가-없는-경우-예외처리-하기)
+    - [리스트에서 처음과 끝 요소 비교하기](#리스트에서-처음과-끝-요소-비교하기)
    
 
 <br>
@@ -1116,6 +1137,12 @@ print(list(n))
   - 또한, print(4 ** 0.5) = 2.0 이렇게 어떤 수에 0.5를 제곱해서 구할 수 있다.
   - [관련 블로그](https://needneo.tistory.com/77)
 
+```python
+result = 4 ** 0.5
+print(int(result))
+
+2
+```
 <br>
 
 ### 리스트의 요소가 주기를 가지고 계속 반복될 때 특정 인덱스가 가리키는 요소 확인하기
@@ -1375,3 +1402,25 @@ tkdqor
 ### 가산점을 고려한 총 점수를 계산하기
 - **가산점을 고려한 총 점수를 계산하는 경우, 총 점수를 계산하는 sum이라는 변수와 가산점을 계산하는 cnt라는 변수로 나눠서 진행해보기**
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EC%A0%90%EC%88%98%20%EA%B3%84%EC%82%B0.py)
+
+<br>
+
+### 리스트 인덱스가 없는 경우 예외처리 하기
+- 코드 작성 중에 리스트 요소가 없어서 리스트 인덱스를 더이상 선택할 수 없게 되는 경우, 에러가 발생하게 된다.
+- 그래서, 이런 경우에는 try - except로 예외처리를 진행해서 코드를 구성해보자.
+- [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/hackerrank/Jumping%20on%20the%20Clouds.py)
+
+<br>
+
+### 리스트에서 처음과 끝 요소 비교하기
+- 리스트의 길이가 size일 때, size를 2로 나눈 몫으로 인덱스를 설정해서 if s[j] != s[-1-j]: 이렇게 리스트의 처음과 끝 요소, 그 다음 앞에 요소와 그 다음 뒤의 요소를 비교할 수 있다.
+
+```python
+for j in range(size//2):
+  if s[j] != s[-1-j]:
+    print("#%d NO" %(i+1))
+    break
+  else:
+    print("#%d YES" %(i+1))
+```
+- [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%ED%83%90%EC%83%89%EA%B3%BC%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98/%ED%9A%8C%EB%AC%B8%20%EB%AC%B8%EC%9E%90%EC%97%B4%20%EA%B2%80%EC%82%AC.py)
