@@ -1402,6 +1402,11 @@ tkdqor
   - 최종적으로 res 값이 주어진 수 x를 뒤집은 수가 된다.
   - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%EC%BD%94%EB%93%9C%20%EA%B5%AC%ED%98%84%EB%A0%A5%20%EA%B8%B0%EB%A5%B4%EA%B8%B0/%EB%92%A4%EC%A7%91%EC%9D%80%20%EC%86%8C%EC%88%98.py)
 
+- **리스트에서 특정 인덱스부터 인덱스까지 뒤집으려면, 처음 인덱스와 끝 인덱스를 반복해서 바꿔주기**
+  - 리스트의 0 인덱스부터 4 인덱스까지 있다면 -> 0인덱스와 4인덱스 요소를 바꾸고, 1인덱스와 3인덱스 요소를 바꾸고 2인덱스 요소는 가만히 두면 된다. 그러면 뒤집어지는 것이다.
+  - 즉, 리스트의 2번째부터 7번째까지라면, (7-2)+1 // 2 = 3이니까 for문을 3번만 돌면 뒤접어진다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%ED%83%90%EC%83%89%EA%B3%BC%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98/%EC%B9%B4%EB%93%9C%20%EC%97%AD%EB%B0%B0%EC%B9%98.py)
+
 <br>
 
 ### 특정 숫자가 소수인지 아닌지 확인하기
