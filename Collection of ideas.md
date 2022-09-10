@@ -67,6 +67,7 @@
   - [반복문에서 조건이 맞지 않을 때 반복문을 종료시키지 않고 맨 처음의 조건문으로 보내주는 continue](#반복문에서-조건이-맞지-않을-때-반복문을-종료시키지-않고-맨-처음의-조건문으로-보내주는-continue)
   - [문자열 반복하기](#문자열-반복하기)
   - [리스트에서 원하는 값 제거하는 방법](#리스트에서-원하는-값-제거하는-방법)
+  - [주어진 문자열이 숫자로 되어있는지 검사하는 함수](#주어진-문자열이-숫자로-되어있는지-검사하는-함수)
 
 
 <br>
@@ -973,6 +974,17 @@ print(list(n))
 
 <br>
 
+### 주어진 문자열이 숫자로 되어있는지 검사하는 함수
+- **isdecimal()**
+  - 주어진 문자열이 0부터 9까지라면 True를 반환해주는 함수
+
+- **isdigit()**
+  - 주어진 문자열이 알파벳이 아닌 숫자형태라면 True를 반환해주는 함수. 2의 2승도 True로 반환해준다.
+
+- [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%ED%83%90%EC%83%89%EA%B3%BC%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98/%EC%88%AB%EC%9E%90%EB%A7%8C%20%EC%B6%94%EC%B6%9C.py)
+- [관련 블로그](https://it-neicebee.tistory.com/33)
+<br>
+
 <hr>
 
 
@@ -1029,6 +1041,7 @@ print(list(n))
     - [가산점을 고려한 총 점수를 계산하기](#가산점을-고려한-총-점수를-계산하기)
     - [리스트 인덱스가 없는 경우 예외처리 하기](#리스트-인덱스가-없는-경우-예외처리-하기)
     - [리스트에서 처음과 끝 요소 비교하기](#리스트에서-처음과-끝-요소-비교하기)
+    - [리스트 요소 하나씩 꺼내서 자연수 만들기](#리스트-요소-하나씩-꺼내서-자연수-만들기)
    
 
 <br>
@@ -1424,3 +1437,10 @@ for j in range(size//2):
     print("#%d YES" %(i+1))
 ```
 - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%ED%83%90%EC%83%89%EA%B3%BC%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98/%ED%9A%8C%EB%AC%B8%20%EB%AC%B8%EC%9E%90%EC%97%B4%20%EA%B2%80%EC%82%AC.py)
+
+<br>
+
+### 리스트 요소 하나씩 꺼내서 자연수 만들기
+- 리스트 요소를 for문으로 하나씩 뽑아서 숫자가 맞으면 res = 0, res = (res * 10) + int(x) 이러한 식으로 자연수를 만들어줄 수 있다.
+  - 이렇게 하면 자동으로 첫자리에 0이 오는 것을 무시할 수 있다.
+  - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%ED%83%90%EC%83%89%EA%B3%BC%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98/%EC%88%AB%EC%9E%90%EB%A7%8C%20%EC%B6%94%EC%B6%9C.py)
