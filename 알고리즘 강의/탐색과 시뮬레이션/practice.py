@@ -1,4 +1,4 @@
-# # ### 1번 문제
+# # # ### 1번 문제
 # def getMaximumMex(arr, x):
 #     # Write your code here
 #     for i in arr:
@@ -16,6 +16,7 @@
 
 # print(getMaximumMex([0,1,2,2,0,0,10], 3))
 ### 나와야 하는 아웃풋 7
+### [0,1,2,3,5,6,10]
 
 ### 2번문제
 # def filter_vowels(self):
@@ -91,9 +92,5 @@
 #         return result2
 
 # print(filter_vowels('hackerrank'))
-
-
-# 2번 다맞힘11
-
-
+# 2번 다맞힘
 # 1번 문제 다시해보기
