@@ -94,3 +94,6 @@
 # print(filter_vowels('hackerrank'))
 # 2번 다맞힘
 # 1번 문제 다시해보기
+
+a = '9'
+print(a.isdigit())
