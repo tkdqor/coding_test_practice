@@ -1,3 +1,4 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/87389
 def solution(n):
     x = 0
     # n를 x로 나눈 나머지가 1이 될때까지 x += 1하면서 while문 진행
