@@ -15,4 +15,13 @@ def solution(arr):
     result.append(check[0])
     return result
 
+# 다른 풀이
+def solution(arr):
+    answer = []
+    answer.append(arr[0])
+    for i in range(len(arr)-1):
+        if arr[i] != arr[i+1]:
+            answer.append(arr[i+1])
+    return answer
+
 print(solution([1, 1, 3, 3, 0, 1, 1]))

@@ -222,14 +222,21 @@
 # print(solution('BAABA', [2, 4, 1, 1, 2]))
 
 
-
-
-def plus_one(x):
-    return x+1
-
-plus_two = lambda x: x+2
-print(plus_two(1))
-
-a = [1,2,3]
-print(list(map(plus_one, a)))
-print(list(map(lambda x: x+1, a)))
+def solution(progresses, speeds):
+    answer = []
+    time = 0
+    count = 0
+    while len(progresses) > 0:
+        if (progresses[0] + time*speeds[0]) >= 100:
+            progresses.pop(0)
+            speeds.pop(0)
+            count += 1
+        else:
+            if count > 0:
+                answer.append(count)
+                count = 0
+            time += 1
+    answer.append(count)
+    return answer
+        
+print(solution([93, 30, 55], [1, 30, 5]))
