@@ -71,6 +71,7 @@
   - [리스트에서 원하는 값 제거하는 방법](#리스트에서-원하는-값-제거하는-방법)
   - [주어진 문자열이 숫자로 되어있는지 검사하는 함수](#주어진-문자열이-숫자로-되어있는지-검사하는-함수)
   - [while문 종료 조건 생각하기](#while문-종료-조건-생각하기)
+  - [super 함수](#super-함수)
 
 
 <br>
@@ -1038,6 +1039,46 @@ print(list(n))
 - while문의 종료 조건이 헷갈린다면, 반대로 생각했을때가 while문이 종료되는 조건이다.
 - ex) while p1 < n and p2 < m: 이면 -> p1이 n과 같거나 커지는 경우 또는 p2가 m과 같거나 커지는 경우, while문이 종료된다.
 - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%ED%83%90%EC%83%89%EA%B3%BC%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98/%EB%91%90%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%ED%95%A9%EC%B9%98%EA%B8%B0.py)
+
+<br>
+
+### super 함수
+- super() 메서드란, 부모의 동작을 불러오는 방법이다.
+- 오버라이드 만으로는 충분하지 않고, 부모의 동작은 그대로 하면서 그냥 동작을 끼워넣고 싶을때가 있을 수 있다.
+- self.wave()와 같이 사용하는 건, 객체로 접근해서 정의한 클래스 내부의 메소드나 변수를 사용할 때는 self를 붙인다.
+
+```python
+class Animal():
+	def greet(self):
+		print(“인사한다”)
+
+class Human(Animal):
+	def wave(self):
+		print(“손을 흔든다”)	
+
+	def greet(self):
+		self.wave()
+```
+
+- 이러한 클래스들이 있다고 가정하자. 그러면 Animal의 greet은 “인사한다”인데, Human의 greet은 “손을 흔든다” 이다. 만약에, “인사한다”는 그대로두고 “손을 흔들면서”를 라고만 추가하고 싶다면 어떻게 할까?
+
+```python
+class Animal():
+	def greet(self):
+		print(“인사한다”)
+
+class Human(Animal):
+	def wave(self):
+		print(“손을 흔들면서”)	
+
+	def greet(self):
+		self.wave()
+		super().greet()
+```
+
+- 그래서 일단 Human 클래스의 wave 메서드를 “손을 흔들면서”라고 수정했다. 
+- **그리고 위의 Human 클래스에서 부모 클래스의 greet 메서드를 실행해주고 싶다면, super().greet() 이렇게 해주면 된다.**
+  - 즉, super()는 자식 클래스에서 상속받은 부모 클래스의 메서드를 오버라이드하고, 그 부모 메서드를 호출하고 싶을 때 사용한다. ex). super().부모클래스 메서드이름()
 
 <hr>
 
