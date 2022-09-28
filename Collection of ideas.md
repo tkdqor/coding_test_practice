@@ -1045,7 +1045,7 @@ print(list(n))
 ### super 함수
 - super() 메서드란, 부모의 동작을 불러오는 방법이다.
 - 오버라이드 만으로는 충분하지 않고, 부모의 동작은 그대로 하면서 그냥 동작을 끼워넣고 싶을때가 있을 수 있다.
-- self.wave()와 같이 사용하는 건, 객체로 접근해서 정의한 클래스 내부의 메소드나 변수를 사용할 때는 self를 붙인다.
+- **self.wave()와 같이 사용하는 건, 객체로 접근해서 정의한 클래스 내부의 메소드나 변수를 사용할 때는 self를 붙인다.**
 
 ```python
 class Animal():
@@ -1078,7 +1078,72 @@ class Human(Animal):
 
 - 그래서 일단 Human 클래스의 wave 메서드를 “손을 흔들면서”라고 수정했다. 
 - **그리고 위의 Human 클래스에서 부모 클래스의 greet 메서드를 실행해주고 싶다면, super().greet() 이렇게 해주면 된다.**
-  - 즉, super()는 자식 클래스에서 상속받은 부모 클래스의 메서드를 오버라이드하고, 그 부모 메서드를 호출하고 싶을 때 사용한다. ex). super().부모클래스 메서드이름()
+  - **즉, super()는 자식 클래스에서 상속받은 부모 클래스의 메서드를 오버라이드하고, 그 부모 메서드를 호출하고 싶을 때 사용한다. ex). super().부모클래스 메서드이름()**
+
+<br>
+
+- **이 동작이 널리 쓰이는 건, 클래스 내부의 특수한 메서드인 \_\_init\__ 메서드일 것이다.**
+
+```python
+class Animal():
+	def __init__(self, name):
+		self.name = name
+
+	def greet(self):
+		print(“{}이/가 인사한다”.format(self.name))
+
+class Human(Animal):
+	def wave(self):
+		print(“손을 흔들면서”)	
+
+	def greet(self):
+		self.wave()
+		super().greet()
+
+>>> person = Human(“사람”)
+>>> person.greet()
+
+손을 흔들면서
+사람이/가 인사한다
+```
+
+- 이렇게 Animal 클래스에 \_\_init\__ 메서드를 설정하고, name을 입력받아서 자기의 이름으로 저장한다. 그리고 greet 메서드를 format으로 수정해준다.
+- 이 상태에서 person = Human(“사람”) 이렇게 Human 인스턴스를 만들때도 init에 name이 들어가 있기 때문에 “사람”이라고 name을 넣어줘야 한다.
+  - **즉, 자식 클래스가 부모 클래스를 상속받으면, 부모 클래스의 init 메서드 설정을 그대로 따른다.**
+
+<br>
+
+- **이 상태에서 자식 클래스에도 \_\_init\__ 메서드를 오버라이드해서 사용할 수 있다.**
+```python
+class Animal():
+	def __init__(self, name):
+		self.name = name
+
+	def greet(self):
+		print(“{}이/가 인사한다”.format(self.name))
+
+class Human(Animal):
+	def __init__(self, name, hand):
+		super().__init__(name)
+		self.hand = hand
+
+	def wave(self):
+		print(“{}을 흔들면서”.format(self.hand))	
+
+	def greet(self):
+		self.wave()
+		super().greet()
+
+>>> person = Human(“사람”, “오른손”)
+>>> person.greet()
+
+오른손을 흔들면서
+사람이/가 인사한다
+```
+
+- 이렇게 Human 클래스에도 \_\_init\__ 메서드를 오버라이드해서 name은 부모 클래스의 \_\_init\__ 메서드를 호출해서 넘겨주고, hand는 Human 클래스에서 정의할 수 있다.
+- 이렇게 한 다음, person = Human(“사람”, “오른손”) 이런식으로 인자를 2개 넣어주면 “사람”과 “오른손”이 각각 name과 hand에 들어가고 name은 부모의 \_\_init\__ 메서드가 처리해주고, hand는 Human 클래스에서 처리하게 된다.
+
 
 <hr>
 
