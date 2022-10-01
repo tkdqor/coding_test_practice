@@ -222,21 +222,20 @@
 # print(solution('BAABA', [2, 4, 1, 1, 2]))
 
 
-def solution(progresses, speeds):
-    answer = []
-    time = 0
-    count = 0
-    while len(progresses) > 0:
-        if (progresses[0] + time*speeds[0]) >= 100:
-            progresses.pop(0)
-            speeds.pop(0)
-            count += 1
-        else:
-            if count > 0:
-                answer.append(count)
-                count = 0
-            time += 1
-    answer.append(count)
-    return answer
-        
-print(solution([93, 30, 55], [1, 30, 5]))
+
+def solution(s):
+    numbers = ['0','1','2','3','4','5','6','7','8','9']
+    change = {'zero': 0, 'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9}
+    temp = ""
+    result = ""
+    for x in s:
+        temp += x
+        if temp in numbers:
+            result += temp
+            temp = ""
+        if temp in change:
+            result += str(change[temp])
+            temp = ""
+    return result
+
+print(solution("one4seveneight"))

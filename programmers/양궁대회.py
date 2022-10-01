@@ -1,51 +1,49 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/92342
+# https://velog.io/@sewonkim/2022-KAKAO-BLIND-RECRUITMENT-%EC%96%91%EA%B6%81%EB%8C%80%ED%9A%8C-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4
+
+def calcPoint(apeach, lion):
+    apeach_score = 0
+    lion_score = 0
+    for i in range(11):
+        if apeach[i] == lion[i] == 0:
+            continue
+        if apeach[i] >= lion[i]:
+            apeach_score += 10 - i
+        else:
+            lion_score += 10 - i
+    return lion_score - apeach_score
+
+# 지금쏘는 과녁 idx, 남은 화살 개수, 어피치점수, 내점수
+def DFS(idx, n, apeach, lion):
+    global answer, point
+    if n < 0:
+        return
+    #점수 계산
+    if idx > 10:
+        diff = calcPoint(apeach, lion)
+        if diff <= 0:
+            return
+        if diff > point:
+            point = diff
+            answer = [lion[i] for i in range(11)]
+            answer[10] += n            
+        return
+
+    #상대가 쏜 점수보다 높이 쏴본다
+    lion[10-idx] = apeach[10-idx]+1
+    DFS(idx+1, n-lion[10-idx], apeach, lion)
+    lion[10-idx] = 0
+    DFS(idx+1, n, apeach, lion)
 
 def solution(n, info):
-    result = [0] * 11
-    score = [10,9,8,7,6,5,4,3,2,1,0]
-    apeach = 0
-    new_ryan = 0
-    ryan = 0
-    
-    while True:
-        # for문으로 info의 인덱스와 값 뽑아서 result의 값을 +1해서 설정하기
-        for idx, x in enumerate(info):
-            result[idx] = x+1
-            # 한 번 result에 값 설정할 때마다 n값을 빼기
-            n -= result[idx]
-            # n이 0이면 어피치와 라이언의 최종점수 계산하기
-            if n == 0:
-                for i in range(11):
-                    if info[i] > result[i]:
-                        apeach += score[i]
-                    elif info[i] < result[i]:
-                        new_ryan += score[i]
-                # 계산한 점수가 라이언이 더 크면 result 리턴하기 / 어피치가 더 크면 -1 리턴하기
-                if apeach < new_ryan:
-                    ryan = new_ryan
-                    # return result
-                else:
-                    return [-1]
-            # n이 0보다 작아지면 n과 result 값을 원래 숫자로 돌려놓고, 이어서 for문 진행시키기
-            elif n < 0:
-                n += x+1
-                result[idx] = 0
-                continue
-            # n이 0과 같은것도 아니고, 0이 더 큰 것도 아니면 이어서 for문 진행시키기
-            else:
-                continue
+    global answer, point
+    answer = [-1]
+    point = 0
+    DFS(0, n, info, [0 for _ in range(11)])
+    return answer
 
 
-
-
-## 지금, 계산한 점수가 라이언이 더 크면 바로 result를 리턴하는 게 아니고 새로 계산한 new_ryan이 기존 라이언보다 클 떄만 리턴..
-## 그래서 최종 계산 점수 이후에 다시 한 번 for문을 돌려서 가장 과녁점수 높은 경우를 제외하고 다시 시작...그렇게 해서 계산한 점수를 계속 비교...!!
-# 라이언이 맞힌 화살 개수가 가장 큰 과녁 점수를 포기하고 그 밑으로 과녁 점수를 배분.해보기!!
-# while 다음에 if문 사용할 생각해보자!
-# https://github.com/tkdqor/coding_test_practice/blob/master/programmers/%EC%8A%A4%ED%83%9D%EA%B3%BC%20%ED%81%90/%EA%B8%B0%EB%8A%A5%EA%B0%9C%EB%B0%9C.py 
-# 이 문제 참고해보기!
 print(solution(5, [2,1,1,1,0,0,0,0,0,0,0]))
-print(solution(1, [1,0,0,0,0,0,0,0,0,0,0]))
 
 
 '''
@@ -67,9 +65,3 @@ info = [2,1,1,1,0,0,0,0,0,0,0] 라면 -> 10점에 2번, 9점에 1번 ...
 가장 낮은 점수를 맞힌 개수가 같을 경우 계속해서 그다음으로 낮은 점수를 더 많이 맞힌 경우를 return 
 ex) 
 '''
-# result = [0] * 11 / info리스트 요소를 for문으로 하나씩 뽑아서 그 요소값보다 큰 수를 result의 요소로 설정..이 때 n을 초과하면 그 다음
-# 과녁점수로 내려가서 추가해보기..!
-# 근데, result 요소값의 합이 n이 되면 종료..
-# 최종점수를 계산했을 때 라이언이 크면 종료 / 도저히 없으면 return -1
-# 최종점수를 계산한 상태에서 또 while문을 돌려서 더 낮은 점수를 찾으면 그걸로...
-# apeach = 0 / ryan = 0
