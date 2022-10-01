@@ -71,7 +71,8 @@
   - [리스트에서 원하는 값 제거하는 방법](#리스트에서-원하는-값-제거하는-방법)
   - [주어진 문자열이 숫자로 되어있는지 검사하는 함수](#주어진-문자열이-숫자로-되어있는지-검사하는-함수)
   - [while문 종료 조건 생각하기](#while문-종료-조건-생각하기)
-
+  - [super 함수](#super-함수)
+  - [classmethod와 staticmethod](#classmethod와-staticmethod)
 
 <br>
 
@@ -1038,6 +1039,204 @@ print(list(n))
 - while문의 종료 조건이 헷갈린다면, 반대로 생각했을때가 while문이 종료되는 조건이다.
 - ex) while p1 < n and p2 < m: 이면 -> p1이 n과 같거나 커지는 경우 또는 p2가 m과 같거나 커지는 경우, while문이 종료된다.
 - [관련 문제](https://github.com/tkdqor/coding_test_practice/blob/master/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%9D%98/%ED%83%90%EC%83%89%EA%B3%BC%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98/%EB%91%90%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%ED%95%A9%EC%B9%98%EA%B8%B0.py)
+
+<br>
+
+### super 함수
+- super() 메서드란, 부모의 동작을 불러오는 방법이다.
+- 오버라이드 만으로는 충분하지 않고, 부모의 동작은 그대로 하면서 그냥 동작을 끼워넣고 싶을때가 있을 수 있다.
+- **self.wave()와 같이 사용하는 건, 객체로 접근해서 정의한 클래스 내부의 메소드나 변수를 사용할 때는 self를 붙인다.**
+
+```python
+class Animal():
+	def greet(self):
+		print(“인사한다”)
+
+class Human(Animal):
+	def wave(self):
+		print(“손을 흔든다”)	
+
+	def greet(self):
+		self.wave()
+```
+
+- 이러한 클래스들이 있다고 가정하자. 그러면 Animal의 greet은 “인사한다”인데, Human의 greet은 “손을 흔든다” 이다. 만약에, “인사한다”는 그대로두고 “손을 흔들면서”를 라고만 추가하고 싶다면 어떻게 할까?
+
+```python
+class Animal():
+	def greet(self):
+		print(“인사한다”)
+
+class Human(Animal):
+	def wave(self):
+		print(“손을 흔들면서”)	
+
+	def greet(self):
+		self.wave()
+		super().greet()
+```
+
+- 그래서 일단 Human 클래스의 wave 메서드를 “손을 흔들면서”라고 수정했다. 
+- **그리고 위의 Human 클래스에서 부모 클래스의 greet 메서드를 실행해주고 싶다면, super().greet() 이렇게 해주면 된다.**
+  - **즉, super()는 자식 클래스에서 상속받은 부모 클래스의 메서드를 오버라이드하고, 그 부모 메서드를 호출하고 싶을 때 사용한다. ex). super().부모클래스 메서드이름()**
+
+<br>
+
+- **이 동작이 널리 쓰이는 건, 클래스 내부의 특수한 메서드인 \_\_init\__ 메서드일 것이다.**
+
+```python
+class Animal():
+	def __init__(self, name):
+		self.name = name
+
+	def greet(self):
+		print(“{}이/가 인사한다”.format(self.name))
+
+class Human(Animal):
+	def wave(self):
+		print(“손을 흔들면서”)	
+
+	def greet(self):
+		self.wave()
+		super().greet()
+
+>>> person = Human(“사람”)
+>>> person.greet()
+
+손을 흔들면서
+사람이/가 인사한다
+```
+
+- 이렇게 Animal 클래스에 \_\_init\__ 메서드를 설정하고, name을 입력받아서 자기의 이름으로 저장한다. 그리고 greet 메서드를 format으로 수정해준다.
+- 이 상태에서 person = Human(“사람”) 이렇게 Human 인스턴스를 만들때도 init에 name이 들어가 있기 때문에 “사람”이라고 name을 넣어줘야 한다.
+  - **즉, 자식 클래스가 부모 클래스를 상속받으면, 부모 클래스의 init 메서드 설정을 그대로 따른다.**
+
+<br>
+
+- **이 상태에서 자식 클래스에도 \_\_init\__ 메서드를 오버라이드해서 사용할 수 있다.**
+```python
+class Animal():
+	def __init__(self, name):
+		self.name = name
+
+	def greet(self):
+		print(“{}이/가 인사한다”.format(self.name))
+
+class Human(Animal):
+	def __init__(self, name, hand):
+		super().__init__(name)
+		self.hand = hand
+
+	def wave(self):
+		print(“{}을 흔들면서”.format(self.hand))	
+
+	def greet(self):
+		self.wave()
+		super().greet()
+
+>>> person = Human(“사람”, “오른손”)
+>>> person.greet()
+
+오른손을 흔들면서
+사람이/가 인사한다
+```
+
+- 이렇게 Human 클래스에도 \_\_init\__ 메서드를 오버라이드해서 name은 부모 클래스의 \_\_init\__ 메서드를 호출해서 넘겨주고, hand는 Human 클래스에서 정의할 수 있다.
+- 이렇게 한 다음, person = Human(“사람”, “오른손”) 이런식으로 인자를 2개 넣어주면 “사람”과 “오른손”이 각각 name과 hand에 들어가고 name은 부모의 \_\_init\__ 메서드가 처리해주고, hand는 Human 클래스에서 처리하게 된다.
+
+<br>
+
+### classmethod와 staticmethod
+- 정적메서드를 지원하는 두 가지 방법이 있다. 바로 **@staticmethod와 @classmethod**이다.
+- **먼저 같은 점은 둘 다 인스턴스를 만들지 않아도 class의 메서드를 바로 실행할 수 있게끔 해준다.**
+```python
+#staticmethod
+class hello:
+    num = 10
+
+    @staticmethod
+    def calc(x):
+        return x + 10
+
+print(hello.calc(10))
+#결과
+20
+
+#classmethod
+class hello:
+    num = 10
+
+    @classmethod
+    def calc(cls, x):
+        return x + 10
+
+print(hello.calc(10))
+#결과
+20
+```
+
+- **둘 다 객체를 만들지 않고 바로 해당 메서드를 사용했다. 차이점은 calc메서드를 만들 때 cls라는 인자가 더 추가되었다.**
+
+<br>
+
+- **이제 개념적인 차이점을 살펴보자. 만약 hello 클래스의 num 속성에 접근하려면 어떻게 해야할까? 우선 객체로 접근하는 것이 아니기 때문에 self.num를 사용할 순 없다.** 
+- **즉, 클래스 내부에 self.num = 10 이렇게 정의되어 있지 않기 때문이다. 클래스 내부에 num = 10과 같은 num 변수는 클래스 변수로 객체가 생성되고나서 접근이 가능하다. 따라서 self 이런식으로 사용이 불가능하다. 또한, 클래스 변수는 클래스로 만든 모든 객체에 공유된다.**
+- 억지로 사용하고 싶다면 @staticmethod는 다음과 같이 해야 한다.
+
+```python
+#staticmethod
+class hello:
+    num = 10
+
+    @staticmethod
+    def calc(x):
+        return x + 10 + hello.num
+
+print(hello.calc(10))
+#결과
+30
+```
+
+- 위와같이 정적 변수로 접근했다. 반면에 @classmethod는 다르게 접근한다.
+
+```python
+#classmethod
+class hello:
+    num = 10
+
+    @classmethod
+    def calc(cls, x):
+        return x + 10 + cls.num
+
+print(hello.calc(10))
+#결과
+30
+```
+
+- **classmethod는 cls가 있는데 이것은 '클래스'를 가리킨다. 이것으로 클래스의 어떤 속성에도 접근할 수 있다. 위 예시 경우 또한 cls.num을 통해 hello 클래스의 num 속성에 접근했다.**
+
+<br>
+
+- 만약 상속 관계가 있는 클래스들에선 cls가 가리키는 클래스는 어떤 클래스일까?
+
+```python
+class hello:
+    t = '내가 상속해 줬어'
+
+    @classmethod
+    def calc(cls):
+        return cls.t
+
+class hello_2(hello):
+    t = '나는 상속 받았어'
+
+print(hello_2.calc())
+#결과
+나는 상속 받았어
+```
+
+- **상속받은 hello_2 클래스가 t 속성을 업데이트 했다. cls.t이 상속시켜준 클래스에 있더라도 이것이 가리키는 것은 상속받은 클래스의 t 속성이다. cls는 상속 받은 클래스에서 먼저 찾는다.**
+
 
 <hr>
 
