@@ -1,3 +1,4 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/81301
 def solution(s):
     # 숫자만 담은 numbers 리스트와 영단어와 숫자가 대응되는 change 해시 정의
     numbers = ['0','1','2','3','4','5','6','7','8','9']
