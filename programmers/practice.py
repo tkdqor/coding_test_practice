@@ -222,20 +222,26 @@
 # print(solution('BAABA', [2, 4, 1, 1, 2]))
 
 
+import time
+import asyncio
 
-def solution(s):
-    numbers = ['0','1','2','3','4','5','6','7','8','9']
-    change = {'zero': 0, 'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9}
-    temp = ""
-    result = ""
-    for x in s:
-        temp += x
-        if temp in numbers:
-            result += temp
-            temp = ""
-        if temp in change:
-            result += str(change[temp])
-            temp = ""
-    return result
+async def find_users_async(n):
+    for i in range(1, n + 1):
+        print(f'{n}명 중 {i}번 째 사용자 조회 중 ...')
+        await asyncio.sleep(1)
+    print(f'> 총 {n} 명 사용자 비동기 조회 완료!')
 
-print(solution("one4seveneight"))
+
+async def process_async():
+    start = time.time()
+    await asyncio.wait([
+        find_users_async(3),
+        find_users_async(2),
+        find_users_async(1),
+    ])
+    end = time.time()
+    print(f'>>> 비동기 처리 총 소요 시간: {end - start}')
+
+if __name__ == '__main__':
+    asyncio.run(process_async())
+
