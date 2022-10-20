@@ -221,24 +221,49 @@
 
 # print(solution('BAABA', [2, 4, 1, 1, 2]))
 
-def solution(new_id):
-    result = ''
-    result2 = ''
-    for i in new_id:
-        if i.isupper():
-            j = i.lower()
-            result += j
-        elif i in ['!', '@', '#', '*']:
-            pass
-        elif i == '.':
-            result += i
-        else:
-            result += i
-    for idx, k in enumerate(result):
-        if result[idx-1] == '.' and k == '.':
-            continue
-        result2 += k
-    return result2
+def solution(dartResult):
+    score = ['0','1','2','3','4','5','6','7','8','9','10']
+    bonus = ['S', 'D', 'T']
+    option = ['*', '#']
+    check = ''
+    result = 0
+    total_result = []
+    
+    for idx, i in enumerate(dartResult):
+        if i in score:
+            if dartResult[idx+1] in score:
+                check += i
+            else:
+                check += i
+                result = int(check)
+                check = ''
+        if i in bonus:
+            if i == 'S':
+                result = result ** 1 
+            elif i == 'D':
+                result = result ** 2
+            elif i == 'T':
+                result = result ** 3
+            total_result.append(result)
+        if i in option:
+            if i == '*' and len(total_result) == 1:
+                total_result[-1] = total_result[-1] * 2
+            elif i == '*':
+                total_result[-1] = total_result[-1] * 2
+                total_result[-2] = total_result[-2] * 2
+            elif i == '#':
+                total_result[-1] = total_result[-1] * (-1)
+    return sum(total_result)
 
-print(solution("...!@BaT#*..y.abcdefghijklm"))
+print(solution("1D2S#10S"))
 
+print(bin(9))
+print(bin(20))
+print(bin(28))
+print(bin(18))
+print(bin(11))
+print(bin(1))
+
+# bin 함수 --> 앞에 2자리는 제거 --> rjust로 앞에 0붙여주기 n개로 될떄까지 앞에 0붙여주기!
+# rjust로 앞에 0붙여주기!!
+# 그리고 2차원 배열 만들기!
